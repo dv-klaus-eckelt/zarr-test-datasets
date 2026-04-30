@@ -1,7 +1,7 @@
 {
   "attributes": {
     "shape": [
-      5000,
+      1200,
       50
     ],
     "encoding-type": "csc_matrix",
