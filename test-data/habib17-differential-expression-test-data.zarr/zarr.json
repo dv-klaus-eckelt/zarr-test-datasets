@@ -903,19 +903,6 @@
         },
         "node_type": "group"
       },
-      "uns/log1p": {
-        "attributes": {
-          "encoding-type": "dict",
-          "encoding-version": "0.1.0"
-        },
-        "zarr_format": 3,
-        "consolidated_metadata": {
-          "kind": "inline",
-          "must_understand": false,
-          "metadata": {}
-        },
-        "node_type": "group"
-      },
       "uns/neighbors": {
         "attributes": {
           "encoding-type": "dict",
@@ -2484,42 +2471,6 @@
           "metadata": {}
         },
         "node_type": "group"
-      },
-      "uns/log1p/base": {
-        "shape": [],
-        "data_type": "bool",
-        "chunk_grid": {
-          "name": "regular",
-          "configuration": {
-            "chunk_shape": []
-          }
-        },
-        "chunk_key_encoding": {
-          "name": "default",
-          "configuration": {
-            "separator": "/"
-          }
-        },
-        "fill_value": false,
-        "codecs": [
-          {
-            "name": "bytes"
-          },
-          {
-            "name": "zstd",
-            "configuration": {
-              "level": 0,
-              "checksum": false
-            }
-          }
-        ],
-        "attributes": {
-          "encoding-type": "null",
-          "encoding-version": "0.1.0"
-        },
-        "zarr_format": 3,
-        "node_type": "array",
-        "storage_transformers": []
       },
       "uns/neighbors/params": {
         "attributes": {
