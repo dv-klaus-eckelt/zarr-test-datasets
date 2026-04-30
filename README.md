@@ -35,5 +35,11 @@ Files are served from [localhost:8000](http://localhost:8000/).
 
 Current test data sets in this repository and links for aevidence running locally:
 
+**Single Cell**
+
 - [Single Cell (zarr v2 format)](http://127.0.0.1:8080/app/single_cell?id=sc-zarr-v2&name=Single+Cell+%28zarr+v2+format%29&type=single-cell&url=http%3A%2F%2Flocalhost%3A8000%2Fsingle-cell-v2-test-data.zarr%2F)
 - [Single Cell (zarr v3 format)](http://127.0.0.1:8080/app/single_cell?id=sc-zarr-v3&name=Single+Cell+%28zarr+v3+format%29&type=single-cell&url=http%3A%2F%2Flocalhost%3A8000%2Fsingle-cell-v3-test-data.zarr%2F)
+
+**Spatial**
+
+- [Spatial (zarr v3 format)](http://127.0.0.1:8080/app/single_cell?id=spatial-zarr-v3&name=Spatial+%28zarr+v3+format%29&type=spatial&url=http%3A%2F%2Flocalhost%3A8000%2Fspatial-v3-test-data.zarr%2F)
