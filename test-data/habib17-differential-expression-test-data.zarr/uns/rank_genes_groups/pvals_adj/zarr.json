@@ -1,0 +1,106 @@
+{
+  "shape": [
+    5782
+  ],
+  "data_type": {
+    "name": "structured",
+    "configuration": {
+      "fields": [
+        [
+          "ASC1",
+          "float64"
+        ],
+        [
+          "ASC2",
+          "float64"
+        ],
+        [
+          "END",
+          "float64"
+        ],
+        [
+          "GABA1",
+          "float64"
+        ],
+        [
+          "GABA2",
+          "float64"
+        ],
+        [
+          "MG",
+          "float64"
+        ],
+        [
+          "NSC",
+          "float64"
+        ],
+        [
+          "ODC1",
+          "float64"
+        ],
+        [
+          "OPC",
+          "float64"
+        ],
+        [
+          "Unclassified",
+          "float64"
+        ],
+        [
+          "exCA1",
+          "float64"
+        ],
+        [
+          "exCA3",
+          "float64"
+        ],
+        [
+          "exDG",
+          "float64"
+        ],
+        [
+          "exPFC1",
+          "float64"
+        ],
+        [
+          "exPFC2",
+          "float64"
+        ]
+      ]
+    }
+  },
+  "chunk_grid": {
+    "name": "regular",
+    "configuration": {
+      "chunk_shape": [
+        2891
+      ]
+    }
+  },
+  "chunk_key_encoding": {
+    "name": "default",
+    "configuration": {
+      "separator": "/"
+    }
+  },
+  "fill_value": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+  "codecs": [
+    {
+      "name": "bytes"
+    },
+    {
+      "name": "zstd",
+      "configuration": {
+        "level": 0,
+        "checksum": false
+      }
+    }
+  ],
+  "attributes": {
+    "encoding-type": "rec-array",
+    "encoding-version": "0.2.0"
+  },
+  "zarr_format": 3,
+  "node_type": "array",
+  "storage_transformers": []
+}
