@@ -1,0 +1,17 @@
+{
+    "_index": "_index",
+    "column-order": [
+        "region",
+        "patient_status",
+        "batch",
+        "patient_age",
+        "instance_id",
+        "tissue_zone",
+        "cell_type",
+        "n_counts",
+        "n_genes",
+        "quality_score"
+    ],
+    "encoding-type": "dataframe",
+    "encoding-version": "0.2.0"
+}
