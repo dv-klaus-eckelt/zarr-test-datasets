@@ -3,144 +3,144 @@
     5782
   ],
   "data_type": {
-    "name": "structured",
+    "name": "struct",
     "configuration": {
       "fields": [
-        [
-          "ASC1",
-          {
+        {
+          "name": "ASC1",
+          "data_type": {
             "name": "fixed_length_utf32",
             "configuration": {
               "length_bytes": 68
             }
           }
-        ],
-        [
-          "ASC2",
-          {
+        },
+        {
+          "name": "ASC2",
+          "data_type": {
             "name": "fixed_length_utf32",
             "configuration": {
               "length_bytes": 68
             }
           }
-        ],
-        [
-          "END",
-          {
+        },
+        {
+          "name": "END",
+          "data_type": {
             "name": "fixed_length_utf32",
             "configuration": {
               "length_bytes": 68
             }
           }
-        ],
-        [
-          "GABA1",
-          {
+        },
+        {
+          "name": "GABA1",
+          "data_type": {
             "name": "fixed_length_utf32",
             "configuration": {
               "length_bytes": 68
             }
           }
-        ],
-        [
-          "GABA2",
-          {
+        },
+        {
+          "name": "GABA2",
+          "data_type": {
             "name": "fixed_length_utf32",
             "configuration": {
               "length_bytes": 68
             }
           }
-        ],
-        [
-          "MG",
-          {
+        },
+        {
+          "name": "MG",
+          "data_type": {
             "name": "fixed_length_utf32",
             "configuration": {
               "length_bytes": 68
             }
           }
-        ],
-        [
-          "NSC",
-          {
+        },
+        {
+          "name": "NSC",
+          "data_type": {
             "name": "fixed_length_utf32",
             "configuration": {
               "length_bytes": 68
             }
           }
-        ],
-        [
-          "ODC1",
-          {
+        },
+        {
+          "name": "ODC1",
+          "data_type": {
             "name": "fixed_length_utf32",
             "configuration": {
               "length_bytes": 68
             }
           }
-        ],
-        [
-          "OPC",
-          {
+        },
+        {
+          "name": "OPC",
+          "data_type": {
             "name": "fixed_length_utf32",
             "configuration": {
               "length_bytes": 68
             }
           }
-        ],
-        [
-          "Unclassified",
-          {
+        },
+        {
+          "name": "Unclassified",
+          "data_type": {
             "name": "fixed_length_utf32",
             "configuration": {
               "length_bytes": 68
             }
           }
-        ],
-        [
-          "exCA1",
-          {
+        },
+        {
+          "name": "exCA1",
+          "data_type": {
             "name": "fixed_length_utf32",
             "configuration": {
               "length_bytes": 68
             }
           }
-        ],
-        [
-          "exCA3",
-          {
+        },
+        {
+          "name": "exCA3",
+          "data_type": {
             "name": "fixed_length_utf32",
             "configuration": {
               "length_bytes": 68
             }
           }
-        ],
-        [
-          "exDG",
-          {
+        },
+        {
+          "name": "exDG",
+          "data_type": {
             "name": "fixed_length_utf32",
             "configuration": {
               "length_bytes": 68
             }
           }
-        ],
-        [
-          "exPFC1",
-          {
+        },
+        {
+          "name": "exPFC1",
+          "data_type": {
             "name": "fixed_length_utf32",
             "configuration": {
               "length_bytes": 68
             }
           }
-        ],
-        [
-          "exPFC2",
-          {
+        },
+        {
+          "name": "exPFC2",
+          "data_type": {
             "name": "fixed_length_utf32",
             "configuration": {
               "length_bytes": 68
             }
           }
-        ]
+        }
       ]
     }
   },
@@ -158,10 +158,29 @@
       "separator": "/"
     }
   },
-  "fill_value": "MAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+  "fill_value": {
+    "ASC1": "0",
+    "ASC2": "0",
+    "END": "0",
+    "GABA1": "0",
+    "GABA2": "0",
+    "MG": "0",
+    "NSC": "0",
+    "ODC1": "0",
+    "OPC": "0",
+    "Unclassified": "0",
+    "exCA1": "0",
+    "exCA3": "0",
+    "exDG": "0",
+    "exPFC1": "0",
+    "exPFC2": "0"
+  },
   "codecs": [
     {
-      "name": "bytes"
+      "name": "bytes",
+      "configuration": {
+        "endian": "little"
+      }
     },
     {
       "name": "zstd",

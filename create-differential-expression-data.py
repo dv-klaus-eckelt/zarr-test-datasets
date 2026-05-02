@@ -15,6 +15,7 @@ import scanpy as sc
 
 
 INPUT_PATH = Path("habib17.h5ad")
+RAW_OUTPUT_PATH = Path("test-data/habib17.zarr")
 OUTPUT_PATH = Path("test-data/habib17-differential-expression-test-data.zarr")
 GROUPBY_COLUMN = "CellType"
 
@@ -78,6 +79,16 @@ def main() -> None:
             f"Column '{GROUPBY_COLUMN}' not found in obs. Available columns: {available}"
         )
 
+    # Align with the zarr v3 output style used in other dataset creation scripts.
+    ad.settings.zarr_write_format = 3
+    ad.settings.write_csr_csc_indices_with_min_possible_dtype = True
+    ad.settings.auto_shard_zarr_v3 = True
+
+    RAW_OUTPUT_PATH.parent.mkdir(parents=True, exist_ok=True)
+    adata.write_zarr(RAW_OUTPUT_PATH)
+
+    print(f"Wrote source AnnData to {RAW_OUTPUT_PATH}")
+
     # Make sure group labels are categorical for rank_genes_groups.
     adata.obs[GROUPBY_COLUMN] = adata.obs[GROUPBY_COLUMN].astype("category")
 
@@ -97,11 +108,6 @@ def main() -> None:
         method="wilcoxon",
         use_raw=False,
     )
-
-    # Align with the zarr v3 output style used in other dataset creation scripts.
-    ad.settings.zarr_write_format = 3
-    ad.settings.write_csr_csc_indices_with_min_possible_dtype = True
-    ad.settings.auto_shard_zarr_v3 = True
 
     OUTPUT_PATH.parent.mkdir(parents=True, exist_ok=True)
     adata.write_zarr(OUTPUT_PATH)

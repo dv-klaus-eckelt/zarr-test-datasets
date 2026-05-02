@@ -3,69 +3,69 @@
     5782
   ],
   "data_type": {
-    "name": "structured",
+    "name": "struct",
     "configuration": {
       "fields": [
-        [
-          "ASC1",
-          "float64"
-        ],
-        [
-          "ASC2",
-          "float64"
-        ],
-        [
-          "END",
-          "float64"
-        ],
-        [
-          "GABA1",
-          "float64"
-        ],
-        [
-          "GABA2",
-          "float64"
-        ],
-        [
-          "MG",
-          "float64"
-        ],
-        [
-          "NSC",
-          "float64"
-        ],
-        [
-          "ODC1",
-          "float64"
-        ],
-        [
-          "OPC",
-          "float64"
-        ],
-        [
-          "Unclassified",
-          "float64"
-        ],
-        [
-          "exCA1",
-          "float64"
-        ],
-        [
-          "exCA3",
-          "float64"
-        ],
-        [
-          "exDG",
-          "float64"
-        ],
-        [
-          "exPFC1",
-          "float64"
-        ],
-        [
-          "exPFC2",
-          "float64"
-        ]
+        {
+          "name": "ASC1",
+          "data_type": "float64"
+        },
+        {
+          "name": "ASC2",
+          "data_type": "float64"
+        },
+        {
+          "name": "END",
+          "data_type": "float64"
+        },
+        {
+          "name": "GABA1",
+          "data_type": "float64"
+        },
+        {
+          "name": "GABA2",
+          "data_type": "float64"
+        },
+        {
+          "name": "MG",
+          "data_type": "float64"
+        },
+        {
+          "name": "NSC",
+          "data_type": "float64"
+        },
+        {
+          "name": "ODC1",
+          "data_type": "float64"
+        },
+        {
+          "name": "OPC",
+          "data_type": "float64"
+        },
+        {
+          "name": "Unclassified",
+          "data_type": "float64"
+        },
+        {
+          "name": "exCA1",
+          "data_type": "float64"
+        },
+        {
+          "name": "exCA3",
+          "data_type": "float64"
+        },
+        {
+          "name": "exDG",
+          "data_type": "float64"
+        },
+        {
+          "name": "exPFC1",
+          "data_type": "float64"
+        },
+        {
+          "name": "exPFC2",
+          "data_type": "float64"
+        }
       ]
     }
   },
@@ -83,10 +83,29 @@
       "separator": "/"
     }
   },
-  "fill_value": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+  "fill_value": {
+    "ASC1": 0.0,
+    "ASC2": 0.0,
+    "END": 0.0,
+    "GABA1": 0.0,
+    "GABA2": 0.0,
+    "MG": 0.0,
+    "NSC": 0.0,
+    "ODC1": 0.0,
+    "OPC": 0.0,
+    "Unclassified": 0.0,
+    "exCA1": 0.0,
+    "exCA3": 0.0,
+    "exDG": 0.0,
+    "exPFC1": 0.0,
+    "exPFC2": 0.0
+  },
   "codecs": [
     {
-      "name": "bytes"
+      "name": "bytes",
+      "configuration": {
+        "endian": "little"
+      }
     },
     {
       "name": "zstd",
