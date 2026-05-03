@@ -63,8 +63,8 @@ def _build_contrast_matrix(cell_types: list[str]) -> list[ContrastConfig]:
     """Build deterministic contrast matrix with 45 contrasts.
     
     15 wilcoxon + benjamini-hochberg (all cell types)
-    15 wilcoxon + bonferroni (all cell types)
-    15 t-test + benjamini-hochberg (all cell types)
+    15 t-test + bonferroni (all cell types)
+    15 logreg multiclass entries (all cell types)
     """
     contrasts = []
     
@@ -78,24 +78,24 @@ def _build_contrast_matrix(cell_types: list[str]) -> list[ContrastConfig]:
             test_type="one_vs_rest"
         ))
     
-    # Series 2: wilcoxon + bonferroni (15 contrasts)
-    for i, ct in enumerate(cell_types, len(contrasts) + 1):
-        contrasts.append(ContrastConfig(
-            contrast_id=f"de_{i:03d}",
-            group_1=ct,
-            method="wilcoxon",
-            corr_method="bonferroni",
-            test_type="one_vs_rest"
-        ))
-    
-    # Series 3: t-test + benjamini-hochberg (15 contrasts)
+    # Series 2: t-test + bonferroni (15 contrasts)
     for i, ct in enumerate(cell_types, len(contrasts) + 1):
         contrasts.append(ContrastConfig(
             contrast_id=f"de_{i:03d}",
             group_1=ct,
             method="t-test",
-            corr_method="benjamini-hochberg",
+            corr_method="bonferroni",
             test_type="one_vs_rest"
+        ))
+    
+    # Series 3: multiclass logreg (15 entries, one folder per group)
+    for i, ct in enumerate(cell_types, len(contrasts) + 1):
+        contrasts.append(ContrastConfig(
+            contrast_id=f"de_{i:03d}",
+            group_1=ct,
+            method="logreg",
+            corr_method=None,
+            test_type="multiclass"
         ))
     
     return contrasts
@@ -425,6 +425,8 @@ def main() -> None:
     # Process each contrast
     registry = []
     processed_count = 0
+    logreg_key = "_contrast_logreg_multiclass"
+    logreg_is_ready = False
     
     for contrast_config in contrasts:
         try:
@@ -435,25 +437,32 @@ def main() -> None:
                 continue
             
             # Run rank_genes_groups
-            key_added = f"_contrast_{contrast_config.contrast_id}"
-            
-            # Build rank_genes_groups kwargs (logreg doesn't support corr_method)
-            rank_kwargs = {
-                "adata": adata,
-                "groupby": GROUPBY_COLUMN,
-                "groups": [contrast_config.group_1],
-                "method": contrast_config.method,
-                "tie_correct": True,
-                "pts": True,
-                "key_added": key_added,
-                "use_raw": False,
-            }
-            
-            # Only add corr_method for methods that support it
-            if contrast_config.corr_method is not None:
-                rank_kwargs["corr_method"] = contrast_config.corr_method
-            
-            sc.tl.rank_genes_groups(**rank_kwargs)
+            if contrast_config.method == "logreg":
+                # Fit the multiclass model exactly once, then reuse per-group coefficients.
+                if not logreg_is_ready:
+                    sc.tl.rank_genes_groups(
+                        adata,
+                        groupby=GROUPBY_COLUMN,
+                        method="logreg",
+                        pts=True,
+                        key_added=logreg_key,
+                        use_raw=False,
+                    )
+                    logreg_is_ready = True
+                key_added = logreg_key
+            else:
+                key_added = f"_contrast_{contrast_config.contrast_id}"
+                sc.tl.rank_genes_groups(
+                    adata,
+                    groupby=GROUPBY_COLUMN,
+                    groups=[contrast_config.group_1],
+                    method=contrast_config.method,
+                    corr_method=contrast_config.corr_method,
+                    tie_correct=True,
+                    pts=True,
+                    key_added=key_added,
+                    use_raw=False,
+                )
             
             # Extract per-contrast arrays
             arrays = _extract_contrast_arrays(
@@ -480,8 +489,9 @@ def main() -> None:
             
             print(f"  ✓ {contrast_config.contrast_id}: {contrast_config.method} + {contrast_config.corr_method} ({group_size} cells)")
             
-            # Clean up temporary key
-            del adata.uns[key_added]
+            # Clean up per-contrast temporary keys. Keep multiclass logreg key until all logreg entries are processed.
+            if contrast_config.method != "logreg" and key_added in adata.uns:
+                del adata.uns[key_added]
             
         except Exception as e:
             print(f"  ✗ {contrast_config.contrast_id}: {e}")
@@ -504,12 +514,15 @@ def main() -> None:
             "total_contrasts": processed_count,
             "series": [
                 {"series_id": 1, "method": "wilcoxon", "corr": "benjamini-hochberg", "n_contrasts": 15},
-                {"series_id": 2, "method": "wilcoxon", "corr": "bonferroni", "n_contrasts": 15},
-                {"series_id": 3, "method": "t-test", "corr": "benjamini-hochberg", "n_contrasts": 15},
+                {"series_id": 2, "method": "t-test", "corr": "bonferroni", "n_contrasts": 15},
+                {"series_id": 3, "method": "logreg", "corr": None, "n_contrasts": 15},
             ],
         },
         "contrasts": registry,
     }
+
+    if logreg_key in adata.uns:
+        del adata.uns[logreg_key]
     
     registry_path = OUTPUT_PATH / "uns" / "de" / "contrast_registry.json"
     with open(str(registry_path), "w") as f:

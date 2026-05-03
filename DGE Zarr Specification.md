@@ -26,13 +26,14 @@ This registry allows the frontend to populate dropdowns, set chart labels, and a
 | Column                | Example Value           | Description                                               |
 | :-------------------- | :---------------------- | :-------------------------------------------------------- |
 | **comparison_id**     | "de_001"                | Matches the Zarr folder name.                             |
-| **test_type**         | "pairwise"              | UI category (e.g., one_vs_rest, pairwise).                |
+| **test_type**         | "multiclass"            | UI category (e.g., one_vs_rest, pairwise, multiclass).    |
 | **de_method**         | "wilcoxon"              | Algorithm (e.g., wilcoxon, deseq2, mast).                 |
 | **correction_method** | "benjamini-hochberg"    | The p-value adjustment used.                              |
 | **model_formula**     | "\~ treatment \+ batch" | The statistical formula used (or null).                   |
 | **feature_type**      | "Gene Expression"       | Type of features (Genes, ADTs, Peaks).                    |
 | **x_axis_label**      | "log2(Fold Change)"     | Literal string for chart X-axis.                          |
 | **y_axis_label**      | "-log10(FDR)"           | Literal string for chart Y-axis.                          |
+| **available_plots**   | ["volcano", "dotplot"] | Enabled frontend views for this comparison.               |
 | **lfc_max**           | 8.5                     | Global max absolute LFC for symmetric X-axis.             |
 | **logp_max**          | 300.0                   | Global max \-log10(p) for Y-axis ceiling. Capped at 300\. |
 | **subset_column**     | "tissue"                | Metadata category defining the test boundary (or null).   |
@@ -48,3 +49,4 @@ This registry allows the frontend to populate dropdowns, set chart labels, and a
 3. **The "No Overlap" Rule:** Comparisons must happen within a single column. For complex multi-column logic, use a composite column in .obs first.
 4. **The "Honest Labeling" Rule:** Always populate x_axis_label and y_axis_label based on the specific de_method (e.g., use "Beta" for MAST, "log2FC" for Scanpy).
 5. **The "Layout Anchor" Rule:** Use lfc_max to set a symmetric X-axis (from \-lfc_max to \+lfc_max) and logp_max to set the Y-axis height. This prevents "jumping" axes when flipping between clusters.
+6. **The "Multiclass LogReg" Rule:** A single multiclass logistic regression model may be fit once and then emitted as one contrast folder per group; each folder must contain the group-specific coefficients in `scores`, with `test_type` set to "multiclass".

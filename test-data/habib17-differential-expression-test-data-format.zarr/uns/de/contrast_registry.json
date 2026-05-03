@@ -1,6 +1,6 @@
 {
   "version": "1.0",
-  "generated_at": "2026-05-03T06:42:04.103558+00:00",
+  "generated_at": "2026-05-03T06:59:34.332949+00:00",
   "scanpy_version": "1.12.1",
   "zarr_version": "3.2.0",
   "dataset_metadata": {
@@ -21,14 +21,14 @@
       },
       {
         "series_id": 2,
-        "method": "wilcoxon",
+        "method": "t-test",
         "corr": "bonferroni",
         "n_contrasts": 15
       },
       {
         "series_id": 3,
-        "method": "t-test",
-        "corr": "benjamini-hochberg",
+        "method": "logreg",
+        "corr": null,
         "n_contrasts": 15
       }
     ]
@@ -309,13 +309,13 @@
       "group_1": "ASC1",
       "group_2": null,
       "test_type": "one_vs_rest",
-      "de_method": "wilcoxon",
+      "de_method": "t-test",
       "correction_method": "bonferroni",
       "feature_type": "Gene Expression",
       "x_axis_label": "log2(Fold Change)",
       "y_axis_label": "-log10(FDR)",
       "lfc_max": 26.0,
-      "logp_max": 300.0,
+      "logp_max": 215.0,
       "n_features": 5782,
       "available_plots": [
         "volcano",
@@ -327,13 +327,13 @@
       "group_1": "ASC2",
       "group_2": null,
       "test_type": "one_vs_rest",
-      "de_method": "wilcoxon",
+      "de_method": "t-test",
       "correction_method": "bonferroni",
       "feature_type": "Gene Expression",
       "x_axis_label": "log2(Fold Change)",
       "y_axis_label": "-log10(FDR)",
       "lfc_max": 27.0,
-      "logp_max": 300.0,
+      "logp_max": 174.0,
       "n_features": 5782,
       "available_plots": [
         "volcano",
@@ -345,13 +345,13 @@
       "group_1": "END",
       "group_2": null,
       "test_type": "one_vs_rest",
-      "de_method": "wilcoxon",
+      "de_method": "t-test",
       "correction_method": "bonferroni",
       "feature_type": "Gene Expression",
       "x_axis_label": "log2(Fold Change)",
       "y_axis_label": "-log10(FDR)",
       "lfc_max": 29.0,
-      "logp_max": 300.0,
+      "logp_max": 261.0,
       "n_features": 5782,
       "available_plots": [
         "volcano",
@@ -363,13 +363,13 @@
       "group_1": "GABA1",
       "group_2": null,
       "test_type": "one_vs_rest",
-      "de_method": "wilcoxon",
+      "de_method": "t-test",
       "correction_method": "bonferroni",
       "feature_type": "Gene Expression",
       "x_axis_label": "log2(Fold Change)",
       "y_axis_label": "-log10(FDR)",
       "lfc_max": 27.0,
-      "logp_max": 300.0,
+      "logp_max": 174.0,
       "n_features": 5782,
       "available_plots": [
         "volcano",
@@ -381,13 +381,13 @@
       "group_1": "GABA2",
       "group_2": null,
       "test_type": "one_vs_rest",
-      "de_method": "wilcoxon",
+      "de_method": "t-test",
       "correction_method": "bonferroni",
       "feature_type": "Gene Expression",
       "x_axis_label": "log2(Fold Change)",
       "y_axis_label": "-log10(FDR)",
       "lfc_max": 27.0,
-      "logp_max": 300.0,
+      "logp_max": 191.0,
       "n_features": 5782,
       "available_plots": [
         "volcano",
@@ -399,13 +399,13 @@
       "group_1": "MG",
       "group_2": null,
       "test_type": "one_vs_rest",
-      "de_method": "wilcoxon",
+      "de_method": "t-test",
       "correction_method": "bonferroni",
       "feature_type": "Gene Expression",
       "x_axis_label": "log2(Fold Change)",
       "y_axis_label": "-log10(FDR)",
       "lfc_max": 28.0,
-      "logp_max": 300.0,
+      "logp_max": 127.0,
       "n_features": 5782,
       "available_plots": [
         "volcano",
@@ -417,13 +417,13 @@
       "group_1": "NSC",
       "group_2": null,
       "test_type": "one_vs_rest",
-      "de_method": "wilcoxon",
+      "de_method": "t-test",
       "correction_method": "bonferroni",
       "feature_type": "Gene Expression",
       "x_axis_label": "log2(Fold Change)",
       "y_axis_label": "-log10(FDR)",
       "lfc_max": 29.0,
-      "logp_max": 300.0,
+      "logp_max": 239.0,
       "n_features": 5782,
       "available_plots": [
         "volcano",
@@ -435,7 +435,7 @@
       "group_1": "ODC1",
       "group_2": null,
       "test_type": "one_vs_rest",
-      "de_method": "wilcoxon",
+      "de_method": "t-test",
       "correction_method": "bonferroni",
       "feature_type": "Gene Expression",
       "x_axis_label": "log2(Fold Change)",
@@ -453,278 +453,8 @@
       "group_1": "OPC",
       "group_2": null,
       "test_type": "one_vs_rest",
-      "de_method": "wilcoxon",
+      "de_method": "t-test",
       "correction_method": "bonferroni",
-      "feature_type": "Gene Expression",
-      "x_axis_label": "log2(Fold Change)",
-      "y_axis_label": "-log10(FDR)",
-      "lfc_max": 27.0,
-      "logp_max": 300.0,
-      "n_features": 5782,
-      "available_plots": [
-        "volcano",
-        "dotplot"
-      ]
-    },
-    {
-      "contrast_id": "de_025",
-      "group_1": "Unclassified",
-      "group_2": null,
-      "test_type": "one_vs_rest",
-      "de_method": "wilcoxon",
-      "correction_method": "bonferroni",
-      "feature_type": "Gene Expression",
-      "x_axis_label": "log2(Fold Change)",
-      "y_axis_label": "-log10(FDR)",
-      "lfc_max": 27.0,
-      "logp_max": 153.0,
-      "n_features": 5782,
-      "available_plots": [
-        "volcano",
-        "dotplot"
-      ]
-    },
-    {
-      "contrast_id": "de_026",
-      "group_1": "exCA1",
-      "group_2": null,
-      "test_type": "one_vs_rest",
-      "de_method": "wilcoxon",
-      "correction_method": "bonferroni",
-      "feature_type": "Gene Expression",
-      "x_axis_label": "log2(Fold Change)",
-      "y_axis_label": "-log10(FDR)",
-      "lfc_max": 28.0,
-      "logp_max": 84.0,
-      "n_features": 5782,
-      "available_plots": [
-        "volcano",
-        "dotplot"
-      ]
-    },
-    {
-      "contrast_id": "de_027",
-      "group_1": "exCA3",
-      "group_2": null,
-      "test_type": "one_vs_rest",
-      "de_method": "wilcoxon",
-      "correction_method": "bonferroni",
-      "feature_type": "Gene Expression",
-      "x_axis_label": "log2(Fold Change)",
-      "y_axis_label": "-log10(FDR)",
-      "lfc_max": 28.0,
-      "logp_max": 300.0,
-      "n_features": 5782,
-      "available_plots": [
-        "volcano",
-        "dotplot"
-      ]
-    },
-    {
-      "contrast_id": "de_028",
-      "group_1": "exDG",
-      "group_2": null,
-      "test_type": "one_vs_rest",
-      "de_method": "wilcoxon",
-      "correction_method": "bonferroni",
-      "feature_type": "Gene Expression",
-      "x_axis_label": "log2(Fold Change)",
-      "y_axis_label": "-log10(FDR)",
-      "lfc_max": 27.0,
-      "logp_max": 278.0,
-      "n_features": 5782,
-      "available_plots": [
-        "volcano",
-        "dotplot"
-      ]
-    },
-    {
-      "contrast_id": "de_029",
-      "group_1": "exPFC1",
-      "group_2": null,
-      "test_type": "one_vs_rest",
-      "de_method": "wilcoxon",
-      "correction_method": "bonferroni",
-      "feature_type": "Gene Expression",
-      "x_axis_label": "log2(Fold Change)",
-      "y_axis_label": "-log10(FDR)",
-      "lfc_max": 26.0,
-      "logp_max": 203.0,
-      "n_features": 5782,
-      "available_plots": [
-        "volcano",
-        "dotplot"
-      ]
-    },
-    {
-      "contrast_id": "de_030",
-      "group_1": "exPFC2",
-      "group_2": null,
-      "test_type": "one_vs_rest",
-      "de_method": "wilcoxon",
-      "correction_method": "bonferroni",
-      "feature_type": "Gene Expression",
-      "x_axis_label": "log2(Fold Change)",
-      "y_axis_label": "-log10(FDR)",
-      "lfc_max": 26.0,
-      "logp_max": 37.0,
-      "n_features": 5782,
-      "available_plots": [
-        "volcano",
-        "dotplot"
-      ]
-    },
-    {
-      "contrast_id": "de_031",
-      "group_1": "ASC1",
-      "group_2": null,
-      "test_type": "one_vs_rest",
-      "de_method": "t-test",
-      "correction_method": "benjamini-hochberg",
-      "feature_type": "Gene Expression",
-      "x_axis_label": "log2(Fold Change)",
-      "y_axis_label": "-log10(FDR)",
-      "lfc_max": 26.0,
-      "logp_max": 215.0,
-      "n_features": 5782,
-      "available_plots": [
-        "volcano",
-        "dotplot"
-      ]
-    },
-    {
-      "contrast_id": "de_032",
-      "group_1": "ASC2",
-      "group_2": null,
-      "test_type": "one_vs_rest",
-      "de_method": "t-test",
-      "correction_method": "benjamini-hochberg",
-      "feature_type": "Gene Expression",
-      "x_axis_label": "log2(Fold Change)",
-      "y_axis_label": "-log10(FDR)",
-      "lfc_max": 27.0,
-      "logp_max": 174.0,
-      "n_features": 5782,
-      "available_plots": [
-        "volcano",
-        "dotplot"
-      ]
-    },
-    {
-      "contrast_id": "de_033",
-      "group_1": "END",
-      "group_2": null,
-      "test_type": "one_vs_rest",
-      "de_method": "t-test",
-      "correction_method": "benjamini-hochberg",
-      "feature_type": "Gene Expression",
-      "x_axis_label": "log2(Fold Change)",
-      "y_axis_label": "-log10(FDR)",
-      "lfc_max": 29.0,
-      "logp_max": 261.0,
-      "n_features": 5782,
-      "available_plots": [
-        "volcano",
-        "dotplot"
-      ]
-    },
-    {
-      "contrast_id": "de_034",
-      "group_1": "GABA1",
-      "group_2": null,
-      "test_type": "one_vs_rest",
-      "de_method": "t-test",
-      "correction_method": "benjamini-hochberg",
-      "feature_type": "Gene Expression",
-      "x_axis_label": "log2(Fold Change)",
-      "y_axis_label": "-log10(FDR)",
-      "lfc_max": 27.0,
-      "logp_max": 174.0,
-      "n_features": 5782,
-      "available_plots": [
-        "volcano",
-        "dotplot"
-      ]
-    },
-    {
-      "contrast_id": "de_035",
-      "group_1": "GABA2",
-      "group_2": null,
-      "test_type": "one_vs_rest",
-      "de_method": "t-test",
-      "correction_method": "benjamini-hochberg",
-      "feature_type": "Gene Expression",
-      "x_axis_label": "log2(Fold Change)",
-      "y_axis_label": "-log10(FDR)",
-      "lfc_max": 27.0,
-      "logp_max": 191.0,
-      "n_features": 5782,
-      "available_plots": [
-        "volcano",
-        "dotplot"
-      ]
-    },
-    {
-      "contrast_id": "de_036",
-      "group_1": "MG",
-      "group_2": null,
-      "test_type": "one_vs_rest",
-      "de_method": "t-test",
-      "correction_method": "benjamini-hochberg",
-      "feature_type": "Gene Expression",
-      "x_axis_label": "log2(Fold Change)",
-      "y_axis_label": "-log10(FDR)",
-      "lfc_max": 28.0,
-      "logp_max": 127.0,
-      "n_features": 5782,
-      "available_plots": [
-        "volcano",
-        "dotplot"
-      ]
-    },
-    {
-      "contrast_id": "de_037",
-      "group_1": "NSC",
-      "group_2": null,
-      "test_type": "one_vs_rest",
-      "de_method": "t-test",
-      "correction_method": "benjamini-hochberg",
-      "feature_type": "Gene Expression",
-      "x_axis_label": "log2(Fold Change)",
-      "y_axis_label": "-log10(FDR)",
-      "lfc_max": 29.0,
-      "logp_max": 239.0,
-      "n_features": 5782,
-      "available_plots": [
-        "volcano",
-        "dotplot"
-      ]
-    },
-    {
-      "contrast_id": "de_038",
-      "group_1": "ODC1",
-      "group_2": null,
-      "test_type": "one_vs_rest",
-      "de_method": "t-test",
-      "correction_method": "benjamini-hochberg",
-      "feature_type": "Gene Expression",
-      "x_axis_label": "log2(Fold Change)",
-      "y_axis_label": "-log10(FDR)",
-      "lfc_max": 26.0,
-      "logp_max": 300.0,
-      "n_features": 5782,
-      "available_plots": [
-        "volcano",
-        "dotplot"
-      ]
-    },
-    {
-      "contrast_id": "de_039",
-      "group_1": "OPC",
-      "group_2": null,
-      "test_type": "one_vs_rest",
-      "de_method": "t-test",
-      "correction_method": "benjamini-hochberg",
       "feature_type": "Gene Expression",
       "x_axis_label": "log2(Fold Change)",
       "y_axis_label": "-log10(FDR)",
@@ -737,12 +467,12 @@
       ]
     },
     {
-      "contrast_id": "de_040",
+      "contrast_id": "de_025",
       "group_1": "Unclassified",
       "group_2": null,
       "test_type": "one_vs_rest",
       "de_method": "t-test",
-      "correction_method": "benjamini-hochberg",
+      "correction_method": "bonferroni",
       "feature_type": "Gene Expression",
       "x_axis_label": "log2(Fold Change)",
       "y_axis_label": "-log10(FDR)",
@@ -755,12 +485,12 @@
       ]
     },
     {
-      "contrast_id": "de_041",
+      "contrast_id": "de_026",
       "group_1": "exCA1",
       "group_2": null,
       "test_type": "one_vs_rest",
       "de_method": "t-test",
-      "correction_method": "benjamini-hochberg",
+      "correction_method": "bonferroni",
       "feature_type": "Gene Expression",
       "x_axis_label": "log2(Fold Change)",
       "y_axis_label": "-log10(FDR)",
@@ -773,12 +503,12 @@
       ]
     },
     {
-      "contrast_id": "de_042",
+      "contrast_id": "de_027",
       "group_1": "exCA3",
       "group_2": null,
       "test_type": "one_vs_rest",
       "de_method": "t-test",
-      "correction_method": "benjamini-hochberg",
+      "correction_method": "bonferroni",
       "feature_type": "Gene Expression",
       "x_axis_label": "log2(Fold Change)",
       "y_axis_label": "-log10(FDR)",
@@ -791,12 +521,12 @@
       ]
     },
     {
-      "contrast_id": "de_043",
+      "contrast_id": "de_028",
       "group_1": "exDG",
       "group_2": null,
       "test_type": "one_vs_rest",
       "de_method": "t-test",
-      "correction_method": "benjamini-hochberg",
+      "correction_method": "bonferroni",
       "feature_type": "Gene Expression",
       "x_axis_label": "log2(Fold Change)",
       "y_axis_label": "-log10(FDR)",
@@ -809,12 +539,12 @@
       ]
     },
     {
-      "contrast_id": "de_044",
+      "contrast_id": "de_029",
       "group_1": "exPFC1",
       "group_2": null,
       "test_type": "one_vs_rest",
       "de_method": "t-test",
-      "correction_method": "benjamini-hochberg",
+      "correction_method": "bonferroni",
       "feature_type": "Gene Expression",
       "x_axis_label": "log2(Fold Change)",
       "y_axis_label": "-log10(FDR)",
@@ -827,12 +557,12 @@
       ]
     },
     {
-      "contrast_id": "de_045",
+      "contrast_id": "de_030",
       "group_1": "exPFC2",
       "group_2": null,
       "test_type": "one_vs_rest",
       "de_method": "t-test",
-      "correction_method": "benjamini-hochberg",
+      "correction_method": "bonferroni",
       "feature_type": "Gene Expression",
       "x_axis_label": "log2(Fold Change)",
       "y_axis_label": "-log10(FDR)",
@@ -841,6 +571,276 @@
       "n_features": 5782,
       "available_plots": [
         "volcano",
+        "dotplot"
+      ]
+    },
+    {
+      "contrast_id": "de_031",
+      "group_1": "ASC1",
+      "group_2": null,
+      "test_type": "multiclass",
+      "de_method": "logreg",
+      "correction_method": null,
+      "feature_type": "Gene Expression",
+      "x_axis_label": "log2(Fold Change)",
+      "y_axis_label": null,
+      "lfc_max": null,
+      "logp_max": null,
+      "n_features": 5782,
+      "available_plots": [
+        "bar_chart",
+        "dotplot"
+      ]
+    },
+    {
+      "contrast_id": "de_032",
+      "group_1": "ASC2",
+      "group_2": null,
+      "test_type": "multiclass",
+      "de_method": "logreg",
+      "correction_method": null,
+      "feature_type": "Gene Expression",
+      "x_axis_label": "log2(Fold Change)",
+      "y_axis_label": null,
+      "lfc_max": null,
+      "logp_max": null,
+      "n_features": 5782,
+      "available_plots": [
+        "bar_chart",
+        "dotplot"
+      ]
+    },
+    {
+      "contrast_id": "de_033",
+      "group_1": "END",
+      "group_2": null,
+      "test_type": "multiclass",
+      "de_method": "logreg",
+      "correction_method": null,
+      "feature_type": "Gene Expression",
+      "x_axis_label": "log2(Fold Change)",
+      "y_axis_label": null,
+      "lfc_max": null,
+      "logp_max": null,
+      "n_features": 5782,
+      "available_plots": [
+        "bar_chart",
+        "dotplot"
+      ]
+    },
+    {
+      "contrast_id": "de_034",
+      "group_1": "GABA1",
+      "group_2": null,
+      "test_type": "multiclass",
+      "de_method": "logreg",
+      "correction_method": null,
+      "feature_type": "Gene Expression",
+      "x_axis_label": "log2(Fold Change)",
+      "y_axis_label": null,
+      "lfc_max": null,
+      "logp_max": null,
+      "n_features": 5782,
+      "available_plots": [
+        "bar_chart",
+        "dotplot"
+      ]
+    },
+    {
+      "contrast_id": "de_035",
+      "group_1": "GABA2",
+      "group_2": null,
+      "test_type": "multiclass",
+      "de_method": "logreg",
+      "correction_method": null,
+      "feature_type": "Gene Expression",
+      "x_axis_label": "log2(Fold Change)",
+      "y_axis_label": null,
+      "lfc_max": null,
+      "logp_max": null,
+      "n_features": 5782,
+      "available_plots": [
+        "bar_chart",
+        "dotplot"
+      ]
+    },
+    {
+      "contrast_id": "de_036",
+      "group_1": "MG",
+      "group_2": null,
+      "test_type": "multiclass",
+      "de_method": "logreg",
+      "correction_method": null,
+      "feature_type": "Gene Expression",
+      "x_axis_label": "log2(Fold Change)",
+      "y_axis_label": null,
+      "lfc_max": null,
+      "logp_max": null,
+      "n_features": 5782,
+      "available_plots": [
+        "bar_chart",
+        "dotplot"
+      ]
+    },
+    {
+      "contrast_id": "de_037",
+      "group_1": "NSC",
+      "group_2": null,
+      "test_type": "multiclass",
+      "de_method": "logreg",
+      "correction_method": null,
+      "feature_type": "Gene Expression",
+      "x_axis_label": "log2(Fold Change)",
+      "y_axis_label": null,
+      "lfc_max": null,
+      "logp_max": null,
+      "n_features": 5782,
+      "available_plots": [
+        "bar_chart",
+        "dotplot"
+      ]
+    },
+    {
+      "contrast_id": "de_038",
+      "group_1": "ODC1",
+      "group_2": null,
+      "test_type": "multiclass",
+      "de_method": "logreg",
+      "correction_method": null,
+      "feature_type": "Gene Expression",
+      "x_axis_label": "log2(Fold Change)",
+      "y_axis_label": null,
+      "lfc_max": null,
+      "logp_max": null,
+      "n_features": 5782,
+      "available_plots": [
+        "bar_chart",
+        "dotplot"
+      ]
+    },
+    {
+      "contrast_id": "de_039",
+      "group_1": "OPC",
+      "group_2": null,
+      "test_type": "multiclass",
+      "de_method": "logreg",
+      "correction_method": null,
+      "feature_type": "Gene Expression",
+      "x_axis_label": "log2(Fold Change)",
+      "y_axis_label": null,
+      "lfc_max": null,
+      "logp_max": null,
+      "n_features": 5782,
+      "available_plots": [
+        "bar_chart",
+        "dotplot"
+      ]
+    },
+    {
+      "contrast_id": "de_040",
+      "group_1": "Unclassified",
+      "group_2": null,
+      "test_type": "multiclass",
+      "de_method": "logreg",
+      "correction_method": null,
+      "feature_type": "Gene Expression",
+      "x_axis_label": "log2(Fold Change)",
+      "y_axis_label": null,
+      "lfc_max": null,
+      "logp_max": null,
+      "n_features": 5782,
+      "available_plots": [
+        "bar_chart",
+        "dotplot"
+      ]
+    },
+    {
+      "contrast_id": "de_041",
+      "group_1": "exCA1",
+      "group_2": null,
+      "test_type": "multiclass",
+      "de_method": "logreg",
+      "correction_method": null,
+      "feature_type": "Gene Expression",
+      "x_axis_label": "log2(Fold Change)",
+      "y_axis_label": null,
+      "lfc_max": null,
+      "logp_max": null,
+      "n_features": 5782,
+      "available_plots": [
+        "bar_chart",
+        "dotplot"
+      ]
+    },
+    {
+      "contrast_id": "de_042",
+      "group_1": "exCA3",
+      "group_2": null,
+      "test_type": "multiclass",
+      "de_method": "logreg",
+      "correction_method": null,
+      "feature_type": "Gene Expression",
+      "x_axis_label": "log2(Fold Change)",
+      "y_axis_label": null,
+      "lfc_max": null,
+      "logp_max": null,
+      "n_features": 5782,
+      "available_plots": [
+        "bar_chart",
+        "dotplot"
+      ]
+    },
+    {
+      "contrast_id": "de_043",
+      "group_1": "exDG",
+      "group_2": null,
+      "test_type": "multiclass",
+      "de_method": "logreg",
+      "correction_method": null,
+      "feature_type": "Gene Expression",
+      "x_axis_label": "log2(Fold Change)",
+      "y_axis_label": null,
+      "lfc_max": null,
+      "logp_max": null,
+      "n_features": 5782,
+      "available_plots": [
+        "bar_chart",
+        "dotplot"
+      ]
+    },
+    {
+      "contrast_id": "de_044",
+      "group_1": "exPFC1",
+      "group_2": null,
+      "test_type": "multiclass",
+      "de_method": "logreg",
+      "correction_method": null,
+      "feature_type": "Gene Expression",
+      "x_axis_label": "log2(Fold Change)",
+      "y_axis_label": null,
+      "lfc_max": null,
+      "logp_max": null,
+      "n_features": 5782,
+      "available_plots": [
+        "bar_chart",
+        "dotplot"
+      ]
+    },
+    {
+      "contrast_id": "de_045",
+      "group_1": "exPFC2",
+      "group_2": null,
+      "test_type": "multiclass",
+      "de_method": "logreg",
+      "correction_method": null,
+      "feature_type": "Gene Expression",
+      "x_axis_label": "log2(Fold Change)",
+      "y_axis_label": null,
+      "lfc_max": null,
+      "logp_max": null,
+      "n_features": 5782,
+      "available_plots": [
+        "bar_chart",
         "dotplot"
       ]
     }
