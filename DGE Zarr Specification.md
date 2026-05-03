@@ -33,7 +33,7 @@ This registry allows the frontend to populate dropdowns, set chart labels, and a
 | **feature_type**      | "Gene Expression"       | Type of features (Genes, ADTs, Peaks).                    |
 | **x_axis_label**      | "log2(Fold Change)"     | Literal string for chart X-axis.                          |
 | **y_axis_label**      | "-log10(FDR)"           | Literal string for chart Y-axis.                          |
-| **available_plots**   | ["volcano", "dotplot"] | Enabled frontend views for this comparison.               |
+| **available_plots**   | ["volcano", "dotplot"]  | Enabled frontend views for this comparison.               |
 | **lfc_max**           | 8.5                     | Global max absolute LFC for symmetric X-axis.             |
 | **logp_max**          | 300.0                   | Global max \-log10(p) for Y-axis ceiling. Capped at 300\. |
 | **subset_column**     | "tissue"                | Metadata category defining the test boundary (or null).   |
