@@ -1,0 +1,26 @@
+{
+  "attributes": {
+    "column-order": [
+      "ASC1",
+      "ASC2",
+      "END",
+      "GABA1",
+      "GABA2",
+      "MG",
+      "NSC",
+      "ODC1",
+      "OPC",
+      "Unclassified",
+      "exCA1",
+      "exCA3",
+      "exDG",
+      "exPFC1",
+      "exPFC2"
+    ],
+    "_index": "index",
+    "encoding-type": "dataframe",
+    "encoding-version": "0.2.0"
+  },
+  "zarr_format": 3,
+  "node_type": "group"
+}
