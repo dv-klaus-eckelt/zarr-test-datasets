@@ -35,6 +35,7 @@ import anndata as ad
 import numpy as np
 import scanpy as sc
 import zarr
+from zarr.core.dtype import VariableLengthUTF8
 
 
 # In[4]:
@@ -311,6 +312,20 @@ def _presort_contrast_arrays(arrays: dict) -> dict:
     return sorted_arrays
 
 
+def _write_array(group: zarr.Group, field_name: str, arr: np.ndarray) -> None:
+    if arr.dtype.kind in {"O", "U"}:
+        string_array = group.create_array(
+            field_name,
+            shape=arr.shape,
+            dtype=VariableLengthUTF8(),
+            fill_value="",
+        )
+        string_array[:] = np.asarray(arr, dtype=object)
+        return
+
+    group[field_name] = arr
+
+
 def _compute_axis_bounds(
     logfoldchanges: np.ndarray,
     pvals_adj: np.ndarray,
@@ -350,15 +365,9 @@ def _write_contrast_to_zarr(
     
     store = zarr.open(str(contrast_dir), mode="w")
     
-    # Write each array to zarr with explicit dtype handling for strings
+    # Write string arrays with explicit V3 UTF-8 metadata for cross-library compatibility.
     for field_name, arr in arrays.items():
-        if field_name == "symbols" and arr.dtype.kind == "O":
-            # Convert object array of strings to fixed-length unicode strings
-            max_len = max(len(s) for s in arr) if len(arr) > 0 else 1
-            arr_str = arr.astype(f"U{max_len}")
-            store[field_name] = arr_str
-        else:
-            store[field_name] = arr
+        _write_array(store, field_name, arr)
     
     # Compute chart bounds for registry
     lfc_max, logp_max = _compute_axis_bounds(
