@@ -1,6 +1,6 @@
 {
   "version": "1.0",
-  "generated_at": "2026-05-04T07:20:10.687436+00:00",
+  "generated_at": "2026-05-04T09:18:03.249484+00:00",
   "scanpy_version": "1.12.1",
   "zarr_version": "3.2.0",
   "dataset_metadata": {
@@ -61,6 +61,18 @@
       "available_plots": [
         "volcano",
         "dotplot"
+      ],
+      "top_10_genes": [
+        "SLC1A2",
+        "SLC14A1",
+        "COL5A3",
+        "ATP1A2",
+        "SLC1A3",
+        "PRODH",
+        "ADGRV1",
+        "FGFR3",
+        "ETNPPL",
+        "MRVI1"
       ]
     },
     {
@@ -82,6 +94,18 @@
       "available_plots": [
         "volcano",
         "dotplot"
+      ],
+      "top_10_genes": [
+        "GFAP",
+        "AQP4",
+        "ID4",
+        "ID3",
+        "FGFR3",
+        "FOS",
+        "ZFP36L1",
+        "ID2",
+        "HSPB1",
+        "APOE"
       ]
     },
     {
@@ -103,6 +127,18 @@
       "available_plots": [
         "volcano",
         "dotplot"
+      ],
+      "top_10_genes": [
+        "CLDN5",
+        "ABCG2",
+        "FLT1",
+        "VWF",
+        "CAVIN2",
+        "TGM2",
+        "A2M",
+        "EPAS1",
+        "ABCB1",
+        "TM4SF1"
       ]
     },
     {
@@ -124,6 +160,18 @@
       "available_plots": [
         "volcano",
         "dotplot"
+      ],
+      "top_10_genes": [
+        "TAC1",
+        "GAD2",
+        "GRIK1",
+        "SST",
+        "ERBB4",
+        "SLC6A1",
+        "MEPE",
+        "RGS5",
+        "SOX6",
+        "NXPH1"
       ]
     },
     {
@@ -145,6 +193,18 @@
       "available_plots": [
         "volcano",
         "dotplot"
+      ],
+      "top_10_genes": [
+        "DLX6-AS1",
+        "CXCL14",
+        "VIP",
+        "RGS12",
+        "SCG2",
+        "SLC6A1",
+        "CALB2",
+        "GAD2",
+        "KIT",
+        "RELN"
       ]
     },
     {
@@ -166,6 +226,18 @@
       "available_plots": [
         "volcano",
         "dotplot"
+      ],
+      "top_10_genes": [
+        "ADAM28",
+        "CD74",
+        "RGS1",
+        "LPAR6",
+        "CSF3R",
+        "C3",
+        "MS4A7",
+        "FYB1",
+        "IL18",
+        "CSF1R"
       ]
     },
     {
@@ -187,6 +259,18 @@
       "available_plots": [
         "volcano",
         "dotplot"
+      ],
+      "top_10_genes": [
+        "CFAP157",
+        "SPAG17",
+        "DTHD1",
+        "SLC47A2",
+        "CFAP73",
+        "MAP3K19",
+        "WDR63",
+        "ANXA1",
+        "ADGB",
+        "DNAH11"
       ]
     },
     {
@@ -208,6 +292,18 @@
       "available_plots": [
         "volcano",
         "dotplot"
+      ],
+      "top_10_genes": [
+        "TF",
+        "CERCAM",
+        "MOBP",
+        "MBP",
+        "MOG",
+        "MIR219A2",
+        "TMEM144",
+        "SCD",
+        "CNP",
+        "CLDN11"
       ]
     },
     {
@@ -229,6 +325,18 @@
       "available_plots": [
         "volcano",
         "dotplot"
+      ],
+      "top_10_genes": [
+        "VCAN",
+        "SMOC1",
+        "PDGFRA",
+        "COL9A1",
+        "PTPRZ1",
+        "TNR",
+        "BCAN",
+        "CSPG4",
+        "OLIG2",
+        "SNX22"
       ]
     },
     {
@@ -250,6 +358,18 @@
       "available_plots": [
         "volcano",
         "dotplot"
+      ],
+      "top_10_genes": [
+        "MT-ATP6",
+        "MT-ND5",
+        "MT-CYB",
+        "MT-ND2",
+        "MT-ATP8",
+        "MTRNR2L1",
+        "NEFM",
+        "MT-ND3",
+        "MT-RNR1",
+        "GABRQ"
       ]
     },
     {
@@ -271,6 +391,18 @@
       "available_plots": [
         "volcano",
         "dotplot"
+      ],
+      "top_10_genes": [
+        "MORC1",
+        "ANKRD62P1-PARP4P3",
+        "B3GAT2",
+        "SULF2",
+        "RYR3",
+        "NEFM",
+        "KIT",
+        "FGFR1",
+        "OGFRL1",
+        "TEAD1"
       ]
     },
     {
@@ -292,6 +424,18 @@
       "available_plots": [
         "volcano",
         "dotplot"
+      ],
+      "top_10_genes": [
+        "COL5A2",
+        "TPM2",
+        "RP11-161M6.2",
+        "RYR3",
+        "KCNQ1OT1",
+        "NEFM",
+        "PLXDC2",
+        "ZNF189",
+        "TEAD1",
+        "EPB41L4A"
       ]
     },
     {
@@ -313,6 +457,18 @@
       "available_plots": [
         "volcano",
         "dotplot"
+      ],
+      "top_10_genes": [
+        "SEMA5A",
+        "POSTN",
+        "SLA",
+        "PROX1",
+        "DGKG",
+        "FAM118A",
+        "PARD3",
+        "PCDH15",
+        "GABRQ",
+        "C1QL2"
       ]
     },
     {
@@ -334,6 +490,18 @@
       "available_plots": [
         "volcano",
         "dotplot"
+      ],
+      "top_10_genes": [
+        "DENND3",
+        "CCK",
+        "POU2F2",
+        "TTN",
+        "RP11-161M6.2",
+        "SPARCL1",
+        "COL11A1",
+        "NEFM",
+        "ST6GAL2",
+        "SYCP2"
       ]
     },
     {
@@ -355,6 +523,18 @@
       "available_plots": [
         "volcano",
         "dotplot"
+      ],
+      "top_10_genes": [
+        "DENND3",
+        "COL5A2",
+        "CCDC14",
+        "KIN",
+        "SLC8B1",
+        "SPARCL1",
+        "MAP3K2",
+        "FRMD4A",
+        "NEFM",
+        "OSBPL1A"
       ]
     },
     {
@@ -376,6 +556,18 @@
       "available_plots": [
         "volcano",
         "dotplot"
+      ],
+      "top_10_genes": [
+        "SLC1A2",
+        "SLC1A3",
+        "MACF1",
+        "ATP1A2",
+        "NEAT1",
+        "NBPF10",
+        "COL5A3",
+        "PTGDS",
+        "ADGRV1",
+        "SLC14A1"
       ]
     },
     {
@@ -397,6 +589,18 @@
       "available_plots": [
         "volcano",
         "dotplot"
+      ],
+      "top_10_genes": [
+        "GFAP",
+        "CLU",
+        "AQP4",
+        "NEAT1",
+        "ATP1A2",
+        "PTGDS",
+        "SPARCL1",
+        "MACF1",
+        "CST3",
+        "ZFP36L1"
       ]
     },
     {
@@ -418,6 +622,18 @@
       "available_plots": [
         "volcano",
         "dotplot"
+      ],
+      "top_10_genes": [
+        "CLDN5",
+        "B2M",
+        "HLA-E",
+        "A2M",
+        "SLC2A1",
+        "XAF1",
+        "NEAT1",
+        "HLA-B",
+        "HLA-C",
+        "DUSP1"
       ]
     },
     {
@@ -439,6 +655,18 @@
       "available_plots": [
         "volcano",
         "dotplot"
+      ],
+      "top_10_genes": [
+        "SPARCL1",
+        "GRIK1",
+        "TAC1",
+        "GAD2",
+        "ERBB4",
+        "SLC6A1",
+        "SST",
+        "RAB3IP",
+        "DLX6-AS1",
+        "SOX6"
       ]
     },
     {
@@ -460,6 +688,18 @@
       "available_plots": [
         "volcano",
         "dotplot"
+      ],
+      "top_10_genes": [
+        "DLX6-AS1",
+        "RGS12",
+        "CXCL14",
+        "SLC6A1",
+        "SCG2",
+        "CCK",
+        "ERBB4",
+        "CNR1",
+        "GAD2",
+        "DNER"
       ]
     },
     {
@@ -481,6 +721,18 @@
       "available_plots": [
         "volcano",
         "dotplot"
+      ],
+      "top_10_genes": [
+        "CD74",
+        "ADAM28",
+        "LPAR6",
+        "RNASET2",
+        "NEAT1",
+        "SPP1",
+        "ZFP36L1",
+        "RGS1",
+        "SAT1",
+        "MAF"
       ]
     },
     {
@@ -502,6 +754,18 @@
       "available_plots": [
         "volcano",
         "dotplot"
+      ],
+      "top_10_genes": [
+        "DNAAF1",
+        "SPAG17",
+        "CFAP43",
+        "CAPS",
+        "CLU",
+        "ZFP36L1",
+        "LRRIQ1",
+        "CFAP44",
+        "FOS",
+        "CFAP70"
       ]
     },
     {
@@ -523,6 +787,18 @@
       "available_plots": [
         "volcano",
         "dotplot"
+      ],
+      "top_10_genes": [
+        "MBP",
+        "TF",
+        "MOBP",
+        "CERCAM",
+        "TMEM144",
+        "MIR219A2",
+        "MOG",
+        "PTGDS",
+        "SCD",
+        "SLC44A1"
       ]
     },
     {
@@ -544,6 +820,18 @@
       "available_plots": [
         "volcano",
         "dotplot"
+      ],
+      "top_10_genes": [
+        "PTPRZ1",
+        "VCAN",
+        "TNR",
+        "BCAN",
+        "SMOC1",
+        "APOD",
+        "EPN2",
+        "SCD5",
+        "COL9A1",
+        "PDGFRA"
       ]
     },
     {
@@ -565,6 +853,18 @@
       "available_plots": [
         "volcano",
         "dotplot"
+      ],
+      "top_10_genes": [
+        "MT-ATP6",
+        "MT-CYB",
+        "MT-ND5",
+        "MT-ND2",
+        "NEFM",
+        "MTRNR2L1",
+        "MT-RNR1",
+        "MT-ATP8",
+        "MT-ND3",
+        "SEMA5A"
       ]
     },
     {
@@ -586,6 +886,18 @@
       "available_plots": [
         "volcano",
         "dotplot"
+      ],
+      "top_10_genes": [
+        "NEFM",
+        "RYR3",
+        "KCNQ1OT1",
+        "OGFRL1",
+        "SULF2",
+        "FGFR1",
+        "CPE",
+        "B3GAT2",
+        "TEAD1",
+        "RP11-161M6.2"
       ]
     },
     {
@@ -607,6 +919,18 @@
       "available_plots": [
         "volcano",
         "dotplot"
+      ],
+      "top_10_genes": [
+        "COL5A2",
+        "KCNQ1OT1",
+        "RP11-161M6.2",
+        "TPM2",
+        "RYR3",
+        "NEFM",
+        "MAP7",
+        "PLXDC2",
+        "TEAD1",
+        "ZNF189"
       ]
     },
     {
@@ -628,6 +952,18 @@
       "available_plots": [
         "volcano",
         "dotplot"
+      ],
+      "top_10_genes": [
+        "SEMA5A",
+        "DGKG",
+        "FAM118A",
+        "CFLAR",
+        "PROX1",
+        "RNA28S5",
+        "POSTN",
+        "PCDH15",
+        "SLA",
+        "DOCK10"
       ]
     },
     {
@@ -649,6 +985,18 @@
       "available_plots": [
         "volcano",
         "dotplot"
+      ],
+      "top_10_genes": [
+        "CCK",
+        "DENND3",
+        "SPARCL1",
+        "KCNQ1OT1",
+        "RP11-161M6.2",
+        "NEFM",
+        "CEP290",
+        "POU2F2",
+        "TTN",
+        "COL11A1"
       ]
     },
     {
@@ -670,6 +1018,18 @@
       "available_plots": [
         "volcano",
         "dotplot"
+      ],
+      "top_10_genes": [
+        "SPARCL1",
+        "KCNQ1OT1",
+        "PCDH9",
+        "CEP290",
+        "DENND3",
+        "TTLL7",
+        "KTN1",
+        "CCDC14",
+        "COL5A2",
+        "NEFM"
       ]
     },
     {
@@ -691,6 +1051,18 @@
       "available_plots": [
         "bar_chart",
         "dotplot"
+      ],
+      "top_10_genes": [
+        "SLC1A2",
+        "COL5A3",
+        "TPD52L1",
+        "NDRG2",
+        "NBPF10",
+        "SLC14A1",
+        "ADGRV1",
+        "SLC1A3",
+        "PRODH",
+        "ETNPPL"
       ]
     },
     {
@@ -712,6 +1084,18 @@
       "available_plots": [
         "bar_chart",
         "dotplot"
+      ],
+      "top_10_genes": [
+        "GFAP",
+        "AEBP1",
+        "TTN",
+        "CRYAB",
+        "ID2",
+        "ID3",
+        "AQP4",
+        "FOS",
+        "DNAJB1",
+        "JUN"
       ]
     },
     {
@@ -733,6 +1117,18 @@
       "available_plots": [
         "bar_chart",
         "dotplot"
+      ],
+      "top_10_genes": [
+        "CLDN5",
+        "B2M",
+        "SLC2A1",
+        "HLA-E",
+        "ABCB1",
+        "IFI27",
+        "XAF1",
+        "DUSP1",
+        "EGFL7",
+        "NR4A1"
       ]
     },
     {
@@ -754,6 +1150,18 @@
       "available_plots": [
         "bar_chart",
         "dotplot"
+      ],
+      "top_10_genes": [
+        "TAC1",
+        "GRIK1",
+        "SST",
+        "GAD2",
+        "ERBB4",
+        "SPARCL1",
+        "SLC6A1",
+        "SOX6",
+        "MAF",
+        "THSD7A"
       ]
     },
     {
@@ -775,6 +1183,18 @@
       "available_plots": [
         "bar_chart",
         "dotplot"
+      ],
+      "top_10_genes": [
+        "DLX6-AS1",
+        "CXCL14",
+        "RGS12",
+        "SCG2",
+        "CNR1",
+        "CCK",
+        "SLC6A1",
+        "KIT",
+        "GAD2",
+        "VIP"
       ]
     },
     {
@@ -796,6 +1216,18 @@
       "available_plots": [
         "bar_chart",
         "dotplot"
+      ],
+      "top_10_genes": [
+        "CD74",
+        "ADAM28",
+        "LPAR6",
+        "RNASET2",
+        "RGS1",
+        "FYB1",
+        "C3",
+        "ZFP36L1",
+        "BHLHE41",
+        "SPP1"
       ]
     },
     {
@@ -817,6 +1249,18 @@
       "available_plots": [
         "bar_chart",
         "dotplot"
+      ],
+      "top_10_genes": [
+        "SPAG17",
+        "DNAAF1",
+        "CFAP43",
+        "CAPS",
+        "CFAP44",
+        "CFAP157",
+        "LRRIQ1",
+        "SLC1A3",
+        "TOB1",
+        "CCDC146"
       ]
     },
     {
@@ -838,6 +1282,18 @@
       "available_plots": [
         "bar_chart",
         "dotplot"
+      ],
+      "top_10_genes": [
+        "CERCAM",
+        "TTLL7",
+        "TF",
+        "CA2",
+        "BCAS1",
+        "DOCK5",
+        "MOBP",
+        "MBP",
+        "PLEKHH1",
+        "MIR219A2"
       ]
     },
     {
@@ -859,6 +1315,18 @@
       "available_plots": [
         "bar_chart",
         "dotplot"
+      ],
+      "top_10_genes": [
+        "VCAN",
+        "PTPRZ1",
+        "COL9A1",
+        "TNR",
+        "EPN2",
+        "SMOC1",
+        "SNX22",
+        "OLIG2",
+        "BCAN",
+        "COL16A1"
       ]
     },
     {
@@ -880,6 +1348,18 @@
       "available_plots": [
         "bar_chart",
         "dotplot"
+      ],
+      "top_10_genes": [
+        "MT-ATP6",
+        "MT-ND5",
+        "MT-CYB",
+        "MT-ND2",
+        "MT-ATP8",
+        "MTRNR2L1",
+        "MT-ND3",
+        "MT-RNR1",
+        "NEFM",
+        "SEMA5A"
       ]
     },
     {
@@ -901,6 +1381,18 @@
       "available_plots": [
         "bar_chart",
         "dotplot"
+      ],
+      "top_10_genes": [
+        "KIT",
+        "SULF2",
+        "NIPA1",
+        "OGFRL1",
+        "ZNF189",
+        "RYR3",
+        "NEFM",
+        "ZNF883",
+        "TEAD1",
+        "CLMN"
       ]
     },
     {
@@ -922,6 +1414,18 @@
       "available_plots": [
         "bar_chart",
         "dotplot"
+      ],
+      "top_10_genes": [
+        "COL5A2",
+        "TPM2",
+        "RP11-161M6.2",
+        "RYR3",
+        "KCNQ1OT1",
+        "PLXDC2",
+        "ZNF189",
+        "GRIK1",
+        "FAM126A",
+        "CEP135"
       ]
     },
     {
@@ -943,6 +1447,18 @@
       "available_plots": [
         "bar_chart",
         "dotplot"
+      ],
+      "top_10_genes": [
+        "POSTN",
+        "FAM118A",
+        "SEMA5A",
+        "CFLAR",
+        "PROX1",
+        "RNA28S5",
+        "ARAP1",
+        "DGKG",
+        "PARD3",
+        "PCDH15"
       ]
     },
     {
@@ -964,6 +1480,18 @@
       "available_plots": [
         "bar_chart",
         "dotplot"
+      ],
+      "top_10_genes": [
+        "CCK",
+        "TTN",
+        "LAMA2",
+        "ST6GAL2",
+        "PLXND1",
+        "TTYH1",
+        "ADIRF-AS1",
+        "TTF2",
+        "COL11A1",
+        "PCDH9"
       ]
     },
     {
@@ -985,6 +1513,18 @@
       "available_plots": [
         "bar_chart",
         "dotplot"
+      ],
+      "top_10_genes": [
+        "DENND3",
+        "COL5A2",
+        "NAXE",
+        "PPP4R2",
+        "SDCCAG8",
+        "KIN",
+        "SLC8B1",
+        "PSEN1",
+        "INTS2",
+        "OSBPL1A"
       ]
     },
     {
@@ -1006,6 +1546,18 @@
       "available_plots": [
         "volcano",
         "dotplot"
+      ],
+      "top_10_genes": [
+        "SLC14A1",
+        "SLC1A2",
+        "ATP1A2",
+        "COL5A3",
+        "ETNPPL",
+        "TPD52L1",
+        "SLC1A3",
+        "AQP4",
+        "SPARCL1",
+        "MRVI1"
       ]
     },
     {
@@ -1027,6 +1579,18 @@
       "available_plots": [
         "volcano",
         "dotplot"
+      ],
+      "top_10_genes": [
+        "GFAP",
+        "TTN",
+        "AEBP1",
+        "AQP4",
+        "AHNAK",
+        "SLC14A1",
+        "ID3",
+        "FGFR3",
+        "ID4",
+        "CD44"
       ]
     },
     {
@@ -1048,6 +1612,18 @@
       "available_plots": [
         "volcano",
         "dotplot"
+      ],
+      "top_10_genes": [
+        "CLDN5",
+        "FLT1",
+        "TGM2",
+        "ADGRF5",
+        "CAVIN2",
+        "TM4SF1",
+        "ABCG2",
+        "DLL4",
+        "ESAM",
+        "KANK3"
       ]
     },
     {
@@ -1069,6 +1645,18 @@
       "available_plots": [
         "volcano",
         "dotplot"
+      ],
+      "top_10_genes": [
+        "TAC1",
+        "GAD2",
+        "SST",
+        "MEPE",
+        "NXPH1",
+        "GRIK1",
+        "NPY",
+        "DLX6-AS1",
+        "RGS5",
+        "ERBB4"
       ]
     },
     {
@@ -1090,6 +1678,18 @@
       "available_plots": [
         "volcano",
         "dotplot"
+      ],
+      "top_10_genes": [
+        "DLX6-AS1",
+        "CXCL14",
+        "CCK",
+        "VIP",
+        "RGS12",
+        "SCG2",
+        "CNR1",
+        "ERBB4",
+        "GAD2",
+        "SLC6A1"
       ]
     },
     {
@@ -1111,6 +1711,18 @@
       "available_plots": [
         "volcano",
         "dotplot"
+      ],
+      "top_10_genes": [
+        "ADAM28",
+        "CD74",
+        "RGS1",
+        "LPAR6",
+        "CSF3R",
+        "C3",
+        "RNASET2",
+        "MS4A7",
+        "IL18",
+        "FYB1"
       ]
     },
     {
@@ -1132,6 +1744,18 @@
       "available_plots": [
         "volcano",
         "dotplot"
+      ],
+      "top_10_genes": [
+        "SPAG17",
+        "CFAP73",
+        "ADGB",
+        "SLC47A2",
+        "CFAP157",
+        "DTHD1",
+        "MAP3K19",
+        "CAPS",
+        "CFAP43",
+        "SPAG6"
       ]
     },
     {
@@ -1153,6 +1777,18 @@
       "available_plots": [
         "volcano",
         "dotplot"
+      ],
+      "top_10_genes": [
+        "TF",
+        "MIR219A2",
+        "MBP",
+        "MOG",
+        "CLDND1",
+        "CERCAM",
+        "MOBP",
+        "TMEM144",
+        "CNP",
+        "SLC44A1"
       ]
     },
     {
@@ -1174,6 +1810,18 @@
       "available_plots": [
         "volcano",
         "dotplot"
+      ],
+      "top_10_genes": [
+        "VCAN",
+        "SMOC1",
+        "TNR",
+        "PTPRZ1",
+        "BCAN",
+        "PDGFRA",
+        "CSPG4",
+        "GPR17",
+        "COL9A1",
+        "APOD"
       ]
     },
     {
@@ -1195,6 +1843,18 @@
       "available_plots": [
         "volcano",
         "dotplot"
+      ],
+      "top_10_genes": [
+        "MT-ATP6",
+        "MT-CYB",
+        "MT-ND5",
+        "MT-ATP8",
+        "SEMA5A",
+        "MT-ND3",
+        "MT-ND2",
+        "DOCK10",
+        "GABRQ",
+        "CA10"
       ]
     },
     {
@@ -1216,6 +1876,18 @@
       "available_plots": [
         "volcano",
         "dotplot"
+      ],
+      "top_10_genes": [
+        "MORC1",
+        "B3GAT2",
+        "NEFM",
+        "FGFR1",
+        "ANKRD62P1-PARP4P3",
+        "OGFRL1",
+        "SULF2",
+        "KIT",
+        "RYR3",
+        "CCK"
       ]
     },
     {
@@ -1237,6 +1909,18 @@
       "available_plots": [
         "volcano",
         "dotplot"
+      ],
+      "top_10_genes": [
+        "COL5A2",
+        "TPM2",
+        "RP11-161M6.2",
+        "NEFM",
+        "KCNQ1OT1",
+        "RYR3",
+        "CFAP44",
+        "PLXDC2",
+        "ZNF189",
+        "IQCA1"
       ]
     },
     {
@@ -1258,6 +1942,18 @@
       "available_plots": [
         "volcano",
         "dotplot"
+      ],
+      "top_10_genes": [
+        "POSTN",
+        "SEMA5A",
+        "GABRQ",
+        "PARD3",
+        "PROX1",
+        "PCDH15",
+        "USH1C",
+        "INHBA",
+        "SLA",
+        "BNC2"
       ]
     },
     {
@@ -1279,6 +1975,18 @@
       "available_plots": [
         "volcano",
         "dotplot"
+      ],
+      "top_10_genes": [
+        "TRIM6",
+        "XIAP-AS1",
+        "RN7SL608P",
+        "RP11-340I6.8",
+        "XXbac-B476C20.9",
+        "RP3-508I15.21",
+        "RGS3",
+        "SPOCD1",
+        "CPS1",
+        "PON1"
       ]
     },
     {
@@ -1300,6 +2008,18 @@
       "available_plots": [
         "volcano",
         "dotplot"
+      ],
+      "top_10_genes": [
+        "HAS2",
+        "ARRDC5",
+        "ZNF812P",
+        "TAL1",
+        "TNFRSF11B",
+        "HCK",
+        "DLEU7-AS1",
+        "BTK",
+        "PHGDH",
+        "RP11-448G15.3"
       ]
     }
   ]

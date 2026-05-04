@@ -375,6 +375,10 @@ def _write_contrast_to_zarr(
         available_plots = ["volcano", "dotplot"]
         y_axis_label = "-log10(FDR)" if contrast_config.corr_method else "-log10(p)"
     
+    # Extract top 10 genes from sorted symbols
+    symbols_list = arrays["symbols"].tolist()
+    top_10_genes = symbols_list[:10]
+    
     return {
         "contrast_id": contrast_id,
         "group_1": contrast_config.group_1,
@@ -392,6 +396,7 @@ def _write_contrast_to_zarr(
         "logp_max": logp_max,
         "n_features": len(arrays["symbols"]),
         "available_plots": available_plots,
+        "top_10_genes": top_10_genes,
     }
 
 

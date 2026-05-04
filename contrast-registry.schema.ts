@@ -69,6 +69,9 @@ const CommonContrastFieldsSchema = z.object({
     .describe(
       "Total number of ranked features available in the corresponding de_xxx folder arrays.",
     ),
+  top_10_genes: z
+    .array(z.string().min(1))
+    .describe("Top 10 gene symbols ranked by score in descending order."),
 });
 
 /**
