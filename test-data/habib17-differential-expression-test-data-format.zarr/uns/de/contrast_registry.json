@@ -1,6 +1,6 @@
 {
   "version": "1.0",
-  "generated_at": "2026-05-03T18:04:06.455175+00:00",
+  "generated_at": "2026-05-04T07:20:10.687436+00:00",
   "scanpy_version": "1.12.1",
   "zarr_version": "3.2.0",
   "dataset_metadata": {
@@ -11,7 +11,7 @@
     "n_groups": 15
   },
   "contrast_summary": {
-    "total_contrasts": 45,
+    "total_contrasts": 60,
     "series": [
       {
         "series_id": 1,
@@ -29,6 +29,14 @@
         "series_id": 3,
         "method": "logreg",
         "corr": null,
+        "n_contrasts": 15
+      },
+      {
+        "series_id": 4,
+        "method": "wilcoxon",
+        "corr": "benjamini-hochberg",
+        "subset_column": "region",
+        "subset_value": "Hippocampus",
         "n_contrasts": 15
       }
     ]
@@ -976,6 +984,321 @@
       "n_features": 5782,
       "available_plots": [
         "bar_chart",
+        "dotplot"
+      ]
+    },
+    {
+      "contrast_id": "de_046",
+      "group_1": "ASC1",
+      "group_2": null,
+      "test_type": "one_vs_rest",
+      "subset_column": "region",
+      "subset_value": "Hippocampus",
+      "contrast_column": "CellType",
+      "de_method": "wilcoxon",
+      "correction_method": "benjamini-hochberg",
+      "feature_type": "Gene Expression",
+      "x_axis_label": "log2(Fold Change)",
+      "y_axis_label": "-log10(FDR)",
+      "lfc_max": 28.0,
+      "logp_max": 300.0,
+      "n_features": 5782,
+      "available_plots": [
+        "volcano",
+        "dotplot"
+      ]
+    },
+    {
+      "contrast_id": "de_047",
+      "group_1": "ASC2",
+      "group_2": null,
+      "test_type": "one_vs_rest",
+      "subset_column": "region",
+      "subset_value": "Hippocampus",
+      "contrast_column": "CellType",
+      "de_method": "wilcoxon",
+      "correction_method": "benjamini-hochberg",
+      "feature_type": "Gene Expression",
+      "x_axis_label": "log2(Fold Change)",
+      "y_axis_label": "-log10(FDR)",
+      "lfc_max": 28.0,
+      "logp_max": 137.0,
+      "n_features": 5782,
+      "available_plots": [
+        "volcano",
+        "dotplot"
+      ]
+    },
+    {
+      "contrast_id": "de_048",
+      "group_1": "END",
+      "group_2": null,
+      "test_type": "one_vs_rest",
+      "subset_column": "region",
+      "subset_value": "Hippocampus",
+      "contrast_column": "CellType",
+      "de_method": "wilcoxon",
+      "correction_method": "benjamini-hochberg",
+      "feature_type": "Gene Expression",
+      "x_axis_label": "log2(Fold Change)",
+      "y_axis_label": "-log10(FDR)",
+      "lfc_max": 31.0,
+      "logp_max": 300.0,
+      "n_features": 5782,
+      "available_plots": [
+        "volcano",
+        "dotplot"
+      ]
+    },
+    {
+      "contrast_id": "de_049",
+      "group_1": "GABA1",
+      "group_2": null,
+      "test_type": "one_vs_rest",
+      "subset_column": "region",
+      "subset_value": "Hippocampus",
+      "contrast_column": "CellType",
+      "de_method": "wilcoxon",
+      "correction_method": "benjamini-hochberg",
+      "feature_type": "Gene Expression",
+      "x_axis_label": "log2(Fold Change)",
+      "y_axis_label": "-log10(FDR)",
+      "lfc_max": 29.0,
+      "logp_max": 300.0,
+      "n_features": 5782,
+      "available_plots": [
+        "volcano",
+        "dotplot"
+      ]
+    },
+    {
+      "contrast_id": "de_050",
+      "group_1": "GABA2",
+      "group_2": null,
+      "test_type": "one_vs_rest",
+      "subset_column": "region",
+      "subset_value": "Hippocampus",
+      "contrast_column": "CellType",
+      "de_method": "wilcoxon",
+      "correction_method": "benjamini-hochberg",
+      "feature_type": "Gene Expression",
+      "x_axis_label": "log2(Fold Change)",
+      "y_axis_label": "-log10(FDR)",
+      "lfc_max": 29.0,
+      "logp_max": 300.0,
+      "n_features": 5782,
+      "available_plots": [
+        "volcano",
+        "dotplot"
+      ]
+    },
+    {
+      "contrast_id": "de_051",
+      "group_1": "MG",
+      "group_2": null,
+      "test_type": "one_vs_rest",
+      "subset_column": "region",
+      "subset_value": "Hippocampus",
+      "contrast_column": "CellType",
+      "de_method": "wilcoxon",
+      "correction_method": "benjamini-hochberg",
+      "feature_type": "Gene Expression",
+      "x_axis_label": "log2(Fold Change)",
+      "y_axis_label": "-log10(FDR)",
+      "lfc_max": 28.0,
+      "logp_max": 300.0,
+      "n_features": 5782,
+      "available_plots": [
+        "volcano",
+        "dotplot"
+      ]
+    },
+    {
+      "contrast_id": "de_052",
+      "group_1": "NSC",
+      "group_2": null,
+      "test_type": "one_vs_rest",
+      "subset_column": "region",
+      "subset_value": "Hippocampus",
+      "contrast_column": "CellType",
+      "de_method": "wilcoxon",
+      "correction_method": "benjamini-hochberg",
+      "feature_type": "Gene Expression",
+      "x_axis_label": "log2(Fold Change)",
+      "y_axis_label": "-log10(FDR)",
+      "lfc_max": 30.0,
+      "logp_max": 300.0,
+      "n_features": 5782,
+      "available_plots": [
+        "volcano",
+        "dotplot"
+      ]
+    },
+    {
+      "contrast_id": "de_053",
+      "group_1": "ODC1",
+      "group_2": null,
+      "test_type": "one_vs_rest",
+      "subset_column": "region",
+      "subset_value": "Hippocampus",
+      "contrast_column": "CellType",
+      "de_method": "wilcoxon",
+      "correction_method": "benjamini-hochberg",
+      "feature_type": "Gene Expression",
+      "x_axis_label": "log2(Fold Change)",
+      "y_axis_label": "-log10(FDR)",
+      "lfc_max": 27.0,
+      "logp_max": 300.0,
+      "n_features": 5782,
+      "available_plots": [
+        "volcano",
+        "dotplot"
+      ]
+    },
+    {
+      "contrast_id": "de_054",
+      "group_1": "OPC",
+      "group_2": null,
+      "test_type": "one_vs_rest",
+      "subset_column": "region",
+      "subset_value": "Hippocampus",
+      "contrast_column": "CellType",
+      "de_method": "wilcoxon",
+      "correction_method": "benjamini-hochberg",
+      "feature_type": "Gene Expression",
+      "x_axis_label": "log2(Fold Change)",
+      "y_axis_label": "-log10(FDR)",
+      "lfc_max": 28.0,
+      "logp_max": 300.0,
+      "n_features": 5782,
+      "available_plots": [
+        "volcano",
+        "dotplot"
+      ]
+    },
+    {
+      "contrast_id": "de_055",
+      "group_1": "Unclassified",
+      "group_2": null,
+      "test_type": "one_vs_rest",
+      "subset_column": "region",
+      "subset_value": "Hippocampus",
+      "contrast_column": "CellType",
+      "de_method": "wilcoxon",
+      "correction_method": "benjamini-hochberg",
+      "feature_type": "Gene Expression",
+      "x_axis_label": "log2(Fold Change)",
+      "y_axis_label": "-log10(FDR)",
+      "lfc_max": 28.0,
+      "logp_max": 121.0,
+      "n_features": 5782,
+      "available_plots": [
+        "volcano",
+        "dotplot"
+      ]
+    },
+    {
+      "contrast_id": "de_056",
+      "group_1": "exCA1",
+      "group_2": null,
+      "test_type": "one_vs_rest",
+      "subset_column": "region",
+      "subset_value": "Hippocampus",
+      "contrast_column": "CellType",
+      "de_method": "wilcoxon",
+      "correction_method": "benjamini-hochberg",
+      "feature_type": "Gene Expression",
+      "x_axis_label": "log2(Fold Change)",
+      "y_axis_label": "-log10(FDR)",
+      "lfc_max": 28.0,
+      "logp_max": 42.0,
+      "n_features": 5782,
+      "available_plots": [
+        "volcano",
+        "dotplot"
+      ]
+    },
+    {
+      "contrast_id": "de_057",
+      "group_1": "exCA3",
+      "group_2": null,
+      "test_type": "one_vs_rest",
+      "subset_column": "region",
+      "subset_value": "Hippocampus",
+      "contrast_column": "CellType",
+      "de_method": "wilcoxon",
+      "correction_method": "benjamini-hochberg",
+      "feature_type": "Gene Expression",
+      "x_axis_label": "log2(Fold Change)",
+      "y_axis_label": "-log10(FDR)",
+      "lfc_max": 28.0,
+      "logp_max": 300.0,
+      "n_features": 5782,
+      "available_plots": [
+        "volcano",
+        "dotplot"
+      ]
+    },
+    {
+      "contrast_id": "de_058",
+      "group_1": "exDG",
+      "group_2": null,
+      "test_type": "one_vs_rest",
+      "subset_column": "region",
+      "subset_value": "Hippocampus",
+      "contrast_column": "CellType",
+      "de_method": "wilcoxon",
+      "correction_method": "benjamini-hochberg",
+      "feature_type": "Gene Expression",
+      "x_axis_label": "log2(Fold Change)",
+      "y_axis_label": "-log10(FDR)",
+      "lfc_max": 28.0,
+      "logp_max": 70.0,
+      "n_features": 5782,
+      "available_plots": [
+        "volcano",
+        "dotplot"
+      ]
+    },
+    {
+      "contrast_id": "de_059",
+      "group_1": "exPFC1",
+      "group_2": null,
+      "test_type": "one_vs_rest",
+      "subset_column": "region",
+      "subset_value": "Hippocampus",
+      "contrast_column": "CellType",
+      "de_method": "wilcoxon",
+      "correction_method": "benjamini-hochberg",
+      "feature_type": "Gene Expression",
+      "x_axis_label": "log2(Fold Change)",
+      "y_axis_label": "-log10(FDR)",
+      "lfc_max": 28.0,
+      "logp_max": 6.0,
+      "n_features": 5782,
+      "available_plots": [
+        "volcano",
+        "dotplot"
+      ]
+    },
+    {
+      "contrast_id": "de_060",
+      "group_1": "exPFC2",
+      "group_2": null,
+      "test_type": "one_vs_rest",
+      "subset_column": "region",
+      "subset_value": "Hippocampus",
+      "contrast_column": "CellType",
+      "de_method": "wilcoxon",
+      "correction_method": "benjamini-hochberg",
+      "feature_type": "Gene Expression",
+      "x_axis_label": "log2(Fold Change)",
+      "y_axis_label": "-log10(FDR)",
+      "lfc_max": 29.0,
+      "logp_max": 29.0,
+      "n_features": 5782,
+      "available_plots": [
+        "volcano",
         "dotplot"
       ]
     }

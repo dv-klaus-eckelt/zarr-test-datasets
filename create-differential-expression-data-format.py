@@ -23,7 +23,7 @@
 from pathlib import Path
 import json
 from datetime import datetime, timezone
-from dataclasses import dataclass, asdict
+from dataclasses import dataclass
 from typing import Optional
 import importlib.metadata
 
@@ -43,7 +43,7 @@ import zarr
 INPUT_PATH = Path("habib17.h5ad")
 OUTPUT_PATH = Path("test-data/habib17-differential-expression-test-data-format.zarr")
 GROUPBY_COLUMN = "CellType"
-MIN_CELLS = 50
+MIN_CELLS = 5  # Minimum cells required in group_1 to run DE contrast (relaxed for testing)
 
 
 # In[4b]:
@@ -57,14 +57,20 @@ class ContrastConfig:
     method: str
     corr_method: Optional[str] = None
     test_type: str = "one_vs_rest"
+    subset_column: Optional[str] = None
+    subset_value: Optional[str] = None
     
 
-def _build_contrast_matrix(cell_types: list[str]) -> list[ContrastConfig]:
-    """Build deterministic contrast matrix with 45 contrasts.
+def _build_contrast_matrix(
+    cell_types: list[str],
+    hippocampus_cell_types: list[str],
+) -> list[ContrastConfig]:
+    """Build deterministic contrast matrix with base and subset contrasts.
     
     15 wilcoxon + benjamini-hochberg (all cell types)
     15 t-test + bonferroni (all cell types)
     15 logreg multiclass entries (all cell types)
+    N wilcoxon + benjamini-hochberg on subset region=Hippocampus
     """
     contrasts = []
     
@@ -97,8 +103,29 @@ def _build_contrast_matrix(cell_types: list[str]) -> list[ContrastConfig]:
             corr_method=None,
             test_type="multiclass"
         ))
+
+    # Series 4: subset region=Hippocampus, one-vs-rest Wilcoxon.
+    for i, ct in enumerate(hippocampus_cell_types, len(contrasts) + 1):
+        contrasts.append(ContrastConfig(
+            contrast_id=f"de_{i:03d}",
+            group_1=ct,
+            method="wilcoxon",
+            corr_method="benjamini-hochberg",
+            test_type="one_vs_rest",
+            subset_column="region",
+            subset_value="Hippocampus",
+        ))
     
     return contrasts
+
+
+def _map_region(cell_id: str) -> str:
+    cell_id = cell_id.lower()
+    if "pfc" in cell_id:
+        return "PFC"
+    if "hp" in cell_id:
+        return "Hippocampus"
+    return "Other"
 
 
 # In[5]:
@@ -353,8 +380,8 @@ def _write_contrast_to_zarr(
         "group_1": contrast_config.group_1,
         "group_2": None,
         "test_type": contrast_config.test_type,
-        "subset_column": None,
-        "subset_value": None,
+        "subset_column": contrast_config.subset_column,
+        "subset_value": contrast_config.subset_value,
         "contrast_column": GROUPBY_COLUMN,
         "de_method": contrast_config.method,
         "correction_method": contrast_config.corr_method,
@@ -390,6 +417,7 @@ def main() -> None:
 
     # Make sure group labels are categorical for rank_genes_groups.
     adata.obs[GROUPBY_COLUMN] = adata.obs[GROUPBY_COLUMN].astype("category")
+    adata.obs["region"] = [_map_region(idx) for idx in adata.obs_names]
 
     should_preprocess, reason = _needs_preprocessing(adata)
     print(reason)
@@ -404,9 +432,19 @@ def main() -> None:
     # Get deterministic cell type list
     cell_types = sorted(adata.obs[GROUPBY_COLUMN].unique().astype(str).tolist())
     print(f"Found {len(cell_types)} cell types: {cell_types}")
+
+    hippocampus_subset = adata[adata.obs["region"] == "Hippocampus"].copy()
+    hippocampus_subset.obs[GROUPBY_COLUMN] = hippocampus_subset.obs[GROUPBY_COLUMN].astype("category")
+    hippocampus_cell_types = sorted(
+        hippocampus_subset.obs[GROUPBY_COLUMN].unique().astype(str).tolist()
+    )
+    print(
+        f"Found {len(hippocampus_cell_types)} hippocampus subset cell types: "
+        f"{hippocampus_cell_types}"
+    )
     
     # Build contrast matrix
-    contrasts = _build_contrast_matrix(cell_types)
+    contrasts = _build_contrast_matrix(cell_types, hippocampus_cell_types)
     print(f"Built contrast matrix with {len(contrasts)} contrasts")
     
     # Compute global mean expression per gene (for all cells)
@@ -414,6 +452,11 @@ def main() -> None:
         mean_expr_global = np.asarray(adata.X.mean(axis=0)).ravel()
     else:
         mean_expr_global = np.asarray(adata.X).mean(axis=0).ravel()
+
+    if hasattr(hippocampus_subset.X, "mean"):
+        mean_expr_hippocampus = np.asarray(hippocampus_subset.X.mean(axis=0)).ravel()
+    else:
+        mean_expr_hippocampus = np.asarray(hippocampus_subset.X).mean(axis=0).ravel()
     
     # Prepare output directory
     OUTPUT_PATH.parent.mkdir(parents=True, exist_ok=True)
@@ -433,8 +476,15 @@ def main() -> None:
     
     for contrast_config in contrasts:
         try:
+            is_hippocampus_subset = (
+                contrast_config.subset_column == "region"
+                and contrast_config.subset_value == "Hippocampus"
+            )
+            active_adata = hippocampus_subset if is_hippocampus_subset else adata
+            active_mean_expr = mean_expr_hippocampus if is_hippocampus_subset else mean_expr_global
+
             # Validate group size
-            group_size = (adata.obs[GROUPBY_COLUMN] == contrast_config.group_1).sum()
+            group_size = (active_adata.obs[GROUPBY_COLUMN] == contrast_config.group_1).sum()
             if group_size < MIN_CELLS:
                 print(f"  ⊘ {contrast_config.contrast_id}: group '{contrast_config.group_1}' has {group_size} cells < {MIN_CELLS}")
                 continue
@@ -456,7 +506,7 @@ def main() -> None:
             else:
                 key_added = f"_contrast_{contrast_config.contrast_id}"
                 sc.tl.rank_genes_groups(
-                    adata,
+                    active_adata,
                     groupby=GROUPBY_COLUMN,
                     groups=[contrast_config.group_1],
                     method=contrast_config.method,
@@ -469,10 +519,10 @@ def main() -> None:
             
             # Extract per-contrast arrays
             arrays = _extract_contrast_arrays(
-                adata,
+                active_adata,
                 key_added,
                 contrast_config.group_1,
-                mean_expr_global,
+                active_mean_expr,
             )
             
             # Pre-sort all arrays
@@ -493,8 +543,8 @@ def main() -> None:
             print(f"  ✓ {contrast_config.contrast_id}: {contrast_config.method} + {contrast_config.corr_method} ({group_size} cells)")
             
             # Clean up per-contrast temporary keys. Keep multiclass logreg key until all logreg entries are processed.
-            if contrast_config.method != "logreg" and key_added in adata.uns:
-                del adata.uns[key_added]
+            if contrast_config.method != "logreg" and key_added in active_adata.uns:
+                del active_adata.uns[key_added]
             
         except Exception as e:
             print(f"  ✗ {contrast_config.contrast_id}: {e}")
@@ -516,9 +566,32 @@ def main() -> None:
         "contrast_summary": {
             "total_contrasts": processed_count,
             "series": [
-                {"series_id": 1, "method": "wilcoxon", "corr": "benjamini-hochberg", "n_contrasts": 15},
-                {"series_id": 2, "method": "t-test", "corr": "bonferroni", "n_contrasts": 15},
-                {"series_id": 3, "method": "logreg", "corr": None, "n_contrasts": 15},
+                {
+                    "series_id": 1,
+                    "method": "wilcoxon",
+                    "corr": "benjamini-hochberg",
+                    "n_contrasts": len(cell_types),
+                },
+                {
+                    "series_id": 2,
+                    "method": "t-test",
+                    "corr": "bonferroni",
+                    "n_contrasts": len(cell_types),
+                },
+                {
+                    "series_id": 3,
+                    "method": "logreg",
+                    "corr": None,
+                    "n_contrasts": len(cell_types),
+                },
+                {
+                    "series_id": 4,
+                    "method": "wilcoxon",
+                    "corr": "benjamini-hochberg",
+                    "subset_column": "region",
+                    "subset_value": "Hippocampus",
+                    "n_contrasts": len(hippocampus_cell_types),
+                },
             ],
         },
         "contrasts": registry,

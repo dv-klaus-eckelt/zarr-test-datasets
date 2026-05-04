@@ -9,7 +9,8 @@
       "percent_mito",
       "percent_ribo",
       "percent_hb",
-      "percent_top50"
+      "percent_top50",
+      "region"
     ],
     "_index": "index",
     "encoding-type": "dataframe",
