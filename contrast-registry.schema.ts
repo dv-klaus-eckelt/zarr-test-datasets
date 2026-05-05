@@ -60,7 +60,7 @@ const CommonContrastFieldsSchema = z.object({
     .string()
     .min(1)
     .describe(
-      "Human-readable x-axis label for method-specific effect size scale.",
+      'Human-readable x-axis label emitted by the generator (currently "log2(Fold Change)" for all methods).',
     ),
   n_features: z
     .number()
@@ -76,7 +76,7 @@ const CommonContrastFieldsSchema = z.object({
 
 /**
  * Non-logreg contrasts (wilcoxon and t-test) expose p-value based metrics.
- * These entries always include y-axis labels and numeric chart bounds.
+ * These entries include y-axis labels and numeric chart bounds.
  */
 const NonLogregContrastSchema = CommonContrastFieldsSchema.extend({
   de_method: z
@@ -115,8 +115,9 @@ const NonLogregContrastSchema = CommonContrastFieldsSchema.extend({
 });
 
 /**
- * Multiclass logreg contrasts do not expose p-value metrics in this format.
+ * Multiclass logreg contrasts do not expose p-value metrics in registry metadata.
  * Therefore correction_method, y_axis_label, lfc_max, and logp_max are null.
+ * Note: per-gene arrays still exist on disk with NaN placeholders for unsupported metrics.
  */
 const LogregContrastSchema = CommonContrastFieldsSchema.extend({
   de_method: z
