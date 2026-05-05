@@ -39,6 +39,7 @@ Current test data sets in this repository and links for aevidence running locall
 
 - [Single Cell (zarr v2 format)](http://127.0.0.1:8080/app/single_cell?id=sc-zarr-v2&name=Single+Cell+%28zarr+v2+format%29&type=single-cell&url=http%3A%2F%2Flocalhost%3A8000%2Fsingle-cell-v2-test-data.zarr%2F)
 - [Single Cell (zarr v3 format)](http://127.0.0.1:8080/app/single_cell?id=sc-zarr-v3&name=Single+Cell+%28zarr+v3+format%29&type=single-cell&url=http%3A%2F%2Flocalhost%3A8000%2Fsingle-cell-v3-test-data.zarr%2F)
+- [Single Cell with differential expression (zarr v3 format)](http://127.0.0.1:8080/app/single_cell?id=46652b4c&name=Habib+et+al.+Differential+Expresison+Test&primaryAttribute=CellType&storeType=simple&type=single-cell&url=http%3A%2F%2Flocalhost%3A8000%2Fhabib17-differential-expression-test-data-format.zarr%2F&watermark=46652b4c)
 
 **Spatial**
 
