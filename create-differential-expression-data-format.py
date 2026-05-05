@@ -221,6 +221,8 @@ def _extract_contrast_arrays(
         else:  # Structured array
             if group_1 in lfc_field.dtype.names:
                 logfoldchanges_arr = np.array(lfc_field[group_1])
+    else:
+        print(f"Warning: 'logfoldchanges' field not found in result for contrast {contrast_key}. logfoldchanges will be NaN.")
     
     logfoldchanges = logfoldchanges_arr if logfoldchanges_arr is not None else np.full(len(symbols), np.nan)
     
@@ -233,6 +235,8 @@ def _extract_contrast_arrays(
         else:  # Structured array
             if group_1 in pvals_field.dtype.names:
                 pvals_arr = np.array(pvals_field[group_1])
+    else:
+        print(f"Warning: 'pvals' field not found in result for contrast {contrast_key}. pvals will be NaN.")
     
     pvals = pvals_arr if pvals_arr is not None else np.full(len(symbols), np.nan)
     
@@ -245,6 +249,8 @@ def _extract_contrast_arrays(
         else:  # Structured array
             if group_1 in pvals_adj_field.dtype.names:
                 pvals_adj_arr = np.array(pvals_adj_field[group_1])
+    else:
+        print(f"Warning: 'pvals_adj' field not found in result for contrast {contrast_key}. pvals_adj will be NaN.")
     
     pvals_adj = pvals_adj_arr if pvals_adj_arr is not None else np.full(len(symbols), np.nan)
     
@@ -258,6 +264,9 @@ def _extract_contrast_arrays(
         else:  # Structured array
             if group_1 in pts_field.dtype.names:
                 pct_expr_target_arr = np.array(pts_field[group_1]) * 100
+    else:
+        print(f"Warning: 'pts' field not found in result for contrast {contrast_key}. pct_expr_target will be NaN.")
+
     
     pct_expr_target = pct_expr_target_arr if pct_expr_target_arr is not None else np.full(len(symbols), np.nan)
     
@@ -271,6 +280,8 @@ def _extract_contrast_arrays(
         else:  # Structured array
             if group_1 in pts_rest_field.dtype.names:
                 pct_expr_ref_arr = np.array(pts_rest_field[group_1]) * 100
+    else:
+        print(f"Warning: 'pts_rest' field not found in result for contrast {contrast_key}. pct_expr_ref will be NaN.")
     
     pct_expr_ref = pct_expr_ref_arr if pct_expr_ref_arr is not None else np.full(len(symbols), np.nan)
     
