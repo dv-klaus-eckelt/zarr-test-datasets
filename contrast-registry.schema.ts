@@ -1,16 +1,6 @@
 import { z } from "zod";
 
-/**
- * Contrast entry schema for uns/de/contrast_registry.json -> contrasts[].
- *
- * Frontend intent:
- * - Discover available DE comparisons.
- * - Configure chart labels and axis bounds without loading gene-level arrays.
- * - Decide which chart types are valid for a given DE method.
- */
-const TestTypeSchema = z.enum(["one_vs_rest", "pairwise", "multiclass"]);
-
-const CommonContrastFieldsSchema = z.object({
+const SharedContrastFields = {
   contrast_id: z
     .string()
     .min(1)
@@ -29,9 +19,12 @@ const CommonContrastFieldsSchema = z.object({
     .describe(
       "Reference group label. Null for one-vs-rest and current multiclass outputs where reference is implicit.",
     ),
-  test_type: TestTypeSchema.describe(
-    "Frontend category of comparison semantics: one_vs_rest, pairwise, or multiclass.",
-  ),
+  test_type: z
+    .string()
+    .min(1)
+    .describe(
+      "Frontend grouping label for comparison semantics (for example one_vs_rest, pairwise, multiclass, or custom labels).",
+    ),
   subset_column: z
     .string()
     .nullable()
@@ -56,107 +49,180 @@ const CommonContrastFieldsSchema = z.object({
     .describe(
       "Feature modality label for UI display/filtering (for example Gene Expression).",
     ),
-  x_axis_label: z
+  de_method: z
     .string()
     .min(1)
+    .describe("DE algorithm identifier as a free-form string."),
+  has_effect_size: z
+    .boolean()
+    .describe("Whether effect-size metrics are available for this contrast."),
+  has_significance: z
+    .boolean()
+    .describe("Whether significance metrics are available for this contrast."),
+  has_pct_expr_target: z
+    .boolean()
     .describe(
-      'Human-readable x-axis label emitted by the generator (currently "log2(Fold Change)" for all methods).',
+      "Whether target-group percent-expression values are available for this contrast.",
     ),
-  n_features: z
-    .number()
-    .int()
-    .nonnegative()
+  has_pct_expr_ref: z
+    .boolean()
     .describe(
-      "Total number of ranked features available in the corresponding de_xxx folder arrays.",
+      "Whether reference/rest percent-expression values are available for this contrast.",
     ),
-  top_10_genes: z
+  top_10_gene_ids: z
     .array(z.string().min(1))
-    .describe("Top 10 gene symbols ranked by score in descending order."),
-});
+    .describe("Top 10 feature IDs ranked by score in descending order."),
+};
 
-/**
- * Non-logreg contrasts (wilcoxon and t-test) expose p-value based metrics.
- * These entries include y-axis labels and numeric chart bounds.
- */
-const NonLogregContrastSchema = CommonContrastFieldsSchema.extend({
-  de_method: z
-    .enum(["wilcoxon", "t-test"])
-    .describe("DE algorithm used to produce this contrast."),
+const EffectAndSignificanceContrastSchema = z.object({
+  ...SharedContrastFields,
+  has_effect_size: z.literal(true),
+  has_significance: z.literal(true),
   correction_method: z
     .string()
     .min(1)
     .describe(
-      "P-value adjustment method used for significance (for example benjamini-hochberg or bonferroni).",
+      "P-value correction method when significance metrics are available.",
     ),
-  y_axis_label: z
+  effect_size_label: z
     .string()
     .min(1)
     .describe(
-      "Y-axis label for significance scale, usually -log10(FDR) or -log10(p).",
+      "Human-readable effect-size label when effect-size metrics are available.",
     ),
-  lfc_max: z
+  significance_label: z
+    .string()
+    .min(1)
+    .describe(
+      "Significance metric label when significance metrics are available.",
+    ),
+  effect_size_max: z
     .number()
     .nonnegative()
     .describe(
-      "Maximum absolute effect-size bound used to keep volcano x-axis symmetric and stable across contrasts.",
+      "Absolute effect-size bound when effect-size metrics are available.",
     ),
-  logp_max: z
+  significance_max: z
     .number()
     .nonnegative()
-    .describe(
-      "Maximum -log10(p) bound used to stabilize volcano y-axis height.",
-    ),
-  available_plots: z
-    .array(z.enum(["volcano", "dotplot"]))
-    .nonempty()
-    .describe(
-      "Plot types enabled for this contrast; non-logreg supports volcano and dotplot.",
-    ),
+    .describe("Significance bound when p-value metrics are available."),
 });
 
-/**
- * Multiclass logreg contrasts do not expose p-value metrics in registry metadata.
- * Therefore correction_method, y_axis_label, lfc_max, and logp_max are null.
- * Note: per-gene arrays still exist on disk with NaN placeholders for unsupported metrics.
- */
-const LogregContrastSchema = CommonContrastFieldsSchema.extend({
-  de_method: z
-    .literal("logreg")
-    .describe("Multiclass logistic-regression output emitted per class."),
+const EffectOnlyContrastSchema = z.object({
+  ...SharedContrastFields,
+  has_effect_size: z.literal(true),
+  has_significance: z.literal(false),
   correction_method: z
     .null()
     .describe(
-      "Null because logreg output here does not include p-value correction metadata.",
+      "P-value correction method must be null when significance metrics are unavailable.",
     ),
-  y_axis_label: z
+  effect_size_label: z
+    .string()
+    .min(1)
+    .describe(
+      "Human-readable effect-size label when effect-size metrics are available.",
+    ),
+  significance_label: z
     .null()
     .describe(
-      "Null because volcano-style significance y-axis is not used for multiclass logreg output.",
+      "Significance metric label must be null when significance metrics are unavailable.",
     ),
-  lfc_max: z
+  effect_size_max: z
+    .number()
+    .nonnegative()
+    .describe(
+      "Absolute effect-size bound when effect-size metrics are available.",
+    ),
+  significance_max: z
     .null()
     .describe(
-      "Null because fold-change style x-axis bounds are not defined for this logreg representation.",
+      "Significance bound must be null when p-value metrics are unavailable.",
     ),
-  logp_max: z
+});
+
+const SignificanceOnlyContrastSchema = z.object({
+  ...SharedContrastFields,
+  has_effect_size: z.literal(false),
+  has_significance: z.literal(true),
+  correction_method: z
+    .string()
+    .min(1)
+    .describe(
+      "P-value correction method when significance metrics are available.",
+    ),
+  effect_size_label: z
     .null()
     .describe(
-      "Null because p-value significance bounds are not produced for this logreg representation.",
+      "Effect-size label must be null when effect-size metrics are unavailable.",
     ),
-  available_plots: z
-    .array(z.enum(["bar_chart", "dotplot"]))
-    .nonempty()
+  significance_label: z
+    .string()
+    .min(1)
     .describe(
-      "Plot types enabled for this contrast; logreg supports bar_chart and dotplot.",
+      "Significance metric label when significance metrics are available.",
+    ),
+  effect_size_max: z
+    .null()
+    .describe(
+      "Effect-size bound must be null when effect-size metrics are unavailable.",
+    ),
+  significance_max: z
+    .number()
+    .nonnegative()
+    .describe("Significance bound when p-value metrics are available."),
+});
+
+const ScoreOnlyContrastSchema = z.object({
+  ...SharedContrastFields,
+  has_effect_size: z.literal(false),
+  has_significance: z.literal(false),
+  correction_method: z
+    .null()
+    .describe(
+      "P-value correction method must be null when significance metrics are unavailable.",
+    ),
+  effect_size_label: z
+    .null()
+    .describe(
+      "Effect-size label must be null when effect-size metrics are unavailable.",
+    ),
+  significance_label: z
+    .null()
+    .describe(
+      "Significance metric label must be null when significance metrics are unavailable.",
+    ),
+  effect_size_max: z
+    .null()
+    .describe(
+      "Effect-size bound must be null when effect-size metrics are unavailable.",
+    ),
+  significance_max: z
+    .null()
+    .describe(
+      "Significance bound must be null when p-value metrics are unavailable.",
     ),
 });
 
 /**
- * Discriminated union guarantees method-specific nullability at type level.
+ * Method-agnostic contrast schema.
+ *
+ * Contrast entry schema for uns/de/contrast_registry.json -> contrasts[].
+ *
+ * Frontend intent:
+ * - Discover available DE comparisons.
+ * - Configure chart labels and metric bounds without loading gene-level arrays.
+ * - Infer optional visualizations from available metrics and arrays.
+ *
+ * This intentionally does not discriminate on `de_method` so collaborators can
+ * provide outputs from any DE engine (for example Scanpy, DESeq2, edgeR, MAST,
+ * or custom pipelines) without schema updates.
  */
-export const ContrastSchema = z.discriminatedUnion("de_method", [
-  NonLogregContrastSchema,
-  LogregContrastSchema,
+export const ContrastSchema = z.union([
+  EffectAndSignificanceContrastSchema,
+  EffectOnlyContrastSchema,
+  SignificanceOnlyContrastSchema,
+  ScoreOnlyContrastSchema,
 ]);
 
 /**

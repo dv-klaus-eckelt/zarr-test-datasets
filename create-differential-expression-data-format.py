@@ -197,13 +197,14 @@ def _extract_contrast_arrays(
     """
     result = adata.uns[contrast_key]
     
-    # Extract arrays for the target group
+    # Extract arrays for the target group.
+    # Scanpy rank_genes_groups names are based on adata.var_names.
     # Handle both DataFrame and structured array formats
     names_field = result["names"]
     if hasattr(names_field, "columns"):  # DataFrame
-        symbols = np.array(names_field[group_1].values)
+        gene_id = np.array(names_field[group_1].values)
     else:  # Structured array
-        symbols = np.array(names_field[group_1])
+        gene_id = np.array(names_field[group_1])
     
     scores_field = result["scores"]
     if hasattr(scores_field, "columns"):  # DataFrame
@@ -211,20 +212,20 @@ def _extract_contrast_arrays(
     else:  # Structured array
         scores = np.array(scores_field[group_1])
     
-    # For logreg, pvals/logfoldchanges will be missing; initialize as NaN
-    logfoldchanges_arr = None
+    # For logreg, pvals/effect-size source values may be missing; initialize as NaN
+    effect_size_arr = None
     if "logfoldchanges" in result:
         lfc_field = result["logfoldchanges"]
         if hasattr(lfc_field, "columns"):  # DataFrame
             if group_1 in lfc_field.columns:
-                logfoldchanges_arr = np.array(lfc_field[group_1].values)
+                effect_size_arr = np.array(lfc_field[group_1].values)
         else:  # Structured array
             if group_1 in lfc_field.dtype.names:
-                logfoldchanges_arr = np.array(lfc_field[group_1])
+                effect_size_arr = np.array(lfc_field[group_1])
     else:
         print(f"Warning: 'logfoldchanges' field not found in result for contrast {contrast_key}. logfoldchanges will be NaN.")
-    
-    logfoldchanges = logfoldchanges_arr if logfoldchanges_arr is not None else np.full(len(symbols), np.nan)
+
+    effect_size = effect_size_arr if effect_size_arr is not None else np.full(len(gene_id), np.nan)
     
     pvals_arr = None
     if "pvals" in result:
@@ -238,7 +239,7 @@ def _extract_contrast_arrays(
     else:
         print(f"Warning: 'pvals' field not found in result for contrast {contrast_key}. pvals will be NaN.")
     
-    pvals = pvals_arr if pvals_arr is not None else np.full(len(symbols), np.nan)
+    pvals = pvals_arr if pvals_arr is not None else np.full(len(gene_id), np.nan)
     
     pvals_adj_arr = None
     if "pvals_adj" in result:
@@ -252,7 +253,7 @@ def _extract_contrast_arrays(
     else:
         print(f"Warning: 'pvals_adj' field not found in result for contrast {contrast_key}. pvals_adj will be NaN.")
     
-    pvals_adj = pvals_adj_arr if pvals_adj_arr is not None else np.full(len(symbols), np.nan)
+    pvals_adj = pvals_adj_arr if pvals_adj_arr is not None else np.full(len(gene_id), np.nan)
     
     # Get pts (percent expressing in target group)
     pct_expr_target_arr = None
@@ -268,7 +269,7 @@ def _extract_contrast_arrays(
         print(f"Warning: 'pts' field not found in result for contrast {contrast_key}. pct_expr_target will be NaN.")
 
     
-    pct_expr_target = pct_expr_target_arr if pct_expr_target_arr is not None else np.full(len(symbols), np.nan)
+    pct_expr_target = pct_expr_target_arr if pct_expr_target_arr is not None else np.full(len(gene_id), np.nan)
     
     # Get pts_rest (percent expressing in reference/rest)
     pct_expr_ref_arr = None
@@ -283,13 +284,13 @@ def _extract_contrast_arrays(
     else:
         print(f"Warning: 'pts_rest' field not found in result for contrast {contrast_key}. pct_expr_ref will be NaN.")
     
-    pct_expr_ref = pct_expr_ref_arr if pct_expr_ref_arr is not None else np.full(len(symbols), np.nan)
+    pct_expr_ref = pct_expr_ref_arr if pct_expr_ref_arr is not None else np.full(len(gene_id), np.nan)
     
     mean_expr = mean_expr_global  # Global mean expression across all cells
     
     return {
-        "symbols": symbols,
-        "logfoldchanges": logfoldchanges,
+        "gene_id": gene_id,
+        "effect_size": effect_size,
         "pvals": pvals,
         "pvals_adj": pvals_adj,
         "scores": scores,
@@ -302,15 +303,15 @@ def _extract_contrast_arrays(
 def _presort_contrast_arrays(arrays: dict) -> dict:
     """Pre-sort all arrays by descending scores with stable tie-breakers.
     
-    Sort order: descending scores, then ascending pvals_adj, then ascending symbol names.
+    Sort order: descending scores, then ascending pvals_adj, then ascending gene IDs.
     """
-    symbols = arrays["symbols"]
+    gene_id = arrays["gene_id"]
     scores = arrays["scores"]
     pvals_adj = arrays["pvals_adj"]
     
     # Create deterministic sort index (descending scores, stable for ties)
     sort_idx = np.lexsort((
-        symbols,  # Symbol names ascending (stable tie-breaker)
+        gene_id,  # Gene IDs ascending (stable tie-breaker)
         np.where(np.isnan(pvals_adj), np.inf, pvals_adj),  # pvals_adj ascending
         -scores  # Scores descending (note the minus sign)
     ))
@@ -338,26 +339,26 @@ def _write_array(group: zarr.Group, field_name: str, arr: np.ndarray) -> None:
 
 
 def _compute_axis_bounds(
-    logfoldchanges: np.ndarray,
+    effect_size: np.ndarray,
     pvals_adj: np.ndarray,
 ) -> tuple[Optional[float], Optional[float]]:
-    """Compute lfc_max and logp_max for chart axis anchoring."""
+    """Compute effect_size_max and significance_max for metadata anchoring."""
     # Filter out NaN/Inf values
-    valid_lfc = logfoldchanges[~(np.isnan(logfoldchanges) | np.isinf(logfoldchanges))]
+    valid_effect_size = effect_size[~(np.isnan(effect_size) | np.isinf(effect_size))]
     valid_pvals = pvals_adj[~np.isnan(pvals_adj)]
     
-    lfc_max = None
-    logp_max = None
+    effect_size_max = None
+    significance_max = None
     
-    if len(valid_lfc) > 0:
-        lfc_max = float(np.ceil(np.max(np.abs(valid_lfc))))
+    if len(valid_effect_size) > 0:
+        effect_size_max = float(np.ceil(np.max(np.abs(valid_effect_size))))
     
     if len(valid_pvals) > 0:
         # Compute -log10(p) and cap at 300
         logp_vals = -np.log10(np.maximum(valid_pvals, 1e-300))
-        logp_max = min(300.0, float(np.ceil(np.max(logp_vals))))
+        significance_max = min(300.0, float(np.ceil(np.max(logp_vals))))
     
-    return lfc_max, logp_max
+    return effect_size_max, significance_max
 
 
 def _write_contrast_to_zarr(
@@ -380,24 +381,36 @@ def _write_contrast_to_zarr(
     for field_name, arr in arrays.items():
         _write_array(store, field_name, arr)
     
-    # Compute chart bounds for registry
-    lfc_max, logp_max = _compute_axis_bounds(
-        arrays["logfoldchanges"],
+    # Compute metadata bounds for registry
+    effect_size_max, significance_max = _compute_axis_bounds(
+        arrays["effect_size"],
         arrays["pvals_adj"],
     )
     
-    # Determine available plots based on method
+    # Persist metric labels only when the corresponding metric is available.
     if contrast_config.method == "logreg":
-        available_plots = ["bar_chart", "dotplot"]
-        y_axis_label = None
-        logp_max = None
+        significance_label = None
+        significance_max = None
     else:
-        available_plots = ["volcano", "dotplot"]
-        y_axis_label = "-log10(FDR)" if contrast_config.corr_method else "-log10(p)"
+        significance_label = (
+            "-log10(FDR)" if contrast_config.corr_method else "-log10(p)"
+        ) if significance_max is not None else None
+
+    effect_size_label = "log2(Fold Change)" if effect_size_max is not None else None
+
+    has_effect_size = effect_size_max is not None
+    has_significance = significance_max is not None
+    has_pct_expr_target = bool(np.any(~np.isnan(arrays["pct_expr_target"])))
+    has_pct_expr_ref = bool(np.any(~np.isnan(arrays["pct_expr_ref"])))
+    correction_method = (
+        contrast_config.corr_method if significance_max is not None else None
+    )
+    if significance_max is not None and correction_method is None:
+        correction_method = "uncorrected"
     
-    # Extract top 10 genes from sorted symbols
-    symbols_list = arrays["symbols"].tolist()
-    top_10_genes = symbols_list[:10]
+    # Extract top 10 feature IDs from sorted gene_id values.
+    gene_id_list = arrays["gene_id"].tolist()
+    top_10_gene_ids = gene_id_list[:10]
     
     return {
         "contrast_id": contrast_id,
@@ -408,15 +421,17 @@ def _write_contrast_to_zarr(
         "subset_value": contrast_config.subset_value,
         "contrast_column": GROUPBY_COLUMN,
         "de_method": contrast_config.method,
-        "correction_method": contrast_config.corr_method,
+        "correction_method": correction_method,
+        "has_effect_size": has_effect_size,
+        "has_significance": has_significance,
+        "has_pct_expr_target": has_pct_expr_target,
+        "has_pct_expr_ref": has_pct_expr_ref,
         "feature_type": "Gene Expression",
-        "x_axis_label": "log2(Fold Change)",
-        "y_axis_label": y_axis_label,
-        "lfc_max": lfc_max,
-        "logp_max": logp_max,
-        "n_features": len(arrays["symbols"]),
-        "available_plots": available_plots,
-        "top_10_genes": top_10_genes,
+        "effect_size_label": effect_size_label,
+        "significance_label": significance_label,
+        "effect_size_max": effect_size_max,
+        "significance_max": significance_max,
+        "top_10_gene_ids": top_10_gene_ids,
     }
 
 
@@ -428,6 +443,14 @@ def main() -> None:
         raise FileNotFoundError(f"Input file not found: {INPUT_PATH}")
 
     adata = ad.read_h5ad(INPUT_PATH)
+
+    if not adata.var_names.is_unique:
+        duplicate_count = int(adata.var_names.duplicated().sum())
+        print(
+            "Detected duplicate var_names "
+            f"({duplicate_count}). Applying var_names_make_unique() before DE."
+        )
+        adata.var_names_make_unique()
 
     if GROUPBY_COLUMN not in adata.obs.columns:
         available = ", ".join(adata.obs.columns.astype(str).tolist())
@@ -585,8 +608,6 @@ def main() -> None:
             "n_obs": adata.n_obs,
             "n_vars": adata.n_vars,
             "preprocessing": "normalize_total(target_sum=1e4) + log1p" if should_preprocess else "none",
-            "groupby_column": GROUPBY_COLUMN,
-            "n_groups": len(cell_types),
         },
         "contrast_summary": {
             "total_contrasts": processed_count,
