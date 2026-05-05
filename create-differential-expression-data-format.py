@@ -287,7 +287,31 @@ def _extract_contrast_arrays(
     pct_expr_ref = pct_expr_ref_arr if pct_expr_ref_arr is not None else np.full(len(gene_id), np.nan)
     
     mean_expr = mean_expr_global  # Global mean expression across all cells
-    
+
+    # Compute mean expression for target group (cells where GROUPBY_COLUMN == group_1)
+    target_mask = np.asarray(adata.obs[GROUPBY_COLUMN] == group_1)
+    n_target = int(target_mask.sum())
+    if n_target > 0:
+        X_target = adata.X[target_mask]
+        if hasattr(X_target, "mean"):
+            mean_expr_target = np.asarray(X_target.mean(axis=0)).ravel()
+        else:
+            mean_expr_target = np.asarray(X_target).mean(axis=0).ravel()
+    else:
+        mean_expr_target = np.full(adata.n_vars, np.nan)
+
+    # Compute mean expression for reference/rest group (all cells NOT in target group)
+    ref_mask = ~target_mask
+    n_ref = int(ref_mask.sum())
+    if n_ref > 0:
+        X_ref = adata.X[ref_mask]
+        if hasattr(X_ref, "mean"):
+            mean_expr_ref = np.asarray(X_ref.mean(axis=0)).ravel()
+        else:
+            mean_expr_ref = np.asarray(X_ref).mean(axis=0).ravel()
+    else:
+        mean_expr_ref = np.full(adata.n_vars, np.nan)
+
     return {
         "gene_id": gene_id,
         "effect_size": effect_size,
@@ -297,6 +321,8 @@ def _extract_contrast_arrays(
         "pct_expr_target": pct_expr_target,
         "pct_expr_ref": pct_expr_ref,
         "mean_expr": mean_expr,
+        "mean_expr_target": mean_expr_target,
+        "mean_expr_ref": mean_expr_ref,
     }
 
 
@@ -402,6 +428,8 @@ def _write_contrast_to_zarr(
     has_significance = significance_max is not None
     has_pct_expr_target = bool(np.any(~np.isnan(arrays["pct_expr_target"])))
     has_pct_expr_ref = bool(np.any(~np.isnan(arrays["pct_expr_ref"])))
+    has_mean_expr_target = bool(np.any(~np.isnan(arrays["mean_expr_target"])))
+    has_mean_expr_ref = bool(np.any(~np.isnan(arrays["mean_expr_ref"])))
     correction_method = (
         contrast_config.corr_method if significance_max is not None else None
     )
@@ -426,6 +454,8 @@ def _write_contrast_to_zarr(
         "has_significance": has_significance,
         "has_pct_expr_target": has_pct_expr_target,
         "has_pct_expr_ref": has_pct_expr_ref,
+        "has_mean_expr_target": has_mean_expr_target,
+        "has_mean_expr_ref": has_mean_expr_ref,
         "feature_type": "Gene Expression",
         "effect_size_label": effect_size_label,
         "significance_label": significance_label,

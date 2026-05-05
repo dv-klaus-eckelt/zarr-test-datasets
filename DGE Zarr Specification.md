@@ -15,7 +15,9 @@ dataset.zarr/
  │ ├── pvals/ \# Raw p-values (NaN for logreg)
  │ ├── pct_expr_target/ \# % in group_1 (NaN for logreg)
  │ ├── pct_expr_ref/ \# % in reference/rest (NaN for logreg)
- │ └── mean_expr/ \# Global average expression
+ │ ├── mean_expr/ \# Global average expression
+ │ ├── mean_expr_target/ \# Mean expression in group_1
+ │ └── mean_expr_ref/ \# Mean expression in reference/rest
  └── de_002/ \# Parallel folder for the next test
 ```
 
@@ -34,6 +36,8 @@ This registry allows the frontend to descirbe the available contrasts, determine
 | **has_significance**    | true                 | Whether significance metrics are available for this contrast.                                                     |
 | **has_pct_expr_target** | true                 | Whether `% expressing` values for the target group are available.                                                 |
 | **has_pct_expr_ref**    | true                 | Whether `% expressing` values for the reference/rest group are available.                                         |
+| **has_mean_expr_target** | true                | Whether mean expression values for the target group are available.                                                |
+| **has_mean_expr_ref**   | true                 | Whether mean expression values for the reference/rest group are available.                                        |
 | **correction_method**   | "benjamini-hochberg" | P-value adjustment method when significance metrics are available; otherwise `null`.                              |
 | **feature_type**        | "Gene Expression"    | Type of features for display/filtering. Currently not used.                                                       |
 | **effect_size_label**   | "log2(Fold Change)"  | Eeffect-size label in the frontend.                                                                               |
