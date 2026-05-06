@@ -69,6 +69,16 @@ const SharedContrastFields = {
     .describe(
       "Whether reference/rest percent-expression values are available for this contrast.",
     ),
+  has_mean_expr_target: z
+    .boolean()
+    .describe(
+      "Whether target-group mean-expression values are available for this contrast.",
+    ),
+  has_mean_expr_ref: z
+    .boolean()
+    .describe(
+      "Whether reference/rest mean-expression values are available for this contrast.",
+    ),
   top_10_gene_ids: z
     .array(z.string().min(1))
     .describe("Top 10 feature IDs ranked by score in descending order."),
