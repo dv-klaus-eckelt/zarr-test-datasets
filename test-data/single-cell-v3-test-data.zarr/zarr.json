@@ -608,14 +608,14 @@
       },
       "X/data": {
         "shape": [
-          515
+          511
         ],
         "data_type": "float32",
         "chunk_grid": {
           "name": "regular",
           "configuration": {
             "chunk_shape": [
-              515
+              511
             ]
           }
         },
@@ -631,7 +631,7 @@
             "name": "sharding_indexed",
             "configuration": {
               "chunk_shape": [
-                515
+                511
               ],
               "codecs": [
                 {
@@ -670,14 +670,14 @@
       },
       "X/indices": {
         "shape": [
-          515
+          511
         ],
         "data_type": "uint8",
         "chunk_grid": {
           "name": "regular",
           "configuration": {
             "chunk_shape": [
-              515
+              511
             ]
           }
         },
@@ -693,7 +693,7 @@
             "name": "sharding_indexed",
             "configuration": {
               "chunk_shape": [
-                515
+                511
               ],
               "codecs": [
                 {
