@@ -1,0 +1,13 @@
+services:
+  zarr-server:
+    image: nginx:alpine
+    container_name: zarr-server
+    ports:
+      - "8000:8000"
+    volumes:
+      # Mount Zarr data.
+      - ./test-data:/usr/share/nginx/html:ro
+
+      # Mount the nginx config
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf:ro
+    restart: unless-stopped

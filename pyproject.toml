@@ -1,0 +1,18 @@
+[project]
+name = "zarr-test-datasets"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "anndata>=0.12.11",
+    "dask==2026.1.1",
+    "ome-zarr>=0.16.0",
+    "scanpy>=1.12.1",
+    "spatialdata==0.7.3a1",
+    "zarr>=3.1.6",
+]
+[tool.uv]
+override-dependencies = ["dask==2026.1.1"]
+prerelease = "allow"
+exclude-newer = "2026-04-30T13:20:36.358035822+02:00"
