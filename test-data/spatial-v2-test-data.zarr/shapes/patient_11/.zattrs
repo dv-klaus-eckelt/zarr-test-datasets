@@ -1,45 +1,45 @@
 {
-    "axes": [
-        "x",
-        "y"
-    ],
-    "coordinateTransformations": [
-        {
-            "input": {
-                "axes": [
-                    {
-                        "name": "x",
-                        "type": "space",
-                        "unit": "unit"
-                    },
-                    {
-                        "name": "y",
-                        "type": "space",
-                        "unit": "unit"
-                    }
-                ],
-                "name": "xy"
-            },
-            "output": {
-                "axes": [
-                    {
-                        "name": "x",
-                        "type": "space",
-                        "unit": "unit"
-                    },
-                    {
-                        "name": "y",
-                        "type": "space",
-                        "unit": "unit"
-                    }
-                ],
-                "name": "global"
-            },
-            "type": "identity"
-        }
-    ],
-    "encoding-type": "ngff:shapes",
-    "spatialdata_attrs": {
-        "version": "0.2"
+  "encoding-type": "ngff:shapes",
+  "axes": [
+    "x",
+    "y"
+  ],
+  "coordinateTransformations": [
+    {
+      "type": "identity",
+      "input": {
+        "name": "xy",
+        "axes": [
+          {
+            "name": "x",
+            "type": "space",
+            "unit": "unit"
+          },
+          {
+            "name": "y",
+            "type": "space",
+            "unit": "unit"
+          }
+        ]
+      },
+      "output": {
+        "name": "global",
+        "axes": [
+          {
+            "name": "x",
+            "type": "space",
+            "unit": "unit"
+          },
+          {
+            "name": "y",
+            "type": "space",
+            "unit": "unit"
+          }
+        ]
+      }
     }
+  ],
+  "spatialdata_attrs": {
+    "version": "0.2"
+  }
 }

@@ -1,37 +1,10 @@
 # Single Cell & Spatial Test Data
 
-Related project: github.com/BIMSBBioinfo/dummy-spatialdata
-
-## Create new test data
-
-To work with different versions of [anndata](https://pypi.org/project/anndata/) and [zarr](https://pypi.org/project/zarr/) we use [juv](https://github.com/manzt/juv) to have notebooks with their individual dependencies.
-
-```sh
-# Create the notebook with python 3.12
-juv init --python=3.12 create-single-cell-data.ipynb
-
-# add dependencies
-juv add create-single-cell-data.ipynb anndata scanpy zarr spatialdata
-
-# timestamp dependencies
-juv stamp create-single-cell-data.ipynb
-```
-
-Run:
-
-```sh
-juv run create-single-cell-data.ipynb
-```
-
 ## Serve test data
 
-Run the local sevrer:
+There are two ways to provide the datasets to aevidence: via nginx (preferred, through docker) or by spinning up a server in python, see below.
 
-```sh
-python -m local_file_server ./test-data
-```
-
-Files are served from [localhost:8000](http://localhost:8000/).
+For both, files are served from [localhost:8000](http://localhost:8000/).
 
 Current test data sets in this repository and links for aevidence running locally:
 
@@ -45,3 +18,37 @@ Current test data sets in this repository and links for aevidence running locall
 
 - [Spatial (zarr v2 format)](http://127.0.0.1:8080/app/single_cell?id=spatial-zarr-v2&name=Spatial+%28zarr+v2+format%29&type=spatial&url=http%3A%2F%2Flocalhost%3A8000%2Fspatial-v2-test-data.zarr%2F)
 - [Spatial (zarr v3 format)](http://127.0.0.1:8080/app/single_cell?id=spatial-zarr-v3&name=Spatial+%28zarr+v3+format%29&type=spatial&url=http%3A%2F%2Flocalhost%3A8000%2Fspatial-v3-test-data.zarr%2F)
+
+### nginx/Docker
+
+Comes with native support for range requests and concurrent requests:
+
+```
+docker compose uü
+```
+
+### Python server
+
+Run the local sevrer (no .venv/dependencies needed):
+
+```sh
+python -m local_file_server ./test-data
+```
+
+## Create new test data
+
+Install dependencies and create a virtual environment with [uv](https://docs.astral.sh/uv/):
+
+**Dependencies:**
+
+```
+uv sync
+source .venv/bin/activate
+```
+
+## Notes
+
+Related project: github.com/BIMSBBioinfo/dummy-spatialdata
+
+Using [spatialdata 0.7.3a1](https://github.com/scverse/spatialdata/releases/tag/v0.7.3a1) to support chunks and [ome-zarr 0.16.0](https://github.com/ome/ome-zarr-py/releases/tag/v0.16.0) which introduces sharding.
+Pinning dask as there is [no version supported by both spatialdata and ome-zarr](https://github.com/scverse/spatialdata/issues/1059#issuecomment-4352434612).
