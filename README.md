@@ -2,34 +2,34 @@
 
 ## Serve test data
 
-There are two ways to provide the datasets to aevidence: via nginx (preferred, through docker) or by spinning up a server in python, see below.
+There are two ways to provide the datasets to Aevidence: via nginx (preferred, through docker) or by spinning up a server in python, see below.
 
 For both, files are served from [localhost:8000](http://localhost:8000/).
 
-Current test data sets in this repository and links for aevidence running locally:
+Current test data sets in this repository with links to Aevidence:
 
-**Single Cell**
+| **Single Cell** Dataset              | Localhost                                                                                                                                                                                                                                                                            | Public                                                                                                                                                                                                                                                                                                |
+| ------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| zarr v2                              | [Link](http://127.0.0.1:8080/app/single_cell?id=sc-zarr-v2&name=Single+Cell+%28zarr+v2+format%29&type=single-cell&url=http%3A%2F%2Flocalhost%3A8000%2Fsingle-cell-v2-test-data.zarr%2F)                                                                                              | [Link](https://aevidence.dev.app.datavisyn.io/app/single_cell?id=sc-zarr-v2&name=Single+Cell+%28zarr+v2+format%29&type=single-cell&url=http%3A%2F%2Flocalhost%3A8000%2Fsingle-cell-v2-test-data.zarr%2F)                                                                                              |
+| zarr v3                              | [Link](http://127.0.0.1:8080/app/single_cell?id=sc-zarr-v3&name=Single+Cell+%28zarr+v3+format%29&type=single-cell&url=http%3A%2F%2Flocalhost%3A8000%2Fsingle-cell-v3-test-data.zarr%2F)                                                                                              | [Link](https://aevidence.dev.app.datavisyn.io/app/single_cell?id=sc-zarr-v3&name=Single+Cell+%28zarr+v3+format%29&type=single-cell&url=http%3A%2F%2Flocalhost%3A8000%2Fsingle-cell-v3-test-data.zarr%2F)                                                                                              |
+| zarr v3 with differential expression | [Link](http://127.0.0.1:8080/app/single_cell?id=46652b4c&name=Habib+et+al.+Differential+Expression+Test&primaryAttribute=CellType&storeType=simple&type=single-cell&url=http%3A%2F%2Flocalhost%3A8000%2Fhabib17-differential-expression-test-data-format.zarr%2F&watermark=46652b4c) | [Link](https://aevidence.dev.app.datavisyn.io/app/single_cell?id=46652b4c&name=Habib+et+al.+Differential+Expression+Test&primaryAttribute=CellType&storeType=simple&type=single-cell&url=http%3A%2F%2Flocalhost%3A8000%2Fhabib17-differential-expression-test-data-format.zarr%2F&watermark=46652b4c) |
 
-- [Single Cell (zarr v2 format)](http://127.0.0.1:8080/app/single_cell?id=sc-zarr-v2&name=Single+Cell+%28zarr+v2+format%29&type=single-cell&url=http%3A%2F%2Flocalhost%3A8000%2Fsingle-cell-v2-test-data.zarr%2F)
-- [Single Cell (zarr v3 format)](http://127.0.0.1:8080/app/single_cell?id=sc-zarr-v3&name=Single+Cell+%28zarr+v3+format%29&type=single-cell&url=http%3A%2F%2Flocalhost%3A8000%2Fsingle-cell-v3-test-data.zarr%2F)
-- [Single Cell with differential expression (zarr v3 format)](http://127.0.0.1:8080/app/single_cell?id=46652b4c&name=Habib+et+al.+Differential+Expresison+Test&primaryAttribute=CellType&storeType=simple&type=single-cell&url=http%3A%2F%2Flocalhost%3A8000%2Fhabib17-differential-expression-test-data-format.zarr%2F&watermark=46652b4c)
-
-**Spatial**
-
-- [Spatial (zarr v2 format)](http://127.0.0.1:8080/app/single_cell?id=spatial-zarr-v2&name=Spatial+%28zarr+v2+format%29&type=spatial&url=http%3A%2F%2Flocalhost%3A8000%2Fspatial-v2-test-data.zarr%2F)
-- [Spatial (zarr v3 format)](http://127.0.0.1:8080/app/single_cell?id=spatial-zarr-v3&name=Spatial+%28zarr+v3+format%29&type=spatial&url=http%3A%2F%2Flocalhost%3A8000%2Fspatial-v3-test-data.zarr%2F)
+| **Spatial** Dataset | Localhost                                                                                                                                                                        | Public                                                                                                                                                                                            |
+| ------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| zarr v2             | [Link](http://127.0.0.1:8080/app/single_cell?id=spatial-zarr-v2&name=Spatial+%28zarr+v2+format%29&type=spatial&url=http%3A%2F%2Flocalhost%3A8000%2Fspatial-v2-test-data.zarr%2F) | [Link](https://aevidence.dev.app.datavisyn.io/app/single_cell?id=spatial-zarr-v2&name=Spatial+%28zarr+v2+format%29&type=spatial&url=http%3A%2F%2Flocalhost%3A8000%2Fspatial-v2-test-data.zarr%2F) |
+| zarr v3             | [Link](http://127.0.0.1:8080/app/single_cell?id=spatial-zarr-v3&name=Spatial+%28zarr+v3+format%29&type=spatial&url=http%3A%2F%2Flocalhost%3A8000%2Fspatial-v3-test-data.zarr%2F) | [Link](https://aevidence.dev.app.datavisyn.io/app/single_cell?id=spatial-zarr-v3&name=Spatial+%28zarr+v3+format%29&type=spatial&url=http%3A%2F%2Flocalhost%3A8000%2Fspatial-v3-test-data.zarr%2F) |
 
 ### nginx/Docker
 
 Comes with native support for range requests and concurrent requests:
 
 ```
-docker compose uü
+docker compose up
 ```
 
 ### Python server
 
-Run the local sevrer (no .venv/dependencies needed):
+Run the local server (no .venv/dependencies needed):
 
 ```sh
 python -m local_file_server ./test-data
