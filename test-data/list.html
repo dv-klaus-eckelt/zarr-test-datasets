@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Data Index</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        input {
+            margin: 10px 0;
+            padding: 5px;
+            width: 300px;
+        }
+        button {
+            padding: 5px 10px;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Test Data Index</h1>
+    <p>Enter your Aevidence domain to generate dataset links:</p>
+    <input type="text" id="domainInput" placeholder="Enter domain (e.g., aevidence.dev.app.datavisyn.io)" value="http://127.0.0.1:8080">
+    <button onclick="generateLinks()">Generate Links</button>
+
+    <h2>Available Datasets</h2>
+    <ul id="datasetList">
+        <!-- Directory listing will be dynamically populated -->
+    </ul>
+
+    <script>
+        let datasets = [];
+        
+        function generateLinks() {
+            const domain = document.getElementById('domainInput').value.trim();
+            const normalizedDomain = domain.replace(/\/$/, '');
+            const datasetList = document.getElementById('datasetList');
+            datasetList.innerHTML = '';
+
+            datasets.forEach(dataset => {
+                const datasetUrl = new URL(dataset.path, window.location.href).href;
+                let link = `${normalizedDomain}/app/single_cell?id=${encodeURIComponent(dataset.id)}&name=${encodeURIComponent(dataset.name)}&type=${dataset.type}&storeType=simple&watermark=test&url=${encodeURIComponent(datasetUrl)}`;
+
+                const listItem = document.createElement('li');
+                const anchor = document.createElement('a');
+                anchor.href = link;
+                anchor.textContent = dataset.name;
+                anchor.target = '_blank';
+                listItem.appendChild(anchor);
+                datasetList.appendChild(listItem);
+            });
+        }
+
+        async function fetchDatasets() {
+            const response = await fetch('./');
+            const text = await response.text();
+            const parser = new DOMParser();
+            const doc = parser.parseFromString(text, 'text/html');
+            const links = Array.from(doc.querySelectorAll('a'));
+
+            datasets = links
+                .map(link => link.getAttribute('href'))
+                .filter(href => href && href.endsWith('/') && href !== '../')
+                .map(href => {
+                    const name = href.replace(/\/$/, '');
+                    return {
+                        id: name,
+                        name,
+                        path: href,
+                        type: name.includes('spatial') ? 'spatial' : 'single_cell'
+                    };
+                });
+
+            generateLinks();
+        }
+
+        // Fetch datasets and render links on page load
+        fetchDatasets();
+    </script>
+</body>
+</html>
