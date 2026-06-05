@@ -3,4 +3,4 @@
 __pycache__/
 test-data/*.zip
 test-data/minipig
-
+test-data/visium_brain.spatialdata.zarr
