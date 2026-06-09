@@ -254,6 +254,9 @@ def merge_slides(
     print()
     print("Building merged SpatialData ...")
 
+    # Sanitize obsm column names before building SpatialData (Zarr v3 forbids "/")
+    merged_tables = _sanitize_obsm_columns(merged_tables)
+
     all_elements: Dict[str, Any] = {}
     all_elements.update(all_images)
     all_elements.update(all_labels)
@@ -294,6 +297,28 @@ def merge_slides(
                 print(f"  Removed: {zip_path}")
 
     return output_path
+
+
+# ---------------------------------------------------------------------------
+# Helpers
+# ---------------------------------------------------------------------------
+
+
+def _sanitize_obsm_columns(tables_dict):
+    """Replace forward slashes in obsm DataFrame column names (Zarr v3 limitation)."""
+    replaced = 0
+    for tname, table in tables_dict.items():
+        for key in list(table.obsm.keys()):
+            val = table.obsm[key]
+            if isinstance(val, pd.DataFrame):
+                cols = val.columns.tolist()
+                new_cols = [str(c).replace("/", "_org_") for c in cols]
+                if new_cols != cols:
+                    table.obsm[key].columns = new_cols
+                    replaced += sum(1 for oc, nc in zip(cols, new_cols) if oc != nc)
+    if replaced:
+        print(f"  Sanitized {replaced} obsm column name(s) with '/' → '_org_'")
+    return tables_dict
 
 
 # ---------------------------------------------------------------------------
