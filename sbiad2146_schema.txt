@@ -1,0 +1,45 @@
+# S-BIAD2146 Schema Inspection
+# Generated from: sdata_kidney_s1.zarr (kidney, PRCC, ~2.03 GB)
+
+## Zarr Format
+- Version: v2 (source is v2, output will be v3)
+- Warning: UserWarning about outdated format - needs v3 write
+
+## Elements
+### Images (2)
+| Key | Type | Scales | Notes |
+|-----|------|--------|-------|
+| morpho | multiscale | 5 levels | DAPI/morphology image |
+| he | multiscale | 6 levels | H&E stain image |
+
+### Shapes (3)
+| Key | Type | Rows | Notes |
+|-----|------|------|-------|
+| nucleus_boundaries | GeoDataFrame | ? | Polygon boundaries |
+| cell_boundaries | GeoDataFrame | ? | Polygon boundaries |
+| he_patches | GeoDataFrame | ? | H&E patch regions |
+
+### Points (1)
+| Key | Rows | Notes |
+|-----|------|-------|
+| st | many | Xenium transcript coordinates |
+
+### Tables (7)
+| Table | Rows | Cols | Region Key | Instance Key | Notes |
+|-------|------|------|------------|--------------|-------|
+| table_combined | 56,510 | 15 | region ("cell_boundaries") | cell_id | Has cell types, spatial, PCA, UMAP |
+| table_cells | 56,510 | 25 | region ("cell_boundaries") | cell_id | Cell-level data with clustering |
+| table_nuclei | 56,510 | 18 | region ("nucleus_boundaries") | cell_id | Nucleus-level data |
+| table_scvi | 56,510 | 13 | region ("cell_boundaries") | cell_id | scVI embedding |
+| features_cellvit | 56,503 | 3 | None | None | CellViT features |
+| features_vit_google | 56,503 | 3 | None | None | ViT Google features |
+| features_phikonv2 | 56,503 | 3 | None | None | Phikon v2 features |
+
+## Key Observations for Merging
+1. **Instance keys**: `cell_id` values are UUID-like (e.g., "aaaaaaaa-1") — likely globally unique
+2. **Existing metadata**: Some tables have a `slide` column (value: "morpho") — this is the image source, NOT the slide_id
+3. **Need to add**: `tissue`, `disease`, `slide_id`, `patient_status` to all tables
+4. **Region renaming**: `cell_boundaries` → `cell_boundaries_{slide_id}` etc.
+5. **Image/shape renaming**: `morpho` → `morpho_{slide_id}`, `he` → `he_{slide_id}`
+6. **Multiple tables**: Need to decide whether to merge all 7 tables or just the main combined ones
+7. **Coordinate systems**: Need to verify naming during merge to avoid conflicts
