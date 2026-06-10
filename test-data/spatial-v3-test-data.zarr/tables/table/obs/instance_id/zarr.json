@@ -2,7 +2,7 @@
   "shape": [
     1200
   ],
-  "data_type": "int64",
+  "data_type": "string",
   "chunk_grid": {
     "name": "regular",
     "configuration": {
@@ -17,13 +17,11 @@
       "separator": "/"
     }
   },
-  "fill_value": 0,
+  "fill_value": "",
   "codecs": [
     {
-      "name": "bytes",
-      "configuration": {
-        "endian": "little"
-      }
+      "name": "vlen-utf8",
+      "configuration": {}
     },
     {
       "name": "zstd",
@@ -34,7 +32,7 @@
     }
   ],
   "attributes": {
-    "encoding-type": "array",
+    "encoding-type": "string-array",
     "encoding-version": "0.2.0"
   },
   "zarr_format": 3,
