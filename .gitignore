@@ -1,7 +1,5 @@
 .ipynb_checkpoints/
 .venv
 __pycache__/
-test-data/*.zip
-test-data/minipig*
-test-data/parrots*
-test-data/visium_brain.spatialdata.zarr
+test-data/*
+!test-data/*test*

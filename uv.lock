@@ -1086,6 +1086,18 @@ wheels = [
 ]
 
 [[package]]
+name = "matplotlib-scalebar"
+version = "0.9.0"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "matplotlib" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/c5/3d/e76e0e48c96e43b656446c35990824f20136de21940a7436020ab757a54d/matplotlib_scalebar-0.9.0.tar.gz", hash = "sha256:f91adc5e4e67ac920a8fa98a55f904d56e5c2da4d56286748c31ec62146362be", size = 1180588 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/a8/c0/2dfab7b319dabe23f5a7b515a797c74b501d15c72e7a03837cf0cf779b9e/matplotlib_scalebar-0.9.0-py3-none-any.whl", hash = "sha256:5140525cd4e0c60bcade541b86571dabaf446fa69192530bd82d60b54601aa79", size = 16411 },
+]
+
+[[package]]
 name = "mdurl"
 version = "0.1.2"
 source = { registry = "https://pypi.org/simple" }
@@ -2438,6 +2450,22 @@ wheels = [
 ]
 
 [[package]]
+name = "spatialdata-plot"
+version = "0.3.3"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "matplotlib" },
+    { name = "matplotlib-scalebar" },
+    { name = "scanpy" },
+    { name = "scikit-learn" },
+    { name = "spatialdata" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/36/e4/9b9472b0d29574030a279012dad08e2bf0229dd8ba9e58fc01fb56ba10c0/spatialdata_plot-0.3.3.tar.gz", hash = "sha256:8227ae33a676ff03812dff7c08b9b4ae0e660b27a5e4daf48e13b7264dad9df2", size = 16905594 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/89/0e/bd8884dccfb707414c92efdf58b23ba4fc027058221852322d3a51f7813b/spatialdata_plot-0.3.3-py3-none-any.whl", hash = "sha256:4958f8e5a457fe2ee3c29f2d619ba3738517d806213f031a9e9b096c072c1477", size = 85037 },
+]
+
+[[package]]
 name = "statsmodels"
 version = "0.14.6"
 source = { registry = "https://pypi.org/simple" }
@@ -2835,6 +2863,7 @@ dependencies = [
     { name = "ome-zarr" },
     { name = "scanpy" },
     { name = "spatialdata" },
+    { name = "spatialdata-plot" },
     { name = "zarr" },
 ]
 
@@ -2845,6 +2874,7 @@ requires-dist = [
     { name = "ome-zarr", specifier = ">=0.16.0" },
     { name = "scanpy", specifier = ">=1.12.1" },
     { name = "spatialdata", specifier = "==0.7.3a1" },
+    { name = "spatialdata-plot", specifier = ">=0.3.3" },
     { name = "zarr", specifier = ">=3.1.6" },
 ]
 
