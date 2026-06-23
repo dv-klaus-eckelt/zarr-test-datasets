@@ -10,6 +10,7 @@ dependencies = [
     "ome-zarr>=0.16.0",
     "scanpy>=1.12.1",
     "spatialdata==0.7.3a1",
+    "spatialdata-io>=0.6.0",
     "spatialdata-plot>=0.3.3",
     "zarr>=3.1.6",
 ]
