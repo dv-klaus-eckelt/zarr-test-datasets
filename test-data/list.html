@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,27 +10,55 @@
             font-family: Arial, sans-serif;
             margin: 20px;
         }
+
         input {
             margin: 10px 0;
             padding: 5px;
             width: 300px;
         }
+
         button {
             padding: 5px 10px;
         }
+
         ul {
             list-style-type: none;
             padding: 0;
         }
+
         li {
             margin: 5px 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .type-badge {
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.85em;
+            font-weight: 500;
+            white-space: nowrap;
+        }
+
+        .type-badge.spatial {
+            background-color: #e3f2fd;
+            color: #1565c0;
+        }
+
+        .type-badge.single_cell {
+            background-color: #f3e5f5;
+            color: #6a1b9a;
         }
     </style>
 </head>
+
 <body>
     <h1>Test Data Index</h1>
     <p>Enter your Aevidence domain to generate dataset links:</p>
-    <input type="text" id="domainInput" placeholder="Enter domain (e.g., aevidence.dev.app.datavisyn.io)" value="http://127.0.0.1:8080">
+    <input type="text" id="domainInput" placeholder="Enter domain (e.g., aevidence.dev.app.datavisyn.io)"
+        value="http://127.0.0.1:8080">
     <button onclick="generateLinks()">Generate Links</button>
 
     <h2>Available Datasets</h2>
@@ -39,7 +68,7 @@
 
     <script>
         let datasets = [];
-        
+
         function generateLinks() {
             const domain = document.getElementById('domainInput').value.trim();
             const normalizedDomain = domain.replace(/\/$/, '');
@@ -51,13 +80,91 @@
                 let link = `${normalizedDomain}/app/single_cell?id=${encodeURIComponent(dataset.id)}&name=${encodeURIComponent(dataset.name)}&type=${dataset.type}&storeType=simple&watermark=test&url=${encodeURIComponent(datasetUrl)}`;
 
                 const listItem = document.createElement('li');
+
                 const anchor = document.createElement('a');
                 anchor.href = link;
                 anchor.textContent = dataset.name;
                 anchor.target = '_blank';
+
+                const typeBadge = document.createElement('span');
+                typeBadge.className = `type-badge ${dataset.type}`;
+                typeBadge.textContent = dataset.type === 'spatial' ? 'Spatial' : 'Single Cell';
+
                 listItem.appendChild(anchor);
+                listItem.appendChild(typeBadge);
                 datasetList.appendChild(listItem);
             });
+        }
+
+        /**
+         * Detect dataset type by checking zarr metadata and directory structure.
+         * Supports both Zarr v2 (.zmetadata or zmetadata) and v3 (zarr.json).
+         * Prioritizes structural evidence (spatialdata_attrs, directory layout) over name heuristics.
+         */
+        async function detectDatasetType(datasetPath) {
+            try {
+                // Try to read zarr.json (Zarr v3)
+                let zarrJson = null;
+                let metadataResponse = await fetch(datasetPath + 'zarr.json');
+                if (metadataResponse.ok) {
+                    zarrJson = await metadataResponse.json();
+                } else {
+                    // Try .zmetadata (Zarr v2 with dot)
+                    metadataResponse = await fetch(datasetPath + '.zmetadata');
+                    if (metadataResponse.ok) {
+                        const text = await metadataResponse.text();
+                        zarrJson = JSON.parse(text);
+                    } else {
+                        // Try zmetadata (Zarr v2 without dot)
+                        metadataResponse = await fetch(datasetPath + 'zmetadata');
+                        if (metadataResponse.ok) {
+                            const text = await metadataResponse.text();
+                            zarrJson = JSON.parse(text);
+                        }
+                    }
+                }
+
+                if (zarrJson) {
+                    // Check for SpatialData indicator
+                    if (zarrJson?.attributes?.spatialdata_attrs?.version) {
+                        return 'spatial';
+                    }
+
+                    // Check for AnnData indicator
+                    if (zarrJson?.attributes?.['encoding-type'] === 'anndata') {
+                        return 'single_cell';
+                    }
+                }
+            } catch (e) {
+                // If metadata fetch/parse fails, continue to structure detection
+            }
+
+            try {
+                // Fallback: check directory structure by fetching directory listing
+                const dirResponse = await fetch(datasetPath);
+                const dirHtml = await dirResponse.text();
+
+                // Spatial data structure indicators
+                const spatialStructure = ['images/', 'points/', 'shapes/', 'tables/'];
+                // Single cell structure indicators (AnnData format)
+                const singleCellStructure = ['X/', 'obs/', 'var/', 'obsm/', 'layers/'];
+
+                const spatialCount = spatialStructure.filter(item => dirHtml.includes(item)).length;
+                const singleCellCount = singleCellStructure.filter(item => dirHtml.includes(item)).length;
+
+                // If we see more spatial structure indicators, classify as spatial
+                if (spatialCount >= 2) {
+                    return 'spatial';
+                }
+                if (singleCellCount >= 2) {
+                    return 'single_cell';
+                }
+            } catch (e) {
+                // If structure detection fails, continue
+            }
+
+            // Final fallback: name-based detection
+            return 'single_cell';
         }
 
         async function fetchDatasets() {
@@ -67,19 +174,23 @@
             const doc = parser.parseFromString(text, 'text/html');
             const links = Array.from(doc.querySelectorAll('a'));
 
-            datasets = links
+            const dirNames = links
                 .map(link => link.getAttribute('href'))
                 .filter(href => href && href.endsWith('/') && href !== '../')
-                .map(href => {
-                    const name = href.replace(/\/$/, '');
-                    return {
-                        id: name,
-                        name,
-                        path: href,
-                        type: name.includes('spatial') ? 'spatial' : 'single_cell'
-                    };
-                });
+                .map(href => href.replace(/\/$/, ''));
 
+            // Detect types for all datasets concurrently
+            const datasetPromises = dirNames.map(async (name) => {
+                const type = await detectDatasetType('./' + name + '/');
+                return {
+                    id: name,
+                    name,
+                    path: './' + name + '/',
+                    type
+                };
+            });
+
+            datasets = await Promise.all(datasetPromises);
             generateLinks();
         }
 
@@ -87,4 +198,5 @@
         fetchDatasets();
     </script>
 </body>
+
 </html>
