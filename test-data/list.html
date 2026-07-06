@@ -85,6 +85,18 @@
                 anchor.href = link;
                 anchor.textContent = dataset.name;
                 anchor.target = '_blank';
+                anchor.rel = 'noopener noreferrer';
+                anchor.addEventListener('click', (event) => {
+                    event.preventDefault();
+                    const newTab = window.open('about:blank', '_blank');
+                    if (newTab) {
+                        newTab.opener = null;
+                        newTab.location.href = link;
+                    } else {
+                        // Fallback if popups are blocked.
+                        window.location.href = link;
+                    }
+                });
 
                 const typeBadge = document.createElement('span');
                 typeBadge.className = `type-badge ${dataset.type}`;
