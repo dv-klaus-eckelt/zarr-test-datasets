@@ -46,8 +46,9 @@ const SharedContrastFields = {
   feature_type: z
     .string()
     .min(1)
+    .optional()
     .describe(
-      "Feature modality label for UI display/filtering (for example Gene Expression).",
+      "Feature modality label for UI display/filtering (for example Gene Expression). Optional; not consumed by the current frontend.",
     ),
   de_method: z
     .string()
@@ -82,6 +83,22 @@ const SharedContrastFields = {
   top_10_gene_ids: z
     .array(z.string().min(1))
     .describe("Top 10 feature IDs ranked by score in descending order."),
+  effect_size_max: z
+    .number()
+    .nonnegative()
+    .nullable()
+    .optional()
+    .describe(
+      "Optional absolute effect-size bound (volcano x-max). Derivable from the effect_size array; not consumed by the current frontend.",
+    ),
+  significance_max: z
+    .number()
+    .nonnegative()
+    .nullable()
+    .optional()
+    .describe(
+      "Optional data-driven significance cap (volcano y-max) = the maximum significance value in the array. Derivable from the significance array; not consumed by the current frontend.",
+    ),
 };
 
 const EffectAndSignificanceContrastSchema = z.object({
@@ -106,18 +123,6 @@ const EffectAndSignificanceContrastSchema = z.object({
     .describe(
       "Significance metric label when significance metrics are available.",
     ),
-  effect_size_max: z
-    .number()
-    .nonnegative()
-    .describe(
-      "Absolute effect-size bound when effect-size metrics are available.",
-    ),
-  significance_max: z
-    .number()
-    .nonnegative()
-    .describe(
-      "Data-driven significance cap: the maximum significance value in the array (the volcano/plot y-max) when p-value metrics are available.",
-    ),
 });
 
 const EffectOnlyContrastSchema = z.object({
@@ -139,17 +144,6 @@ const EffectOnlyContrastSchema = z.object({
     .null()
     .describe(
       "Significance metric label must be null when significance metrics are unavailable.",
-    ),
-  effect_size_max: z
-    .number()
-    .nonnegative()
-    .describe(
-      "Absolute effect-size bound when effect-size metrics are available.",
-    ),
-  significance_max: z
-    .null()
-    .describe(
-      "Significance bound must be null when p-value metrics are unavailable.",
     ),
 });
 
@@ -174,17 +168,6 @@ const SignificanceOnlyContrastSchema = z.object({
     .describe(
       "Significance metric label when significance metrics are available.",
     ),
-  effect_size_max: z
-    .null()
-    .describe(
-      "Effect-size bound must be null when effect-size metrics are unavailable.",
-    ),
-  significance_max: z
-    .number()
-    .nonnegative()
-    .describe(
-      "Data-driven significance cap: the maximum significance value in the array (the volcano/plot y-max) when p-value metrics are available.",
-    ),
 });
 
 const ScoreOnlyContrastSchema = z.object({
@@ -205,16 +188,6 @@ const ScoreOnlyContrastSchema = z.object({
     .null()
     .describe(
       "Significance metric label must be null when significance metrics are unavailable.",
-    ),
-  effect_size_max: z
-    .null()
-    .describe(
-      "Effect-size bound must be null when effect-size metrics are unavailable.",
-    ),
-  significance_max: z
-    .null()
-    .describe(
-      "Significance bound must be null when p-value metrics are unavailable.",
     ),
 });
 
