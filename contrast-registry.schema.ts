@@ -115,7 +115,9 @@ const EffectAndSignificanceContrastSchema = z.object({
   significance_max: z
     .number()
     .nonnegative()
-    .describe("Significance bound when p-value metrics are available."),
+    .describe(
+      "Data-driven significance cap: the maximum significance value in the array (the volcano/plot y-max) when p-value metrics are available.",
+    ),
 });
 
 const EffectOnlyContrastSchema = z.object({
@@ -180,7 +182,9 @@ const SignificanceOnlyContrastSchema = z.object({
   significance_max: z
     .number()
     .nonnegative()
-    .describe("Significance bound when p-value metrics are available."),
+    .describe(
+      "Data-driven significance cap: the maximum significance value in the array (the volcano/plot y-max) when p-value metrics are available.",
+    ),
 });
 
 const ScoreOnlyContrastSchema = z.object({

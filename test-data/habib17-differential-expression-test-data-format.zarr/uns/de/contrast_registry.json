@@ -1,6 +1,6 @@
 {
   "version": "1.0",
-  "generated_at": "2026-05-11T12:10:38.735463+00:00",
+  "generated_at": "2026-07-06T07:14:29.844023+00:00",
   "scanpy_version": "1.12.1",
   "zarr_version": "3.1.6",
   "dataset_metadata": {
@@ -60,7 +60,7 @@
       "effect_size_label": "log2(Fold Change)",
       "significance_label": "-log10(FDR)",
       "effect_size_max": 26.0,
-      "significance_max": 300.0,
+      "significance_max": 401.0,
       "top_10_gene_ids": [
         "SLC1A2",
         "SLC14A1",
@@ -94,7 +94,7 @@
       "effect_size_label": "log2(Fold Change)",
       "significance_label": "-log10(FDR)",
       "effect_size_max": 27.0,
-      "significance_max": 300.0,
+      "significance_max": 454.0,
       "top_10_gene_ids": [
         "GFAP",
         "AQP4",
@@ -128,7 +128,7 @@
       "effect_size_label": "log2(Fold Change)",
       "significance_label": "-log10(FDR)",
       "effect_size_max": 29.0,
-      "significance_max": 300.0,
+      "significance_max": 455.0,
       "top_10_gene_ids": [
         "CLDN5",
         "ABCG2",
@@ -162,7 +162,7 @@
       "effect_size_label": "log2(Fold Change)",
       "significance_label": "-log10(FDR)",
       "effect_size_max": 27.0,
-      "significance_max": 300.0,
+      "significance_max": 455.0,
       "top_10_gene_ids": [
         "TAC1",
         "GAD2",
@@ -196,7 +196,7 @@
       "effect_size_label": "log2(Fold Change)",
       "significance_label": "-log10(FDR)",
       "effect_size_max": 27.0,
-      "significance_max": 300.0,
+      "significance_max": 458.0,
       "top_10_gene_ids": [
         "DLX6-AS1",
         "CXCL14",
@@ -230,7 +230,7 @@
       "effect_size_label": "log2(Fold Change)",
       "significance_label": "-log10(FDR)",
       "effect_size_max": 28.0,
-      "significance_max": 300.0,
+      "significance_max": 448.0,
       "top_10_gene_ids": [
         "ADAM28",
         "CD74",
@@ -264,7 +264,7 @@
       "effect_size_label": "log2(Fold Change)",
       "significance_label": "-log10(FDR)",
       "effect_size_max": 29.0,
-      "significance_max": 300.0,
+      "significance_max": 461.0,
       "top_10_gene_ids": [
         "CFAP157",
         "SPAG17",
@@ -298,7 +298,7 @@
       "effect_size_label": "log2(Fold Change)",
       "significance_label": "-log10(FDR)",
       "effect_size_max": 26.0,
-      "significance_max": 300.0,
+      "significance_max": 455.0,
       "top_10_gene_ids": [
         "TF",
         "CERCAM",
@@ -332,7 +332,7 @@
       "effect_size_label": "log2(Fold Change)",
       "significance_label": "-log10(FDR)",
       "effect_size_max": 27.0,
-      "significance_max": 300.0,
+      "significance_max": 430.0,
       "top_10_gene_ids": [
         "VCAN",
         "SMOC1",
@@ -366,7 +366,7 @@
       "effect_size_label": "log2(Fold Change)",
       "significance_label": "-log10(FDR)",
       "effect_size_max": 27.0,
-      "significance_max": 153.0,
+      "significance_max": 152.71996257813166,
       "top_10_gene_ids": [
         "MT-ATP6",
         "MT-ND5",
@@ -400,7 +400,7 @@
       "effect_size_label": "log2(Fold Change)",
       "significance_label": "-log10(FDR)",
       "effect_size_max": 28.0,
-      "significance_max": 84.0,
+      "significance_max": 83.7619345620041,
       "top_10_gene_ids": [
         "MORC1",
         "ANKRD62P1-PARP4P3",
@@ -434,7 +434,7 @@
       "effect_size_label": "log2(Fold Change)",
       "significance_label": "-log10(FDR)",
       "effect_size_max": 28.0,
-      "significance_max": 300.0,
+      "significance_max": 315.0,
       "top_10_gene_ids": [
         "COL5A2",
         "TPM2",
@@ -468,7 +468,7 @@
       "effect_size_label": "log2(Fold Change)",
       "significance_label": "-log10(FDR)",
       "effect_size_max": 27.0,
-      "significance_max": 278.0,
+      "significance_max": 277.1096658850621,
       "top_10_gene_ids": [
         "SEMA5A",
         "POSTN",
@@ -502,7 +502,7 @@
       "effect_size_label": "log2(Fold Change)",
       "significance_label": "-log10(FDR)",
       "effect_size_max": 26.0,
-      "significance_max": 203.0,
+      "significance_max": 202.62533444011243,
       "top_10_gene_ids": [
         "DENND3",
         "CCK",
@@ -536,7 +536,7 @@
       "effect_size_label": "log2(Fold Change)",
       "significance_label": "-log10(FDR)",
       "effect_size_max": 26.0,
-      "significance_max": 37.0,
+      "significance_max": 36.765477331245606,
       "top_10_gene_ids": [
         "DENND3",
         "COL5A2",
@@ -570,7 +570,7 @@
       "effect_size_label": "log2(Fold Change)",
       "significance_label": "-log10(FDR)",
       "effect_size_max": 26.0,
-      "significance_max": 215.0,
+      "significance_max": 214.88103796932728,
       "top_10_gene_ids": [
         "SLC1A2",
         "SLC1A3",
@@ -604,7 +604,7 @@
       "effect_size_label": "log2(Fold Change)",
       "significance_label": "-log10(FDR)",
       "effect_size_max": 27.0,
-      "significance_max": 174.0,
+      "significance_max": 173.82004261142478,
       "top_10_gene_ids": [
         "GFAP",
         "CLU",
@@ -638,7 +638,7 @@
       "effect_size_label": "log2(Fold Change)",
       "significance_label": "-log10(FDR)",
       "effect_size_max": 29.0,
-      "significance_max": 261.0,
+      "significance_max": 260.87548635393784,
       "top_10_gene_ids": [
         "CLDN5",
         "B2M",
@@ -672,7 +672,7 @@
       "effect_size_label": "log2(Fold Change)",
       "significance_label": "-log10(FDR)",
       "effect_size_max": 27.0,
-      "significance_max": 174.0,
+      "significance_max": 173.49840356509986,
       "top_10_gene_ids": [
         "SPARCL1",
         "GRIK1",
@@ -706,7 +706,7 @@
       "effect_size_label": "log2(Fold Change)",
       "significance_label": "-log10(FDR)",
       "effect_size_max": 27.0,
-      "significance_max": 191.0,
+      "significance_max": 190.09801078482238,
       "top_10_gene_ids": [
         "DLX6-AS1",
         "RGS12",
@@ -740,7 +740,7 @@
       "effect_size_label": "log2(Fold Change)",
       "significance_label": "-log10(FDR)",
       "effect_size_max": 28.0,
-      "significance_max": 127.0,
+      "significance_max": 126.19383386150872,
       "top_10_gene_ids": [
         "CD74",
         "ADAM28",
@@ -774,7 +774,7 @@
       "effect_size_label": "log2(Fold Change)",
       "significance_label": "-log10(FDR)",
       "effect_size_max": 29.0,
-      "significance_max": 239.0,
+      "significance_max": 238.44796042469395,
       "top_10_gene_ids": [
         "DNAAF1",
         "SPAG17",
@@ -808,7 +808,7 @@
       "effect_size_label": "log2(Fold Change)",
       "significance_label": "-log10(FDR)",
       "effect_size_max": 26.0,
-      "significance_max": 300.0,
+      "significance_max": 449.0,
       "top_10_gene_ids": [
         "MBP",
         "TF",
@@ -842,7 +842,7 @@
       "effect_size_label": "log2(Fold Change)",
       "significance_label": "-log10(FDR)",
       "effect_size_max": 27.0,
-      "significance_max": 193.0,
+      "significance_max": 192.99461444434195,
       "top_10_gene_ids": [
         "PTPRZ1",
         "VCAN",
@@ -876,7 +876,7 @@
       "effect_size_label": "log2(Fold Change)",
       "significance_label": "-log10(FDR)",
       "effect_size_max": 27.0,
-      "significance_max": 73.0,
+      "significance_max": 72.03262938607573,
       "top_10_gene_ids": [
         "MT-ATP6",
         "MT-CYB",
@@ -910,7 +910,7 @@
       "effect_size_label": "log2(Fold Change)",
       "significance_label": "-log10(FDR)",
       "effect_size_max": 28.0,
-      "significance_max": 114.0,
+      "significance_max": 113.42067729190069,
       "top_10_gene_ids": [
         "NEFM",
         "RYR3",
@@ -944,7 +944,7 @@
       "effect_size_label": "log2(Fold Change)",
       "significance_label": "-log10(FDR)",
       "effect_size_max": 28.0,
-      "significance_max": 152.0,
+      "significance_max": 151.73591785137742,
       "top_10_gene_ids": [
         "COL5A2",
         "KCNQ1OT1",
@@ -978,7 +978,7 @@
       "effect_size_label": "log2(Fold Change)",
       "significance_label": "-log10(FDR)",
       "effect_size_max": 27.0,
-      "significance_max": 300.0,
+      "significance_max": 269.0,
       "top_10_gene_ids": [
         "SEMA5A",
         "DGKG",
@@ -1012,7 +1012,7 @@
       "effect_size_label": "log2(Fold Change)",
       "significance_label": "-log10(FDR)",
       "effect_size_max": 26.0,
-      "significance_max": 300.0,
+      "significance_max": 449.0,
       "top_10_gene_ids": [
         "CCK",
         "DENND3",
@@ -1046,7 +1046,7 @@
       "effect_size_label": "log2(Fold Change)",
       "significance_label": "-log10(FDR)",
       "effect_size_max": 26.0,
-      "significance_max": 57.0,
+      "significance_max": 56.03324470568494,
       "top_10_gene_ids": [
         "SPARCL1",
         "KCNQ1OT1",
@@ -1590,7 +1590,7 @@
       "effect_size_label": "log2(Fold Change)",
       "significance_label": "-log10(FDR)",
       "effect_size_max": 28.0,
-      "significance_max": 300.0,
+      "significance_max": 429.0,
       "top_10_gene_ids": [
         "SLC14A1",
         "SLC1A2",
@@ -1624,7 +1624,7 @@
       "effect_size_label": "log2(Fold Change)",
       "significance_label": "-log10(FDR)",
       "effect_size_max": 28.0,
-      "significance_max": 137.0,
+      "significance_max": 136.14758582061026,
       "top_10_gene_ids": [
         "GFAP",
         "TTN",
@@ -1658,7 +1658,7 @@
       "effect_size_label": "log2(Fold Change)",
       "significance_label": "-log10(FDR)",
       "effect_size_max": 31.0,
-      "significance_max": 300.0,
+      "significance_max": 392.0,
       "top_10_gene_ids": [
         "CLDN5",
         "FLT1",
@@ -1692,7 +1692,7 @@
       "effect_size_label": "log2(Fold Change)",
       "significance_label": "-log10(FDR)",
       "effect_size_max": 29.0,
-      "significance_max": 300.0,
+      "significance_max": 244.0,
       "top_10_gene_ids": [
         "TAC1",
         "GAD2",
@@ -1726,7 +1726,7 @@
       "effect_size_label": "log2(Fold Change)",
       "significance_label": "-log10(FDR)",
       "effect_size_max": 29.0,
-      "significance_max": 300.0,
+      "significance_max": 430.0,
       "top_10_gene_ids": [
         "DLX6-AS1",
         "CXCL14",
@@ -1760,7 +1760,7 @@
       "effect_size_label": "log2(Fold Change)",
       "significance_label": "-log10(FDR)",
       "effect_size_max": 28.0,
-      "significance_max": 300.0,
+      "significance_max": 446.0,
       "top_10_gene_ids": [
         "ADAM28",
         "CD74",
@@ -1794,7 +1794,7 @@
       "effect_size_label": "log2(Fold Change)",
       "significance_label": "-log10(FDR)",
       "effect_size_max": 30.0,
-      "significance_max": 300.0,
+      "significance_max": 439.0,
       "top_10_gene_ids": [
         "SPAG17",
         "CFAP73",
@@ -1828,7 +1828,7 @@
       "effect_size_label": "log2(Fold Change)",
       "significance_label": "-log10(FDR)",
       "effect_size_max": 27.0,
-      "significance_max": 300.0,
+      "significance_max": 449.0,
       "top_10_gene_ids": [
         "TF",
         "MIR219A2",
@@ -1862,7 +1862,7 @@
       "effect_size_label": "log2(Fold Change)",
       "significance_label": "-log10(FDR)",
       "effect_size_max": 28.0,
-      "significance_max": 300.0,
+      "significance_max": 392.0,
       "top_10_gene_ids": [
         "VCAN",
         "SMOC1",
@@ -1896,7 +1896,7 @@
       "effect_size_label": "log2(Fold Change)",
       "significance_label": "-log10(FDR)",
       "effect_size_max": 28.0,
-      "significance_max": 121.0,
+      "significance_max": 120.03183981791686,
       "top_10_gene_ids": [
         "MT-ATP6",
         "MT-CYB",
@@ -1930,7 +1930,7 @@
       "effect_size_label": "log2(Fold Change)",
       "significance_label": "-log10(FDR)",
       "effect_size_max": 28.0,
-      "significance_max": 42.0,
+      "significance_max": 41.4070934964227,
       "top_10_gene_ids": [
         "MORC1",
         "B3GAT2",
@@ -1964,7 +1964,7 @@
       "effect_size_label": "log2(Fold Change)",
       "significance_label": "-log10(FDR)",
       "effect_size_max": 28.0,
-      "significance_max": 300.0,
+      "significance_max": 344.0,
       "top_10_gene_ids": [
         "COL5A2",
         "TPM2",
@@ -1998,7 +1998,7 @@
       "effect_size_label": "log2(Fold Change)",
       "significance_label": "-log10(FDR)",
       "effect_size_max": 28.0,
-      "significance_max": 70.0,
+      "significance_max": 69.14732542658413,
       "top_10_gene_ids": [
         "POSTN",
         "SEMA5A",
@@ -2032,7 +2032,7 @@
       "effect_size_label": "log2(Fold Change)",
       "significance_label": "-log10(FDR)",
       "effect_size_max": 28.0,
-      "significance_max": 6.0,
+      "significance_max": 5.5625708080938825,
       "top_10_gene_ids": [
         "TRIM6",
         "XIAP-AS1",
@@ -2066,7 +2066,7 @@
       "effect_size_label": "log2(Fold Change)",
       "significance_label": "-log10(FDR)",
       "effect_size_max": 29.0,
-      "significance_max": 29.0,
+      "significance_max": 28.75926142153981,
       "top_10_gene_ids": [
         "HAS2",
         "ARRDC5",
