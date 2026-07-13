@@ -1,0 +1,26 @@
+{
+  "attributes": {
+    "encoding-type": "anndata",
+    "encoding-version": "0.1.0",
+    "spatialdata-encoding-type": "ngff:regions_table",
+    "region": [
+      "patient_01",
+      "patient_02",
+      "patient_03",
+      "patient_04",
+      "patient_05",
+      "patient_06",
+      "patient_07",
+      "patient_08",
+      "patient_09",
+      "patient_10",
+      "patient_11",
+      "patient_12"
+    ],
+    "region_key": "region",
+    "instance_key": "instance_id",
+    "version": "0.2"
+  },
+  "zarr_format": 3,
+  "node_type": "group"
+}
