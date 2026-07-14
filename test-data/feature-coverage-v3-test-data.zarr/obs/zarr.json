@@ -1,0 +1,1 @@
+{"attributes": {"column-order": ["pos_x", "pos_y", "x_bin", "mid_cats", "many_cats", "free_text"], "_index": "_index", "encoding-type": "dataframe", "encoding-version": "0.2.0"}, "zarr_format": 3, "node_type": "group"}

@@ -1,0 +1,19 @@
+{
+  "attributes": {
+    "column-order": [
+      "symbol",
+      "feature_name",
+      "ensembl_id",
+      "feature_types",
+      "chromosome",
+      "n_cells_by_counts",
+      "mean_counts",
+      "highly_variable"
+    ],
+    "_index": "_index",
+    "encoding-type": "dataframe",
+    "encoding-version": "0.2.0"
+  },
+  "zarr_format": 3,
+  "node_type": "group"
+}
