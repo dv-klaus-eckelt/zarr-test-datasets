@@ -43,12 +43,6 @@ const SharedContrastFields = {
     .describe(
       "Obs column that defines the compared groups (for example CellType).",
     ),
-  feature_type: z
-    .string()
-    .min(1)
-    .describe(
-      "Feature modality label for UI display/filtering (for example Gene Expression).",
-    ),
   de_method: z
     .string()
     .min(1)
@@ -91,8 +85,9 @@ const EffectAndSignificanceContrastSchema = z.object({
   correction_method: z
     .string()
     .min(1)
+    .nullable()
     .describe(
-      "P-value correction method when significance metrics are available.",
+      'P-value correction method applied to the significance metric, or null when the test reports uncorrected p-values. Rendered as "Not corrected" when null.',
     ),
   effect_size_label: z
     .string()
@@ -109,13 +104,11 @@ const EffectAndSignificanceContrastSchema = z.object({
   effect_size_max: z
     .number()
     .nonnegative()
-    .describe(
-      "Absolute effect-size bound when effect-size metrics are available.",
-    ),
+    .describe("Absolute effect-size bound (volcano x-max) when effect-size metrics are available."),
   significance_max: z
     .number()
     .nonnegative()
-    .describe("Significance bound when p-value metrics are available."),
+    .describe("Data-driven significance cap (volcano y-max) when significance metrics are available."),
 });
 
 const EffectOnlyContrastSchema = z.object({
@@ -141,14 +134,10 @@ const EffectOnlyContrastSchema = z.object({
   effect_size_max: z
     .number()
     .nonnegative()
-    .describe(
-      "Absolute effect-size bound when effect-size metrics are available.",
-    ),
+    .describe("Absolute effect-size bound (volcano x-max) when effect-size metrics are available."),
   significance_max: z
     .null()
-    .describe(
-      "Significance bound must be null when p-value metrics are unavailable.",
-    ),
+    .describe("Significance cap must be null when significance metrics are unavailable."),
 });
 
 const SignificanceOnlyContrastSchema = z.object({
@@ -158,8 +147,9 @@ const SignificanceOnlyContrastSchema = z.object({
   correction_method: z
     .string()
     .min(1)
+    .nullable()
     .describe(
-      "P-value correction method when significance metrics are available.",
+      'P-value correction method applied to the significance metric, or null when the test reports uncorrected p-values. Rendered as "Not corrected" when null.',
     ),
   effect_size_label: z
     .null()
@@ -174,13 +164,11 @@ const SignificanceOnlyContrastSchema = z.object({
     ),
   effect_size_max: z
     .null()
-    .describe(
-      "Effect-size bound must be null when effect-size metrics are unavailable.",
-    ),
+    .describe("Effect-size bound must be null when effect-size metrics are unavailable."),
   significance_max: z
     .number()
     .nonnegative()
-    .describe("Significance bound when p-value metrics are available."),
+    .describe("Data-driven significance cap (volcano y-max) when significance metrics are available."),
 });
 
 const ScoreOnlyContrastSchema = z.object({
@@ -204,14 +192,10 @@ const ScoreOnlyContrastSchema = z.object({
     ),
   effect_size_max: z
     .null()
-    .describe(
-      "Effect-size bound must be null when effect-size metrics are unavailable.",
-    ),
+    .describe("Effect-size bound must be null when effect-size metrics are unavailable."),
   significance_max: z
     .null()
-    .describe(
-      "Significance bound must be null when p-value metrics are unavailable.",
-    ),
+    .describe("Significance cap must be null when significance metrics are unavailable."),
 });
 
 /**
