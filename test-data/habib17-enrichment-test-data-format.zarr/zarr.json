@@ -4177,71 +4177,6 @@
         },
         "node_type": "group"
       },
-      "uns/enrichment/es_051": {
-        "attributes": {
-          "encoding-type": "dict",
-          "encoding-version": "0.1.0"
-        },
-        "zarr_format": 3,
-        "consolidated_metadata": {
-          "kind": "inline",
-          "must_understand": false,
-          "metadata": {}
-        },
-        "node_type": "group"
-      },
-      "uns/enrichment/es_052": {
-        "attributes": {
-          "encoding-type": "dict",
-          "encoding-version": "0.1.0"
-        },
-        "zarr_format": 3,
-        "consolidated_metadata": {
-          "kind": "inline",
-          "must_understand": false,
-          "metadata": {}
-        },
-        "node_type": "group"
-      },
-      "uns/enrichment/es_053": {
-        "attributes": {
-          "encoding-type": "dict",
-          "encoding-version": "0.1.0"
-        },
-        "zarr_format": 3,
-        "consolidated_metadata": {
-          "kind": "inline",
-          "must_understand": false,
-          "metadata": {}
-        },
-        "node_type": "group"
-      },
-      "uns/enrichment/es_054": {
-        "attributes": {
-          "encoding-type": "dict",
-          "encoding-version": "0.1.0"
-        },
-        "zarr_format": 3,
-        "consolidated_metadata": {
-          "kind": "inline",
-          "must_understand": false,
-          "metadata": {}
-        },
-        "node_type": "group"
-      },
-      "uns/enrichment/es_055": {
-        "attributes": {
-          "encoding-type": "dict",
-          "encoding-version": "0.1.0"
-        },
-        "zarr_format": 3,
-        "consolidated_metadata": {
-          "kind": "inline",
-          "must_understand": false,
-          "metadata": {}
-        },
-        "node_type": "group"
-      },
       "uns/leiden/params": {
         "attributes": {
           "encoding-type": "dict",
@@ -46340,14 +46275,14 @@
       },
       "uns/enrichment/es_041/effect_size": {
         "shape": [
-          6
+          14
         ],
         "data_type": "float64",
         "chunk_grid": {
           "name": "regular",
           "configuration": {
             "chunk_shape": [
-              6
+              14
             ]
           }
         },
@@ -46383,14 +46318,14 @@
       },
       "uns/enrichment/es_041/gene_set_id": {
         "shape": [
-          6
+          14
         ],
         "data_type": "string",
         "chunk_grid": {
           "name": "regular",
           "configuration": {
             "chunk_shape": [
-              6
+              14
             ]
           }
         },
@@ -46424,14 +46359,14 @@
       },
       "uns/enrichment/es_041/overlap_size": {
         "shape": [
-          6
+          14
         ],
         "data_type": "float64",
         "chunk_grid": {
           "name": "regular",
           "configuration": {
             "chunk_shape": [
-              6
+              14
             ]
           }
         },
@@ -46467,14 +46402,14 @@
       },
       "uns/enrichment/es_041/pvals": {
         "shape": [
-          6
+          14
         ],
         "data_type": "float64",
         "chunk_grid": {
           "name": "regular",
           "configuration": {
             "chunk_shape": [
-              6
+              14
             ]
           }
         },
@@ -46510,14 +46445,14 @@
       },
       "uns/enrichment/es_041/pvals_adj": {
         "shape": [
-          6
+          14
         ],
         "data_type": "float64",
         "chunk_grid": {
           "name": "regular",
           "configuration": {
             "chunk_shape": [
-              6
+              14
             ]
           }
         },
@@ -46553,14 +46488,14 @@
       },
       "uns/enrichment/es_041/scores": {
         "shape": [
-          6
+          14
         ],
         "data_type": "float64",
         "chunk_grid": {
           "name": "regular",
           "configuration": {
             "chunk_shape": [
-              6
+              14
             ]
           }
         },
@@ -46596,14 +46531,14 @@
       },
       "uns/enrichment/es_041/set_size": {
         "shape": [
-          6
+          14
         ],
         "data_type": "float64",
         "chunk_grid": {
           "name": "regular",
           "configuration": {
             "chunk_shape": [
-              6
+              14
             ]
           }
         },
@@ -46639,14 +46574,14 @@
       },
       "uns/enrichment/es_041/significance": {
         "shape": [
-          6
+          14
         ],
         "data_type": "float64",
         "chunk_grid": {
           "name": "regular",
           "configuration": {
             "chunk_shape": [
-              6
+              14
             ]
           }
         },
@@ -46682,14 +46617,14 @@
       },
       "uns/enrichment/es_042/effect_size": {
         "shape": [
-          6
+          14
         ],
         "data_type": "float64",
         "chunk_grid": {
           "name": "regular",
           "configuration": {
             "chunk_shape": [
-              6
+              14
             ]
           }
         },
@@ -46725,14 +46660,14 @@
       },
       "uns/enrichment/es_042/gene_set_id": {
         "shape": [
-          6
+          14
         ],
         "data_type": "string",
         "chunk_grid": {
           "name": "regular",
           "configuration": {
             "chunk_shape": [
-              6
+              14
             ]
           }
         },
@@ -46766,14 +46701,14 @@
       },
       "uns/enrichment/es_042/overlap_size": {
         "shape": [
-          6
+          14
         ],
         "data_type": "float64",
         "chunk_grid": {
           "name": "regular",
           "configuration": {
             "chunk_shape": [
-              6
+              14
             ]
           }
         },
@@ -46809,14 +46744,14 @@
       },
       "uns/enrichment/es_042/pvals": {
         "shape": [
-          6
+          14
         ],
         "data_type": "float64",
         "chunk_grid": {
           "name": "regular",
           "configuration": {
             "chunk_shape": [
-              6
+              14
             ]
           }
         },
@@ -46852,14 +46787,14 @@
       },
       "uns/enrichment/es_042/pvals_adj": {
         "shape": [
-          6
+          14
         ],
         "data_type": "float64",
         "chunk_grid": {
           "name": "regular",
           "configuration": {
             "chunk_shape": [
-              6
+              14
             ]
           }
         },
@@ -46895,14 +46830,14 @@
       },
       "uns/enrichment/es_042/scores": {
         "shape": [
-          6
+          14
         ],
         "data_type": "float64",
         "chunk_grid": {
           "name": "regular",
           "configuration": {
             "chunk_shape": [
-              6
+              14
             ]
           }
         },
@@ -46938,14 +46873,14 @@
       },
       "uns/enrichment/es_042/set_size": {
         "shape": [
-          6
+          14
         ],
         "data_type": "float64",
         "chunk_grid": {
           "name": "regular",
           "configuration": {
             "chunk_shape": [
-              6
+              14
             ]
           }
         },
@@ -46981,14 +46916,14 @@
       },
       "uns/enrichment/es_042/significance": {
         "shape": [
-          6
+          14
         ],
         "data_type": "float64",
         "chunk_grid": {
           "name": "regular",
           "configuration": {
             "chunk_shape": [
-              6
+              14
             ]
           }
         },
@@ -47024,14 +46959,14 @@
       },
       "uns/enrichment/es_043/effect_size": {
         "shape": [
-          6
+          14
         ],
         "data_type": "float64",
         "chunk_grid": {
           "name": "regular",
           "configuration": {
             "chunk_shape": [
-              6
+              14
             ]
           }
         },
@@ -47067,14 +47002,14 @@
       },
       "uns/enrichment/es_043/gene_set_id": {
         "shape": [
-          6
+          14
         ],
         "data_type": "string",
         "chunk_grid": {
           "name": "regular",
           "configuration": {
             "chunk_shape": [
-              6
+              14
             ]
           }
         },
@@ -47108,14 +47043,14 @@
       },
       "uns/enrichment/es_043/overlap_size": {
         "shape": [
-          6
+          14
         ],
         "data_type": "float64",
         "chunk_grid": {
           "name": "regular",
           "configuration": {
             "chunk_shape": [
-              6
+              14
             ]
           }
         },
@@ -47151,14 +47086,14 @@
       },
       "uns/enrichment/es_043/pvals": {
         "shape": [
-          6
+          14
         ],
         "data_type": "float64",
         "chunk_grid": {
           "name": "regular",
           "configuration": {
             "chunk_shape": [
-              6
+              14
             ]
           }
         },
@@ -47194,14 +47129,14 @@
       },
       "uns/enrichment/es_043/pvals_adj": {
         "shape": [
-          6
+          14
         ],
         "data_type": "float64",
         "chunk_grid": {
           "name": "regular",
           "configuration": {
             "chunk_shape": [
-              6
+              14
             ]
           }
         },
@@ -47237,14 +47172,14 @@
       },
       "uns/enrichment/es_043/scores": {
         "shape": [
-          6
+          14
         ],
         "data_type": "float64",
         "chunk_grid": {
           "name": "regular",
           "configuration": {
             "chunk_shape": [
-              6
+              14
             ]
           }
         },
@@ -47280,14 +47215,14 @@
       },
       "uns/enrichment/es_043/set_size": {
         "shape": [
-          6
+          14
         ],
         "data_type": "float64",
         "chunk_grid": {
           "name": "regular",
           "configuration": {
             "chunk_shape": [
-              6
+              14
             ]
           }
         },
@@ -47323,14 +47258,14 @@
       },
       "uns/enrichment/es_043/significance": {
         "shape": [
-          6
+          14
         ],
         "data_type": "float64",
         "chunk_grid": {
           "name": "regular",
           "configuration": {
             "chunk_shape": [
-              6
+              14
             ]
           }
         },
@@ -47366,14 +47301,14 @@
       },
       "uns/enrichment/es_044/effect_size": {
         "shape": [
-          6
+          14
         ],
         "data_type": "float64",
         "chunk_grid": {
           "name": "regular",
           "configuration": {
             "chunk_shape": [
-              6
+              14
             ]
           }
         },
@@ -47409,14 +47344,14 @@
       },
       "uns/enrichment/es_044/gene_set_id": {
         "shape": [
-          6
+          14
         ],
         "data_type": "string",
         "chunk_grid": {
           "name": "regular",
           "configuration": {
             "chunk_shape": [
-              6
+              14
             ]
           }
         },
@@ -47450,14 +47385,14 @@
       },
       "uns/enrichment/es_044/overlap_size": {
         "shape": [
-          6
+          14
         ],
         "data_type": "float64",
         "chunk_grid": {
           "name": "regular",
           "configuration": {
             "chunk_shape": [
-              6
+              14
             ]
           }
         },
@@ -47493,14 +47428,14 @@
       },
       "uns/enrichment/es_044/pvals": {
         "shape": [
-          6
+          14
         ],
         "data_type": "float64",
         "chunk_grid": {
           "name": "regular",
           "configuration": {
             "chunk_shape": [
-              6
+              14
             ]
           }
         },
@@ -47536,14 +47471,14 @@
       },
       "uns/enrichment/es_044/pvals_adj": {
         "shape": [
-          6
+          14
         ],
         "data_type": "float64",
         "chunk_grid": {
           "name": "regular",
           "configuration": {
             "chunk_shape": [
-              6
+              14
             ]
           }
         },
@@ -47579,14 +47514,14 @@
       },
       "uns/enrichment/es_044/scores": {
         "shape": [
-          6
+          14
         ],
         "data_type": "float64",
         "chunk_grid": {
           "name": "regular",
           "configuration": {
             "chunk_shape": [
-              6
+              14
             ]
           }
         },
@@ -47622,14 +47557,14 @@
       },
       "uns/enrichment/es_044/set_size": {
         "shape": [
-          6
+          14
         ],
         "data_type": "float64",
         "chunk_grid": {
           "name": "regular",
           "configuration": {
             "chunk_shape": [
-              6
+              14
             ]
           }
         },
@@ -47665,14 +47600,14 @@
       },
       "uns/enrichment/es_044/significance": {
         "shape": [
-          6
+          14
         ],
         "data_type": "float64",
         "chunk_grid": {
           "name": "regular",
           "configuration": {
             "chunk_shape": [
-              6
+              14
             ]
           }
         },
@@ -47708,14 +47643,14 @@
       },
       "uns/enrichment/es_045/effect_size": {
         "shape": [
-          6
+          14
         ],
         "data_type": "float64",
         "chunk_grid": {
           "name": "regular",
           "configuration": {
             "chunk_shape": [
-              6
+              14
             ]
           }
         },
@@ -47751,14 +47686,14 @@
       },
       "uns/enrichment/es_045/gene_set_id": {
         "shape": [
-          6
+          14
         ],
         "data_type": "string",
         "chunk_grid": {
           "name": "regular",
           "configuration": {
             "chunk_shape": [
-              6
+              14
             ]
           }
         },
@@ -47792,14 +47727,14 @@
       },
       "uns/enrichment/es_045/overlap_size": {
         "shape": [
-          6
+          14
         ],
         "data_type": "float64",
         "chunk_grid": {
           "name": "regular",
           "configuration": {
             "chunk_shape": [
-              6
+              14
             ]
           }
         },
@@ -47835,14 +47770,14 @@
       },
       "uns/enrichment/es_045/pvals": {
         "shape": [
-          6
+          14
         ],
         "data_type": "float64",
         "chunk_grid": {
           "name": "regular",
           "configuration": {
             "chunk_shape": [
-              6
+              14
             ]
           }
         },
@@ -47878,14 +47813,14 @@
       },
       "uns/enrichment/es_045/pvals_adj": {
         "shape": [
-          6
+          14
         ],
         "data_type": "float64",
         "chunk_grid": {
           "name": "regular",
           "configuration": {
             "chunk_shape": [
-              6
+              14
             ]
           }
         },
@@ -47921,14 +47856,14 @@
       },
       "uns/enrichment/es_045/scores": {
         "shape": [
-          6
+          14
         ],
         "data_type": "float64",
         "chunk_grid": {
           "name": "regular",
           "configuration": {
             "chunk_shape": [
-              6
+              14
             ]
           }
         },
@@ -47964,14 +47899,14 @@
       },
       "uns/enrichment/es_045/set_size": {
         "shape": [
-          6
+          14
         ],
         "data_type": "float64",
         "chunk_grid": {
           "name": "regular",
           "configuration": {
             "chunk_shape": [
-              6
+              14
             ]
           }
         },
@@ -48007,14 +47942,14 @@
       },
       "uns/enrichment/es_045/significance": {
         "shape": [
-          6
+          14
         ],
         "data_type": "float64",
         "chunk_grid": {
           "name": "regular",
           "configuration": {
             "chunk_shape": [
-              6
+              14
             ]
           }
         },
@@ -48050,14 +47985,14 @@
       },
       "uns/enrichment/es_046/effect_size": {
         "shape": [
-          14
+          481
         ],
         "data_type": "float64",
         "chunk_grid": {
           "name": "regular",
           "configuration": {
             "chunk_shape": [
-              14
+              481
             ]
           }
         },
@@ -48093,14 +48028,14 @@
       },
       "uns/enrichment/es_046/gene_set_id": {
         "shape": [
-          14
+          481
         ],
         "data_type": "string",
         "chunk_grid": {
           "name": "regular",
           "configuration": {
             "chunk_shape": [
-              14
+              481
             ]
           }
         },
@@ -48134,14 +48069,14 @@
       },
       "uns/enrichment/es_046/overlap_size": {
         "shape": [
-          14
+          481
         ],
         "data_type": "float64",
         "chunk_grid": {
           "name": "regular",
           "configuration": {
             "chunk_shape": [
-              14
+              481
             ]
           }
         },
@@ -48177,14 +48112,14 @@
       },
       "uns/enrichment/es_046/pvals": {
         "shape": [
-          14
+          481
         ],
         "data_type": "float64",
         "chunk_grid": {
           "name": "regular",
           "configuration": {
             "chunk_shape": [
-              14
+              481
             ]
           }
         },
@@ -48220,14 +48155,14 @@
       },
       "uns/enrichment/es_046/pvals_adj": {
         "shape": [
-          14
+          481
         ],
         "data_type": "float64",
         "chunk_grid": {
           "name": "regular",
           "configuration": {
             "chunk_shape": [
-              14
+              481
             ]
           }
         },
@@ -48263,14 +48198,14 @@
       },
       "uns/enrichment/es_046/scores": {
         "shape": [
-          14
+          481
         ],
         "data_type": "float64",
         "chunk_grid": {
           "name": "regular",
           "configuration": {
             "chunk_shape": [
-              14
+              481
             ]
           }
         },
@@ -48306,14 +48241,14 @@
       },
       "uns/enrichment/es_046/set_size": {
         "shape": [
-          14
+          481
         ],
         "data_type": "float64",
         "chunk_grid": {
           "name": "regular",
           "configuration": {
             "chunk_shape": [
-              14
+              481
             ]
           }
         },
@@ -48349,14 +48284,14 @@
       },
       "uns/enrichment/es_046/significance": {
         "shape": [
-          14
+          481
         ],
         "data_type": "float64",
         "chunk_grid": {
           "name": "regular",
           "configuration": {
             "chunk_shape": [
-              14
+              481
             ]
           }
         },
@@ -48392,14 +48327,14 @@
       },
       "uns/enrichment/es_047/effect_size": {
         "shape": [
-          14
+          481
         ],
         "data_type": "float64",
         "chunk_grid": {
           "name": "regular",
           "configuration": {
             "chunk_shape": [
-              14
+              481
             ]
           }
         },
@@ -48435,14 +48370,14 @@
       },
       "uns/enrichment/es_047/gene_set_id": {
         "shape": [
-          14
+          481
         ],
         "data_type": "string",
         "chunk_grid": {
           "name": "regular",
           "configuration": {
             "chunk_shape": [
-              14
+              481
             ]
           }
         },
@@ -48476,14 +48411,14 @@
       },
       "uns/enrichment/es_047/overlap_size": {
         "shape": [
-          14
+          481
         ],
         "data_type": "float64",
         "chunk_grid": {
           "name": "regular",
           "configuration": {
             "chunk_shape": [
-              14
+              481
             ]
           }
         },
@@ -48519,14 +48454,14 @@
       },
       "uns/enrichment/es_047/pvals": {
         "shape": [
-          14
+          481
         ],
         "data_type": "float64",
         "chunk_grid": {
           "name": "regular",
           "configuration": {
             "chunk_shape": [
-              14
+              481
             ]
           }
         },
@@ -48562,14 +48497,14 @@
       },
       "uns/enrichment/es_047/pvals_adj": {
         "shape": [
-          14
+          481
         ],
         "data_type": "float64",
         "chunk_grid": {
           "name": "regular",
           "configuration": {
             "chunk_shape": [
-              14
+              481
             ]
           }
         },
@@ -48605,14 +48540,14 @@
       },
       "uns/enrichment/es_047/scores": {
         "shape": [
-          14
+          481
         ],
         "data_type": "float64",
         "chunk_grid": {
           "name": "regular",
           "configuration": {
             "chunk_shape": [
-              14
+              481
             ]
           }
         },
@@ -48648,14 +48583,14 @@
       },
       "uns/enrichment/es_047/set_size": {
         "shape": [
-          14
+          481
         ],
         "data_type": "float64",
         "chunk_grid": {
           "name": "regular",
           "configuration": {
             "chunk_shape": [
-              14
+              481
             ]
           }
         },
@@ -48691,14 +48626,14 @@
       },
       "uns/enrichment/es_047/significance": {
         "shape": [
-          14
+          481
         ],
         "data_type": "float64",
         "chunk_grid": {
           "name": "regular",
           "configuration": {
             "chunk_shape": [
-              14
+              481
             ]
           }
         },
@@ -48734,14 +48669,14 @@
       },
       "uns/enrichment/es_048/effect_size": {
         "shape": [
-          14
+          481
         ],
         "data_type": "float64",
         "chunk_grid": {
           "name": "regular",
           "configuration": {
             "chunk_shape": [
-              14
+              481
             ]
           }
         },
@@ -48777,14 +48712,14 @@
       },
       "uns/enrichment/es_048/gene_set_id": {
         "shape": [
-          14
+          481
         ],
         "data_type": "string",
         "chunk_grid": {
           "name": "regular",
           "configuration": {
             "chunk_shape": [
-              14
+              481
             ]
           }
         },
@@ -48818,14 +48753,14 @@
       },
       "uns/enrichment/es_048/overlap_size": {
         "shape": [
-          14
+          481
         ],
         "data_type": "float64",
         "chunk_grid": {
           "name": "regular",
           "configuration": {
             "chunk_shape": [
-              14
+              481
             ]
           }
         },
@@ -48861,14 +48796,14 @@
       },
       "uns/enrichment/es_048/pvals": {
         "shape": [
-          14
+          481
         ],
         "data_type": "float64",
         "chunk_grid": {
           "name": "regular",
           "configuration": {
             "chunk_shape": [
-              14
+              481
             ]
           }
         },
@@ -48904,14 +48839,14 @@
       },
       "uns/enrichment/es_048/pvals_adj": {
         "shape": [
-          14
+          481
         ],
         "data_type": "float64",
         "chunk_grid": {
           "name": "regular",
           "configuration": {
             "chunk_shape": [
-              14
+              481
             ]
           }
         },
@@ -48947,14 +48882,14 @@
       },
       "uns/enrichment/es_048/scores": {
         "shape": [
-          14
+          481
         ],
         "data_type": "float64",
         "chunk_grid": {
           "name": "regular",
           "configuration": {
             "chunk_shape": [
-              14
+              481
             ]
           }
         },
@@ -48990,14 +48925,14 @@
       },
       "uns/enrichment/es_048/set_size": {
         "shape": [
-          14
+          481
         ],
         "data_type": "float64",
         "chunk_grid": {
           "name": "regular",
           "configuration": {
             "chunk_shape": [
-              14
+              481
             ]
           }
         },
@@ -49033,14 +48968,14 @@
       },
       "uns/enrichment/es_048/significance": {
         "shape": [
-          14
+          481
         ],
         "data_type": "float64",
         "chunk_grid": {
           "name": "regular",
           "configuration": {
             "chunk_shape": [
-              14
+              481
             ]
           }
         },
@@ -49076,14 +49011,14 @@
       },
       "uns/enrichment/es_049/effect_size": {
         "shape": [
-          14
+          481
         ],
         "data_type": "float64",
         "chunk_grid": {
           "name": "regular",
           "configuration": {
             "chunk_shape": [
-              14
+              481
             ]
           }
         },
@@ -49119,14 +49054,14 @@
       },
       "uns/enrichment/es_049/gene_set_id": {
         "shape": [
-          14
+          481
         ],
         "data_type": "string",
         "chunk_grid": {
           "name": "regular",
           "configuration": {
             "chunk_shape": [
-              14
+              481
             ]
           }
         },
@@ -49160,14 +49095,14 @@
       },
       "uns/enrichment/es_049/overlap_size": {
         "shape": [
-          14
+          481
         ],
         "data_type": "float64",
         "chunk_grid": {
           "name": "regular",
           "configuration": {
             "chunk_shape": [
-              14
+              481
             ]
           }
         },
@@ -49203,14 +49138,14 @@
       },
       "uns/enrichment/es_049/pvals": {
         "shape": [
-          14
+          481
         ],
         "data_type": "float64",
         "chunk_grid": {
           "name": "regular",
           "configuration": {
             "chunk_shape": [
-              14
+              481
             ]
           }
         },
@@ -49246,14 +49181,14 @@
       },
       "uns/enrichment/es_049/pvals_adj": {
         "shape": [
-          14
+          481
         ],
         "data_type": "float64",
         "chunk_grid": {
           "name": "regular",
           "configuration": {
             "chunk_shape": [
-              14
+              481
             ]
           }
         },
@@ -49289,14 +49224,14 @@
       },
       "uns/enrichment/es_049/scores": {
         "shape": [
-          14
+          481
         ],
         "data_type": "float64",
         "chunk_grid": {
           "name": "regular",
           "configuration": {
             "chunk_shape": [
-              14
+              481
             ]
           }
         },
@@ -49332,14 +49267,14 @@
       },
       "uns/enrichment/es_049/set_size": {
         "shape": [
-          14
+          481
         ],
         "data_type": "float64",
         "chunk_grid": {
           "name": "regular",
           "configuration": {
             "chunk_shape": [
-              14
+              481
             ]
           }
         },
@@ -49375,14 +49310,14 @@
       },
       "uns/enrichment/es_049/significance": {
         "shape": [
-          14
+          481
         ],
         "data_type": "float64",
         "chunk_grid": {
           "name": "regular",
           "configuration": {
             "chunk_shape": [
-              14
+              481
             ]
           }
         },
@@ -49418,14 +49353,14 @@
       },
       "uns/enrichment/es_050/effect_size": {
         "shape": [
-          14
+          481
         ],
         "data_type": "float64",
         "chunk_grid": {
           "name": "regular",
           "configuration": {
             "chunk_shape": [
-              14
+              481
             ]
           }
         },
@@ -49461,14 +49396,14 @@
       },
       "uns/enrichment/es_050/gene_set_id": {
         "shape": [
-          14
+          481
         ],
         "data_type": "string",
         "chunk_grid": {
           "name": "regular",
           "configuration": {
             "chunk_shape": [
-              14
+              481
             ]
           }
         },
@@ -49502,14 +49437,14 @@
       },
       "uns/enrichment/es_050/overlap_size": {
         "shape": [
-          14
+          481
         ],
         "data_type": "float64",
         "chunk_grid": {
           "name": "regular",
           "configuration": {
             "chunk_shape": [
-              14
+              481
             ]
           }
         },
@@ -49545,14 +49480,14 @@
       },
       "uns/enrichment/es_050/pvals": {
         "shape": [
-          14
+          481
         ],
         "data_type": "float64",
         "chunk_grid": {
           "name": "regular",
           "configuration": {
             "chunk_shape": [
-              14
+              481
             ]
           }
         },
@@ -49588,14 +49523,14 @@
       },
       "uns/enrichment/es_050/pvals_adj": {
         "shape": [
-          14
+          481
         ],
         "data_type": "float64",
         "chunk_grid": {
           "name": "regular",
           "configuration": {
             "chunk_shape": [
-              14
+              481
             ]
           }
         },
@@ -49631,14 +49566,14 @@
       },
       "uns/enrichment/es_050/scores": {
         "shape": [
-          14
+          481
         ],
         "data_type": "float64",
         "chunk_grid": {
           "name": "regular",
           "configuration": {
             "chunk_shape": [
-              14
+              481
             ]
           }
         },
@@ -49674,14 +49609,14 @@
       },
       "uns/enrichment/es_050/set_size": {
         "shape": [
-          14
+          481
         ],
         "data_type": "float64",
         "chunk_grid": {
           "name": "regular",
           "configuration": {
             "chunk_shape": [
-              14
+              481
             ]
           }
         },
@@ -49716,1716 +49651,6 @@
         "storage_transformers": []
       },
       "uns/enrichment/es_050/significance": {
-        "shape": [
-          14
-        ],
-        "data_type": "float64",
-        "chunk_grid": {
-          "name": "regular",
-          "configuration": {
-            "chunk_shape": [
-              14
-            ]
-          }
-        },
-        "chunk_key_encoding": {
-          "name": "default",
-          "configuration": {
-            "separator": "/"
-          }
-        },
-        "fill_value": 0.0,
-        "codecs": [
-          {
-            "name": "bytes",
-            "configuration": {
-              "endian": "little"
-            }
-          },
-          {
-            "name": "zstd",
-            "configuration": {
-              "level": 0,
-              "checksum": false
-            }
-          }
-        ],
-        "attributes": {
-          "encoding-type": "array",
-          "encoding-version": "0.2.0"
-        },
-        "zarr_format": 3,
-        "node_type": "array",
-        "storage_transformers": []
-      },
-      "uns/enrichment/es_051/effect_size": {
-        "shape": [
-          481
-        ],
-        "data_type": "float64",
-        "chunk_grid": {
-          "name": "regular",
-          "configuration": {
-            "chunk_shape": [
-              481
-            ]
-          }
-        },
-        "chunk_key_encoding": {
-          "name": "default",
-          "configuration": {
-            "separator": "/"
-          }
-        },
-        "fill_value": 0.0,
-        "codecs": [
-          {
-            "name": "bytes",
-            "configuration": {
-              "endian": "little"
-            }
-          },
-          {
-            "name": "zstd",
-            "configuration": {
-              "level": 0,
-              "checksum": false
-            }
-          }
-        ],
-        "attributes": {
-          "encoding-type": "array",
-          "encoding-version": "0.2.0"
-        },
-        "zarr_format": 3,
-        "node_type": "array",
-        "storage_transformers": []
-      },
-      "uns/enrichment/es_051/gene_set_id": {
-        "shape": [
-          481
-        ],
-        "data_type": "string",
-        "chunk_grid": {
-          "name": "regular",
-          "configuration": {
-            "chunk_shape": [
-              481
-            ]
-          }
-        },
-        "chunk_key_encoding": {
-          "name": "default",
-          "configuration": {
-            "separator": "/"
-          }
-        },
-        "fill_value": "",
-        "codecs": [
-          {
-            "name": "vlen-utf8",
-            "configuration": {}
-          },
-          {
-            "name": "zstd",
-            "configuration": {
-              "level": 0,
-              "checksum": false
-            }
-          }
-        ],
-        "attributes": {
-          "encoding-type": "string-array",
-          "encoding-version": "0.2.0"
-        },
-        "zarr_format": 3,
-        "node_type": "array",
-        "storage_transformers": []
-      },
-      "uns/enrichment/es_051/overlap_size": {
-        "shape": [
-          481
-        ],
-        "data_type": "float64",
-        "chunk_grid": {
-          "name": "regular",
-          "configuration": {
-            "chunk_shape": [
-              481
-            ]
-          }
-        },
-        "chunk_key_encoding": {
-          "name": "default",
-          "configuration": {
-            "separator": "/"
-          }
-        },
-        "fill_value": 0.0,
-        "codecs": [
-          {
-            "name": "bytes",
-            "configuration": {
-              "endian": "little"
-            }
-          },
-          {
-            "name": "zstd",
-            "configuration": {
-              "level": 0,
-              "checksum": false
-            }
-          }
-        ],
-        "attributes": {
-          "encoding-type": "array",
-          "encoding-version": "0.2.0"
-        },
-        "zarr_format": 3,
-        "node_type": "array",
-        "storage_transformers": []
-      },
-      "uns/enrichment/es_051/pvals": {
-        "shape": [
-          481
-        ],
-        "data_type": "float64",
-        "chunk_grid": {
-          "name": "regular",
-          "configuration": {
-            "chunk_shape": [
-              481
-            ]
-          }
-        },
-        "chunk_key_encoding": {
-          "name": "default",
-          "configuration": {
-            "separator": "/"
-          }
-        },
-        "fill_value": 0.0,
-        "codecs": [
-          {
-            "name": "bytes",
-            "configuration": {
-              "endian": "little"
-            }
-          },
-          {
-            "name": "zstd",
-            "configuration": {
-              "level": 0,
-              "checksum": false
-            }
-          }
-        ],
-        "attributes": {
-          "encoding-type": "array",
-          "encoding-version": "0.2.0"
-        },
-        "zarr_format": 3,
-        "node_type": "array",
-        "storage_transformers": []
-      },
-      "uns/enrichment/es_051/pvals_adj": {
-        "shape": [
-          481
-        ],
-        "data_type": "float64",
-        "chunk_grid": {
-          "name": "regular",
-          "configuration": {
-            "chunk_shape": [
-              481
-            ]
-          }
-        },
-        "chunk_key_encoding": {
-          "name": "default",
-          "configuration": {
-            "separator": "/"
-          }
-        },
-        "fill_value": 0.0,
-        "codecs": [
-          {
-            "name": "bytes",
-            "configuration": {
-              "endian": "little"
-            }
-          },
-          {
-            "name": "zstd",
-            "configuration": {
-              "level": 0,
-              "checksum": false
-            }
-          }
-        ],
-        "attributes": {
-          "encoding-type": "array",
-          "encoding-version": "0.2.0"
-        },
-        "zarr_format": 3,
-        "node_type": "array",
-        "storage_transformers": []
-      },
-      "uns/enrichment/es_051/scores": {
-        "shape": [
-          481
-        ],
-        "data_type": "float64",
-        "chunk_grid": {
-          "name": "regular",
-          "configuration": {
-            "chunk_shape": [
-              481
-            ]
-          }
-        },
-        "chunk_key_encoding": {
-          "name": "default",
-          "configuration": {
-            "separator": "/"
-          }
-        },
-        "fill_value": 0.0,
-        "codecs": [
-          {
-            "name": "bytes",
-            "configuration": {
-              "endian": "little"
-            }
-          },
-          {
-            "name": "zstd",
-            "configuration": {
-              "level": 0,
-              "checksum": false
-            }
-          }
-        ],
-        "attributes": {
-          "encoding-type": "array",
-          "encoding-version": "0.2.0"
-        },
-        "zarr_format": 3,
-        "node_type": "array",
-        "storage_transformers": []
-      },
-      "uns/enrichment/es_051/set_size": {
-        "shape": [
-          481
-        ],
-        "data_type": "float64",
-        "chunk_grid": {
-          "name": "regular",
-          "configuration": {
-            "chunk_shape": [
-              481
-            ]
-          }
-        },
-        "chunk_key_encoding": {
-          "name": "default",
-          "configuration": {
-            "separator": "/"
-          }
-        },
-        "fill_value": 0.0,
-        "codecs": [
-          {
-            "name": "bytes",
-            "configuration": {
-              "endian": "little"
-            }
-          },
-          {
-            "name": "zstd",
-            "configuration": {
-              "level": 0,
-              "checksum": false
-            }
-          }
-        ],
-        "attributes": {
-          "encoding-type": "array",
-          "encoding-version": "0.2.0"
-        },
-        "zarr_format": 3,
-        "node_type": "array",
-        "storage_transformers": []
-      },
-      "uns/enrichment/es_051/significance": {
-        "shape": [
-          481
-        ],
-        "data_type": "float64",
-        "chunk_grid": {
-          "name": "regular",
-          "configuration": {
-            "chunk_shape": [
-              481
-            ]
-          }
-        },
-        "chunk_key_encoding": {
-          "name": "default",
-          "configuration": {
-            "separator": "/"
-          }
-        },
-        "fill_value": 0.0,
-        "codecs": [
-          {
-            "name": "bytes",
-            "configuration": {
-              "endian": "little"
-            }
-          },
-          {
-            "name": "zstd",
-            "configuration": {
-              "level": 0,
-              "checksum": false
-            }
-          }
-        ],
-        "attributes": {
-          "encoding-type": "array",
-          "encoding-version": "0.2.0"
-        },
-        "zarr_format": 3,
-        "node_type": "array",
-        "storage_transformers": []
-      },
-      "uns/enrichment/es_052/effect_size": {
-        "shape": [
-          481
-        ],
-        "data_type": "float64",
-        "chunk_grid": {
-          "name": "regular",
-          "configuration": {
-            "chunk_shape": [
-              481
-            ]
-          }
-        },
-        "chunk_key_encoding": {
-          "name": "default",
-          "configuration": {
-            "separator": "/"
-          }
-        },
-        "fill_value": 0.0,
-        "codecs": [
-          {
-            "name": "bytes",
-            "configuration": {
-              "endian": "little"
-            }
-          },
-          {
-            "name": "zstd",
-            "configuration": {
-              "level": 0,
-              "checksum": false
-            }
-          }
-        ],
-        "attributes": {
-          "encoding-type": "array",
-          "encoding-version": "0.2.0"
-        },
-        "zarr_format": 3,
-        "node_type": "array",
-        "storage_transformers": []
-      },
-      "uns/enrichment/es_052/gene_set_id": {
-        "shape": [
-          481
-        ],
-        "data_type": "string",
-        "chunk_grid": {
-          "name": "regular",
-          "configuration": {
-            "chunk_shape": [
-              481
-            ]
-          }
-        },
-        "chunk_key_encoding": {
-          "name": "default",
-          "configuration": {
-            "separator": "/"
-          }
-        },
-        "fill_value": "",
-        "codecs": [
-          {
-            "name": "vlen-utf8",
-            "configuration": {}
-          },
-          {
-            "name": "zstd",
-            "configuration": {
-              "level": 0,
-              "checksum": false
-            }
-          }
-        ],
-        "attributes": {
-          "encoding-type": "string-array",
-          "encoding-version": "0.2.0"
-        },
-        "zarr_format": 3,
-        "node_type": "array",
-        "storage_transformers": []
-      },
-      "uns/enrichment/es_052/overlap_size": {
-        "shape": [
-          481
-        ],
-        "data_type": "float64",
-        "chunk_grid": {
-          "name": "regular",
-          "configuration": {
-            "chunk_shape": [
-              481
-            ]
-          }
-        },
-        "chunk_key_encoding": {
-          "name": "default",
-          "configuration": {
-            "separator": "/"
-          }
-        },
-        "fill_value": 0.0,
-        "codecs": [
-          {
-            "name": "bytes",
-            "configuration": {
-              "endian": "little"
-            }
-          },
-          {
-            "name": "zstd",
-            "configuration": {
-              "level": 0,
-              "checksum": false
-            }
-          }
-        ],
-        "attributes": {
-          "encoding-type": "array",
-          "encoding-version": "0.2.0"
-        },
-        "zarr_format": 3,
-        "node_type": "array",
-        "storage_transformers": []
-      },
-      "uns/enrichment/es_052/pvals": {
-        "shape": [
-          481
-        ],
-        "data_type": "float64",
-        "chunk_grid": {
-          "name": "regular",
-          "configuration": {
-            "chunk_shape": [
-              481
-            ]
-          }
-        },
-        "chunk_key_encoding": {
-          "name": "default",
-          "configuration": {
-            "separator": "/"
-          }
-        },
-        "fill_value": 0.0,
-        "codecs": [
-          {
-            "name": "bytes",
-            "configuration": {
-              "endian": "little"
-            }
-          },
-          {
-            "name": "zstd",
-            "configuration": {
-              "level": 0,
-              "checksum": false
-            }
-          }
-        ],
-        "attributes": {
-          "encoding-type": "array",
-          "encoding-version": "0.2.0"
-        },
-        "zarr_format": 3,
-        "node_type": "array",
-        "storage_transformers": []
-      },
-      "uns/enrichment/es_052/pvals_adj": {
-        "shape": [
-          481
-        ],
-        "data_type": "float64",
-        "chunk_grid": {
-          "name": "regular",
-          "configuration": {
-            "chunk_shape": [
-              481
-            ]
-          }
-        },
-        "chunk_key_encoding": {
-          "name": "default",
-          "configuration": {
-            "separator": "/"
-          }
-        },
-        "fill_value": 0.0,
-        "codecs": [
-          {
-            "name": "bytes",
-            "configuration": {
-              "endian": "little"
-            }
-          },
-          {
-            "name": "zstd",
-            "configuration": {
-              "level": 0,
-              "checksum": false
-            }
-          }
-        ],
-        "attributes": {
-          "encoding-type": "array",
-          "encoding-version": "0.2.0"
-        },
-        "zarr_format": 3,
-        "node_type": "array",
-        "storage_transformers": []
-      },
-      "uns/enrichment/es_052/scores": {
-        "shape": [
-          481
-        ],
-        "data_type": "float64",
-        "chunk_grid": {
-          "name": "regular",
-          "configuration": {
-            "chunk_shape": [
-              481
-            ]
-          }
-        },
-        "chunk_key_encoding": {
-          "name": "default",
-          "configuration": {
-            "separator": "/"
-          }
-        },
-        "fill_value": 0.0,
-        "codecs": [
-          {
-            "name": "bytes",
-            "configuration": {
-              "endian": "little"
-            }
-          },
-          {
-            "name": "zstd",
-            "configuration": {
-              "level": 0,
-              "checksum": false
-            }
-          }
-        ],
-        "attributes": {
-          "encoding-type": "array",
-          "encoding-version": "0.2.0"
-        },
-        "zarr_format": 3,
-        "node_type": "array",
-        "storage_transformers": []
-      },
-      "uns/enrichment/es_052/set_size": {
-        "shape": [
-          481
-        ],
-        "data_type": "float64",
-        "chunk_grid": {
-          "name": "regular",
-          "configuration": {
-            "chunk_shape": [
-              481
-            ]
-          }
-        },
-        "chunk_key_encoding": {
-          "name": "default",
-          "configuration": {
-            "separator": "/"
-          }
-        },
-        "fill_value": 0.0,
-        "codecs": [
-          {
-            "name": "bytes",
-            "configuration": {
-              "endian": "little"
-            }
-          },
-          {
-            "name": "zstd",
-            "configuration": {
-              "level": 0,
-              "checksum": false
-            }
-          }
-        ],
-        "attributes": {
-          "encoding-type": "array",
-          "encoding-version": "0.2.0"
-        },
-        "zarr_format": 3,
-        "node_type": "array",
-        "storage_transformers": []
-      },
-      "uns/enrichment/es_052/significance": {
-        "shape": [
-          481
-        ],
-        "data_type": "float64",
-        "chunk_grid": {
-          "name": "regular",
-          "configuration": {
-            "chunk_shape": [
-              481
-            ]
-          }
-        },
-        "chunk_key_encoding": {
-          "name": "default",
-          "configuration": {
-            "separator": "/"
-          }
-        },
-        "fill_value": 0.0,
-        "codecs": [
-          {
-            "name": "bytes",
-            "configuration": {
-              "endian": "little"
-            }
-          },
-          {
-            "name": "zstd",
-            "configuration": {
-              "level": 0,
-              "checksum": false
-            }
-          }
-        ],
-        "attributes": {
-          "encoding-type": "array",
-          "encoding-version": "0.2.0"
-        },
-        "zarr_format": 3,
-        "node_type": "array",
-        "storage_transformers": []
-      },
-      "uns/enrichment/es_053/effect_size": {
-        "shape": [
-          481
-        ],
-        "data_type": "float64",
-        "chunk_grid": {
-          "name": "regular",
-          "configuration": {
-            "chunk_shape": [
-              481
-            ]
-          }
-        },
-        "chunk_key_encoding": {
-          "name": "default",
-          "configuration": {
-            "separator": "/"
-          }
-        },
-        "fill_value": 0.0,
-        "codecs": [
-          {
-            "name": "bytes",
-            "configuration": {
-              "endian": "little"
-            }
-          },
-          {
-            "name": "zstd",
-            "configuration": {
-              "level": 0,
-              "checksum": false
-            }
-          }
-        ],
-        "attributes": {
-          "encoding-type": "array",
-          "encoding-version": "0.2.0"
-        },
-        "zarr_format": 3,
-        "node_type": "array",
-        "storage_transformers": []
-      },
-      "uns/enrichment/es_053/gene_set_id": {
-        "shape": [
-          481
-        ],
-        "data_type": "string",
-        "chunk_grid": {
-          "name": "regular",
-          "configuration": {
-            "chunk_shape": [
-              481
-            ]
-          }
-        },
-        "chunk_key_encoding": {
-          "name": "default",
-          "configuration": {
-            "separator": "/"
-          }
-        },
-        "fill_value": "",
-        "codecs": [
-          {
-            "name": "vlen-utf8",
-            "configuration": {}
-          },
-          {
-            "name": "zstd",
-            "configuration": {
-              "level": 0,
-              "checksum": false
-            }
-          }
-        ],
-        "attributes": {
-          "encoding-type": "string-array",
-          "encoding-version": "0.2.0"
-        },
-        "zarr_format": 3,
-        "node_type": "array",
-        "storage_transformers": []
-      },
-      "uns/enrichment/es_053/overlap_size": {
-        "shape": [
-          481
-        ],
-        "data_type": "float64",
-        "chunk_grid": {
-          "name": "regular",
-          "configuration": {
-            "chunk_shape": [
-              481
-            ]
-          }
-        },
-        "chunk_key_encoding": {
-          "name": "default",
-          "configuration": {
-            "separator": "/"
-          }
-        },
-        "fill_value": 0.0,
-        "codecs": [
-          {
-            "name": "bytes",
-            "configuration": {
-              "endian": "little"
-            }
-          },
-          {
-            "name": "zstd",
-            "configuration": {
-              "level": 0,
-              "checksum": false
-            }
-          }
-        ],
-        "attributes": {
-          "encoding-type": "array",
-          "encoding-version": "0.2.0"
-        },
-        "zarr_format": 3,
-        "node_type": "array",
-        "storage_transformers": []
-      },
-      "uns/enrichment/es_053/pvals": {
-        "shape": [
-          481
-        ],
-        "data_type": "float64",
-        "chunk_grid": {
-          "name": "regular",
-          "configuration": {
-            "chunk_shape": [
-              481
-            ]
-          }
-        },
-        "chunk_key_encoding": {
-          "name": "default",
-          "configuration": {
-            "separator": "/"
-          }
-        },
-        "fill_value": 0.0,
-        "codecs": [
-          {
-            "name": "bytes",
-            "configuration": {
-              "endian": "little"
-            }
-          },
-          {
-            "name": "zstd",
-            "configuration": {
-              "level": 0,
-              "checksum": false
-            }
-          }
-        ],
-        "attributes": {
-          "encoding-type": "array",
-          "encoding-version": "0.2.0"
-        },
-        "zarr_format": 3,
-        "node_type": "array",
-        "storage_transformers": []
-      },
-      "uns/enrichment/es_053/pvals_adj": {
-        "shape": [
-          481
-        ],
-        "data_type": "float64",
-        "chunk_grid": {
-          "name": "regular",
-          "configuration": {
-            "chunk_shape": [
-              481
-            ]
-          }
-        },
-        "chunk_key_encoding": {
-          "name": "default",
-          "configuration": {
-            "separator": "/"
-          }
-        },
-        "fill_value": 0.0,
-        "codecs": [
-          {
-            "name": "bytes",
-            "configuration": {
-              "endian": "little"
-            }
-          },
-          {
-            "name": "zstd",
-            "configuration": {
-              "level": 0,
-              "checksum": false
-            }
-          }
-        ],
-        "attributes": {
-          "encoding-type": "array",
-          "encoding-version": "0.2.0"
-        },
-        "zarr_format": 3,
-        "node_type": "array",
-        "storage_transformers": []
-      },
-      "uns/enrichment/es_053/scores": {
-        "shape": [
-          481
-        ],
-        "data_type": "float64",
-        "chunk_grid": {
-          "name": "regular",
-          "configuration": {
-            "chunk_shape": [
-              481
-            ]
-          }
-        },
-        "chunk_key_encoding": {
-          "name": "default",
-          "configuration": {
-            "separator": "/"
-          }
-        },
-        "fill_value": 0.0,
-        "codecs": [
-          {
-            "name": "bytes",
-            "configuration": {
-              "endian": "little"
-            }
-          },
-          {
-            "name": "zstd",
-            "configuration": {
-              "level": 0,
-              "checksum": false
-            }
-          }
-        ],
-        "attributes": {
-          "encoding-type": "array",
-          "encoding-version": "0.2.0"
-        },
-        "zarr_format": 3,
-        "node_type": "array",
-        "storage_transformers": []
-      },
-      "uns/enrichment/es_053/set_size": {
-        "shape": [
-          481
-        ],
-        "data_type": "float64",
-        "chunk_grid": {
-          "name": "regular",
-          "configuration": {
-            "chunk_shape": [
-              481
-            ]
-          }
-        },
-        "chunk_key_encoding": {
-          "name": "default",
-          "configuration": {
-            "separator": "/"
-          }
-        },
-        "fill_value": 0.0,
-        "codecs": [
-          {
-            "name": "bytes",
-            "configuration": {
-              "endian": "little"
-            }
-          },
-          {
-            "name": "zstd",
-            "configuration": {
-              "level": 0,
-              "checksum": false
-            }
-          }
-        ],
-        "attributes": {
-          "encoding-type": "array",
-          "encoding-version": "0.2.0"
-        },
-        "zarr_format": 3,
-        "node_type": "array",
-        "storage_transformers": []
-      },
-      "uns/enrichment/es_053/significance": {
-        "shape": [
-          481
-        ],
-        "data_type": "float64",
-        "chunk_grid": {
-          "name": "regular",
-          "configuration": {
-            "chunk_shape": [
-              481
-            ]
-          }
-        },
-        "chunk_key_encoding": {
-          "name": "default",
-          "configuration": {
-            "separator": "/"
-          }
-        },
-        "fill_value": 0.0,
-        "codecs": [
-          {
-            "name": "bytes",
-            "configuration": {
-              "endian": "little"
-            }
-          },
-          {
-            "name": "zstd",
-            "configuration": {
-              "level": 0,
-              "checksum": false
-            }
-          }
-        ],
-        "attributes": {
-          "encoding-type": "array",
-          "encoding-version": "0.2.0"
-        },
-        "zarr_format": 3,
-        "node_type": "array",
-        "storage_transformers": []
-      },
-      "uns/enrichment/es_054/effect_size": {
-        "shape": [
-          481
-        ],
-        "data_type": "float64",
-        "chunk_grid": {
-          "name": "regular",
-          "configuration": {
-            "chunk_shape": [
-              481
-            ]
-          }
-        },
-        "chunk_key_encoding": {
-          "name": "default",
-          "configuration": {
-            "separator": "/"
-          }
-        },
-        "fill_value": 0.0,
-        "codecs": [
-          {
-            "name": "bytes",
-            "configuration": {
-              "endian": "little"
-            }
-          },
-          {
-            "name": "zstd",
-            "configuration": {
-              "level": 0,
-              "checksum": false
-            }
-          }
-        ],
-        "attributes": {
-          "encoding-type": "array",
-          "encoding-version": "0.2.0"
-        },
-        "zarr_format": 3,
-        "node_type": "array",
-        "storage_transformers": []
-      },
-      "uns/enrichment/es_054/gene_set_id": {
-        "shape": [
-          481
-        ],
-        "data_type": "string",
-        "chunk_grid": {
-          "name": "regular",
-          "configuration": {
-            "chunk_shape": [
-              481
-            ]
-          }
-        },
-        "chunk_key_encoding": {
-          "name": "default",
-          "configuration": {
-            "separator": "/"
-          }
-        },
-        "fill_value": "",
-        "codecs": [
-          {
-            "name": "vlen-utf8",
-            "configuration": {}
-          },
-          {
-            "name": "zstd",
-            "configuration": {
-              "level": 0,
-              "checksum": false
-            }
-          }
-        ],
-        "attributes": {
-          "encoding-type": "string-array",
-          "encoding-version": "0.2.0"
-        },
-        "zarr_format": 3,
-        "node_type": "array",
-        "storage_transformers": []
-      },
-      "uns/enrichment/es_054/overlap_size": {
-        "shape": [
-          481
-        ],
-        "data_type": "float64",
-        "chunk_grid": {
-          "name": "regular",
-          "configuration": {
-            "chunk_shape": [
-              481
-            ]
-          }
-        },
-        "chunk_key_encoding": {
-          "name": "default",
-          "configuration": {
-            "separator": "/"
-          }
-        },
-        "fill_value": 0.0,
-        "codecs": [
-          {
-            "name": "bytes",
-            "configuration": {
-              "endian": "little"
-            }
-          },
-          {
-            "name": "zstd",
-            "configuration": {
-              "level": 0,
-              "checksum": false
-            }
-          }
-        ],
-        "attributes": {
-          "encoding-type": "array",
-          "encoding-version": "0.2.0"
-        },
-        "zarr_format": 3,
-        "node_type": "array",
-        "storage_transformers": []
-      },
-      "uns/enrichment/es_054/pvals": {
-        "shape": [
-          481
-        ],
-        "data_type": "float64",
-        "chunk_grid": {
-          "name": "regular",
-          "configuration": {
-            "chunk_shape": [
-              481
-            ]
-          }
-        },
-        "chunk_key_encoding": {
-          "name": "default",
-          "configuration": {
-            "separator": "/"
-          }
-        },
-        "fill_value": 0.0,
-        "codecs": [
-          {
-            "name": "bytes",
-            "configuration": {
-              "endian": "little"
-            }
-          },
-          {
-            "name": "zstd",
-            "configuration": {
-              "level": 0,
-              "checksum": false
-            }
-          }
-        ],
-        "attributes": {
-          "encoding-type": "array",
-          "encoding-version": "0.2.0"
-        },
-        "zarr_format": 3,
-        "node_type": "array",
-        "storage_transformers": []
-      },
-      "uns/enrichment/es_054/pvals_adj": {
-        "shape": [
-          481
-        ],
-        "data_type": "float64",
-        "chunk_grid": {
-          "name": "regular",
-          "configuration": {
-            "chunk_shape": [
-              481
-            ]
-          }
-        },
-        "chunk_key_encoding": {
-          "name": "default",
-          "configuration": {
-            "separator": "/"
-          }
-        },
-        "fill_value": 0.0,
-        "codecs": [
-          {
-            "name": "bytes",
-            "configuration": {
-              "endian": "little"
-            }
-          },
-          {
-            "name": "zstd",
-            "configuration": {
-              "level": 0,
-              "checksum": false
-            }
-          }
-        ],
-        "attributes": {
-          "encoding-type": "array",
-          "encoding-version": "0.2.0"
-        },
-        "zarr_format": 3,
-        "node_type": "array",
-        "storage_transformers": []
-      },
-      "uns/enrichment/es_054/scores": {
-        "shape": [
-          481
-        ],
-        "data_type": "float64",
-        "chunk_grid": {
-          "name": "regular",
-          "configuration": {
-            "chunk_shape": [
-              481
-            ]
-          }
-        },
-        "chunk_key_encoding": {
-          "name": "default",
-          "configuration": {
-            "separator": "/"
-          }
-        },
-        "fill_value": 0.0,
-        "codecs": [
-          {
-            "name": "bytes",
-            "configuration": {
-              "endian": "little"
-            }
-          },
-          {
-            "name": "zstd",
-            "configuration": {
-              "level": 0,
-              "checksum": false
-            }
-          }
-        ],
-        "attributes": {
-          "encoding-type": "array",
-          "encoding-version": "0.2.0"
-        },
-        "zarr_format": 3,
-        "node_type": "array",
-        "storage_transformers": []
-      },
-      "uns/enrichment/es_054/set_size": {
-        "shape": [
-          481
-        ],
-        "data_type": "float64",
-        "chunk_grid": {
-          "name": "regular",
-          "configuration": {
-            "chunk_shape": [
-              481
-            ]
-          }
-        },
-        "chunk_key_encoding": {
-          "name": "default",
-          "configuration": {
-            "separator": "/"
-          }
-        },
-        "fill_value": 0.0,
-        "codecs": [
-          {
-            "name": "bytes",
-            "configuration": {
-              "endian": "little"
-            }
-          },
-          {
-            "name": "zstd",
-            "configuration": {
-              "level": 0,
-              "checksum": false
-            }
-          }
-        ],
-        "attributes": {
-          "encoding-type": "array",
-          "encoding-version": "0.2.0"
-        },
-        "zarr_format": 3,
-        "node_type": "array",
-        "storage_transformers": []
-      },
-      "uns/enrichment/es_054/significance": {
-        "shape": [
-          481
-        ],
-        "data_type": "float64",
-        "chunk_grid": {
-          "name": "regular",
-          "configuration": {
-            "chunk_shape": [
-              481
-            ]
-          }
-        },
-        "chunk_key_encoding": {
-          "name": "default",
-          "configuration": {
-            "separator": "/"
-          }
-        },
-        "fill_value": 0.0,
-        "codecs": [
-          {
-            "name": "bytes",
-            "configuration": {
-              "endian": "little"
-            }
-          },
-          {
-            "name": "zstd",
-            "configuration": {
-              "level": 0,
-              "checksum": false
-            }
-          }
-        ],
-        "attributes": {
-          "encoding-type": "array",
-          "encoding-version": "0.2.0"
-        },
-        "zarr_format": 3,
-        "node_type": "array",
-        "storage_transformers": []
-      },
-      "uns/enrichment/es_055/effect_size": {
-        "shape": [
-          481
-        ],
-        "data_type": "float64",
-        "chunk_grid": {
-          "name": "regular",
-          "configuration": {
-            "chunk_shape": [
-              481
-            ]
-          }
-        },
-        "chunk_key_encoding": {
-          "name": "default",
-          "configuration": {
-            "separator": "/"
-          }
-        },
-        "fill_value": 0.0,
-        "codecs": [
-          {
-            "name": "bytes",
-            "configuration": {
-              "endian": "little"
-            }
-          },
-          {
-            "name": "zstd",
-            "configuration": {
-              "level": 0,
-              "checksum": false
-            }
-          }
-        ],
-        "attributes": {
-          "encoding-type": "array",
-          "encoding-version": "0.2.0"
-        },
-        "zarr_format": 3,
-        "node_type": "array",
-        "storage_transformers": []
-      },
-      "uns/enrichment/es_055/gene_set_id": {
-        "shape": [
-          481
-        ],
-        "data_type": "string",
-        "chunk_grid": {
-          "name": "regular",
-          "configuration": {
-            "chunk_shape": [
-              481
-            ]
-          }
-        },
-        "chunk_key_encoding": {
-          "name": "default",
-          "configuration": {
-            "separator": "/"
-          }
-        },
-        "fill_value": "",
-        "codecs": [
-          {
-            "name": "vlen-utf8",
-            "configuration": {}
-          },
-          {
-            "name": "zstd",
-            "configuration": {
-              "level": 0,
-              "checksum": false
-            }
-          }
-        ],
-        "attributes": {
-          "encoding-type": "string-array",
-          "encoding-version": "0.2.0"
-        },
-        "zarr_format": 3,
-        "node_type": "array",
-        "storage_transformers": []
-      },
-      "uns/enrichment/es_055/overlap_size": {
-        "shape": [
-          481
-        ],
-        "data_type": "float64",
-        "chunk_grid": {
-          "name": "regular",
-          "configuration": {
-            "chunk_shape": [
-              481
-            ]
-          }
-        },
-        "chunk_key_encoding": {
-          "name": "default",
-          "configuration": {
-            "separator": "/"
-          }
-        },
-        "fill_value": 0.0,
-        "codecs": [
-          {
-            "name": "bytes",
-            "configuration": {
-              "endian": "little"
-            }
-          },
-          {
-            "name": "zstd",
-            "configuration": {
-              "level": 0,
-              "checksum": false
-            }
-          }
-        ],
-        "attributes": {
-          "encoding-type": "array",
-          "encoding-version": "0.2.0"
-        },
-        "zarr_format": 3,
-        "node_type": "array",
-        "storage_transformers": []
-      },
-      "uns/enrichment/es_055/pvals": {
-        "shape": [
-          481
-        ],
-        "data_type": "float64",
-        "chunk_grid": {
-          "name": "regular",
-          "configuration": {
-            "chunk_shape": [
-              481
-            ]
-          }
-        },
-        "chunk_key_encoding": {
-          "name": "default",
-          "configuration": {
-            "separator": "/"
-          }
-        },
-        "fill_value": 0.0,
-        "codecs": [
-          {
-            "name": "bytes",
-            "configuration": {
-              "endian": "little"
-            }
-          },
-          {
-            "name": "zstd",
-            "configuration": {
-              "level": 0,
-              "checksum": false
-            }
-          }
-        ],
-        "attributes": {
-          "encoding-type": "array",
-          "encoding-version": "0.2.0"
-        },
-        "zarr_format": 3,
-        "node_type": "array",
-        "storage_transformers": []
-      },
-      "uns/enrichment/es_055/pvals_adj": {
-        "shape": [
-          481
-        ],
-        "data_type": "float64",
-        "chunk_grid": {
-          "name": "regular",
-          "configuration": {
-            "chunk_shape": [
-              481
-            ]
-          }
-        },
-        "chunk_key_encoding": {
-          "name": "default",
-          "configuration": {
-            "separator": "/"
-          }
-        },
-        "fill_value": 0.0,
-        "codecs": [
-          {
-            "name": "bytes",
-            "configuration": {
-              "endian": "little"
-            }
-          },
-          {
-            "name": "zstd",
-            "configuration": {
-              "level": 0,
-              "checksum": false
-            }
-          }
-        ],
-        "attributes": {
-          "encoding-type": "array",
-          "encoding-version": "0.2.0"
-        },
-        "zarr_format": 3,
-        "node_type": "array",
-        "storage_transformers": []
-      },
-      "uns/enrichment/es_055/scores": {
-        "shape": [
-          481
-        ],
-        "data_type": "float64",
-        "chunk_grid": {
-          "name": "regular",
-          "configuration": {
-            "chunk_shape": [
-              481
-            ]
-          }
-        },
-        "chunk_key_encoding": {
-          "name": "default",
-          "configuration": {
-            "separator": "/"
-          }
-        },
-        "fill_value": 0.0,
-        "codecs": [
-          {
-            "name": "bytes",
-            "configuration": {
-              "endian": "little"
-            }
-          },
-          {
-            "name": "zstd",
-            "configuration": {
-              "level": 0,
-              "checksum": false
-            }
-          }
-        ],
-        "attributes": {
-          "encoding-type": "array",
-          "encoding-version": "0.2.0"
-        },
-        "zarr_format": 3,
-        "node_type": "array",
-        "storage_transformers": []
-      },
-      "uns/enrichment/es_055/set_size": {
-        "shape": [
-          481
-        ],
-        "data_type": "float64",
-        "chunk_grid": {
-          "name": "regular",
-          "configuration": {
-            "chunk_shape": [
-              481
-            ]
-          }
-        },
-        "chunk_key_encoding": {
-          "name": "default",
-          "configuration": {
-            "separator": "/"
-          }
-        },
-        "fill_value": 0.0,
-        "codecs": [
-          {
-            "name": "bytes",
-            "configuration": {
-              "endian": "little"
-            }
-          },
-          {
-            "name": "zstd",
-            "configuration": {
-              "level": 0,
-              "checksum": false
-            }
-          }
-        ],
-        "attributes": {
-          "encoding-type": "array",
-          "encoding-version": "0.2.0"
-        },
-        "zarr_format": 3,
-        "node_type": "array",
-        "storage_transformers": []
-      },
-      "uns/enrichment/es_055/significance": {
         "shape": [
           481
         ],
