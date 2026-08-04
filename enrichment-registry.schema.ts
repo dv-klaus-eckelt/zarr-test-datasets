@@ -18,8 +18,10 @@ const SharedEnrichmentFields = {
   source_contrast_id: z
     .string()
     .min(1)
+    .nullable()
+    .optional()
     .describe(
-      "DE contrast this enrichment was computed from (for example de_001); links to uns/de.",
+      "DE contrast this enrichment was computed from (for example de_001); links to uns/de. Null/absent when not derived from a DE folder.",
     ),
   group_1: z
     .string()
@@ -57,10 +59,6 @@ const SharedEnrichmentFields = {
     .describe(
       "Obs column that defined the compared groups in the source contrast (for example CellType).",
     ),
-  feature_type: z
-    .literal("Gene Set")
-    .optional()
-    .describe("Feature modality label; always 'Gene Set' for enrichment. Optional; not consumed by any current frontend."),
   enrichment_method: z
     .string()
     .min(1)
@@ -102,22 +100,6 @@ const SharedEnrichmentFields = {
   top_10_gene_set_ids: z
     .array(z.string().min(1))
     .describe("Top 10 gene set ids ranked by score in descending order."),
-  effect_size_max: z
-    .number()
-    .nonnegative()
-    .nullable()
-    .optional()
-    .describe(
-      "Optional absolute effect-size bound. Derivable from the effect_size array; not consumed by any current frontend.",
-    ),
-  significance_max: z
-    .number()
-    .nonnegative()
-    .nullable()
-    .optional()
-    .describe(
-      "Optional data-driven significance cap (plot y-max) = the maximum significance value in the array. Derivable from the significance array; not consumed by any current frontend.",
-    ),
 };
 
 const EffectAndSignificanceEnrichmentSchema = z.object({
@@ -127,7 +109,10 @@ const EffectAndSignificanceEnrichmentSchema = z.object({
   correction_method: z
     .string()
     .min(1)
-    .describe("P-value correction method when significance metrics are available."),
+    .nullable()
+    .describe(
+      'P-value correction method applied to the significance metric, or null when the method reports uncorrected p-values (for example decoupler mlm). Rendered as "Not corrected" when null.',
+    ),
   effect_size_label: z
     .string()
     .min(1)
@@ -136,6 +121,14 @@ const EffectAndSignificanceEnrichmentSchema = z.object({
     .string()
     .min(1)
     .describe("Significance metric label when significance metrics are available."),
+  effect_size_max: z
+    .number()
+    .nonnegative()
+    .describe("Absolute effect-size bound when effect-size metrics are available."),
+  significance_max: z
+    .number()
+    .nonnegative()
+    .describe("Data-driven significance cap (plot y-max) when significance metrics are available."),
 });
 
 const EffectOnlyEnrichmentSchema = z.object({
@@ -152,6 +145,13 @@ const EffectOnlyEnrichmentSchema = z.object({
   significance_label: z
     .null()
     .describe("Significance metric label must be null when significance metrics are unavailable."),
+  effect_size_max: z
+    .number()
+    .nonnegative()
+    .describe("Absolute effect-size bound when effect-size metrics are available."),
+  significance_max: z
+    .null()
+    .describe("Significance cap must be null when significance metrics are unavailable."),
 });
 
 const SignificanceOnlyEnrichmentSchema = z.object({
@@ -161,7 +161,10 @@ const SignificanceOnlyEnrichmentSchema = z.object({
   correction_method: z
     .string()
     .min(1)
-    .describe("P-value correction method when significance metrics are available."),
+    .nullable()
+    .describe(
+      'P-value correction method applied to the significance metric, or null when the method reports uncorrected p-values (for example decoupler mlm). Rendered as "Not corrected" when null.',
+    ),
   effect_size_label: z
     .null()
     .describe("Effect-size label must be null when effect-size metrics are unavailable."),
@@ -169,6 +172,13 @@ const SignificanceOnlyEnrichmentSchema = z.object({
     .string()
     .min(1)
     .describe("Significance metric label when significance metrics are available."),
+  effect_size_max: z
+    .null()
+    .describe("Effect-size bound must be null when effect-size metrics are unavailable."),
+  significance_max: z
+    .number()
+    .nonnegative()
+    .describe("Data-driven significance cap (plot y-max) when significance metrics are available."),
 });
 
 const ScoreOnlyEnrichmentSchema = z.object({
@@ -184,6 +194,12 @@ const ScoreOnlyEnrichmentSchema = z.object({
   significance_label: z
     .null()
     .describe("Significance metric label must be null when significance metrics are unavailable."),
+  effect_size_max: z
+    .null()
+    .describe("Effect-size bound must be null when effect-size metrics are unavailable."),
+  significance_max: z
+    .null()
+    .describe("Significance cap must be null when significance metrics are unavailable."),
 });
 
 /**

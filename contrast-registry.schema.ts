@@ -43,13 +43,6 @@ const SharedContrastFields = {
     .describe(
       "Obs column that defines the compared groups (for example CellType).",
     ),
-  feature_type: z
-    .string()
-    .min(1)
-    .optional()
-    .describe(
-      "Feature modality label for UI display/filtering (for example Gene Expression). Optional; not consumed by the current frontend.",
-    ),
   de_method: z
     .string()
     .min(1)
@@ -83,22 +76,6 @@ const SharedContrastFields = {
   top_10_gene_ids: z
     .array(z.string().min(1))
     .describe("Top 10 feature IDs ranked by score in descending order."),
-  effect_size_max: z
-    .number()
-    .nonnegative()
-    .nullable()
-    .optional()
-    .describe(
-      "Optional absolute effect-size bound (volcano x-max). Derivable from the effect_size array; not consumed by the current frontend.",
-    ),
-  significance_max: z
-    .number()
-    .nonnegative()
-    .nullable()
-    .optional()
-    .describe(
-      "Optional data-driven significance cap (volcano y-max) = the maximum significance value in the array. Derivable from the significance array; not consumed by the current frontend.",
-    ),
 };
 
 const EffectAndSignificanceContrastSchema = z.object({
@@ -108,8 +85,9 @@ const EffectAndSignificanceContrastSchema = z.object({
   correction_method: z
     .string()
     .min(1)
+    .nullable()
     .describe(
-      "P-value correction method when significance metrics are available.",
+      'P-value correction method applied to the significance metric, or null when the test reports uncorrected p-values. Rendered as "Not corrected" when null.',
     ),
   effect_size_label: z
     .string()
@@ -123,6 +101,14 @@ const EffectAndSignificanceContrastSchema = z.object({
     .describe(
       "Significance metric label when significance metrics are available.",
     ),
+  effect_size_max: z
+    .number()
+    .nonnegative()
+    .describe("Absolute effect-size bound (volcano x-max) when effect-size metrics are available."),
+  significance_max: z
+    .number()
+    .nonnegative()
+    .describe("Data-driven significance cap (volcano y-max) when significance metrics are available."),
 });
 
 const EffectOnlyContrastSchema = z.object({
@@ -145,6 +131,13 @@ const EffectOnlyContrastSchema = z.object({
     .describe(
       "Significance metric label must be null when significance metrics are unavailable.",
     ),
+  effect_size_max: z
+    .number()
+    .nonnegative()
+    .describe("Absolute effect-size bound (volcano x-max) when effect-size metrics are available."),
+  significance_max: z
+    .null()
+    .describe("Significance cap must be null when significance metrics are unavailable."),
 });
 
 const SignificanceOnlyContrastSchema = z.object({
@@ -154,8 +147,9 @@ const SignificanceOnlyContrastSchema = z.object({
   correction_method: z
     .string()
     .min(1)
+    .nullable()
     .describe(
-      "P-value correction method when significance metrics are available.",
+      'P-value correction method applied to the significance metric, or null when the test reports uncorrected p-values. Rendered as "Not corrected" when null.',
     ),
   effect_size_label: z
     .null()
@@ -168,6 +162,13 @@ const SignificanceOnlyContrastSchema = z.object({
     .describe(
       "Significance metric label when significance metrics are available.",
     ),
+  effect_size_max: z
+    .null()
+    .describe("Effect-size bound must be null when effect-size metrics are unavailable."),
+  significance_max: z
+    .number()
+    .nonnegative()
+    .describe("Data-driven significance cap (volcano y-max) when significance metrics are available."),
 });
 
 const ScoreOnlyContrastSchema = z.object({
@@ -189,6 +190,12 @@ const ScoreOnlyContrastSchema = z.object({
     .describe(
       "Significance metric label must be null when significance metrics are unavailable.",
     ),
+  effect_size_max: z
+    .null()
+    .describe("Effect-size bound must be null when effect-size metrics are unavailable."),
+  significance_max: z
+    .null()
+    .describe("Significance cap must be null when significance metrics are unavailable."),
 });
 
 /**
