@@ -1,6 +1,6 @@
 {
   "version": "1.0",
-  "generated_at": "2026-07-14T11:43:11.569438+00:00",
+  "generated_at": "2026-08-04T11:11:38.447968+00:00",
   "decoupler_version": "2.2.0",
   "zarr_version": "3.1.6",
   "dataset_metadata": {
@@ -9,7 +9,7 @@
     "source_store": "habib17-differential-expression-test-data-format.zarr"
   },
   "enrichment_summary": {
-    "total_enrichments": 50,
+    "total_enrichments": 55,
     "total_cell_activities": 3,
     "series": [
       {
@@ -38,9 +38,9 @@
       },
       {
         "method": "ora",
-        "gene_set_collection": "omnipath",
+        "gene_set_collection": "OmniPath",
         "n_contrasts": 5,
-        "available": false
+        "available": true
       },
       {
         "method": "mlm",
@@ -1546,6 +1546,171 @@
       "subset_column": null,
       "subset_value": null,
       "contrast_column": "CellType",
+      "enrichment_method": "ora",
+      "gene_set_collection": "OmniPath",
+      "n_gene_sets": 6,
+      "input_statistic": "top_50_up_genes",
+      "feature_type": "Gene Set",
+      "has_effect_size": false,
+      "has_significance": true,
+      "has_set_size": true,
+      "has_overlap": true,
+      "has_leading_edge": false,
+      "correction_method": "benjamini-hochberg",
+      "effect_size_label": null,
+      "significance_label": "-log10(FDR)",
+      "effect_size_max": null,
+      "significance_max": 48.0,
+      "top_10_gene_set_ids": [
+        "Extracellular space",
+        "Intracellular",
+        "Membrane",
+        "Nucleus",
+        "Cytosol",
+        "Extracellular"
+      ]
+    },
+    {
+      "enrichment_id": "es_042",
+      "source_contrast_id": "de_002",
+      "group_1": "ASC2",
+      "group_2": null,
+      "test_type": "one_vs_rest",
+      "subset_column": null,
+      "subset_value": null,
+      "contrast_column": "CellType",
+      "enrichment_method": "ora",
+      "gene_set_collection": "OmniPath",
+      "n_gene_sets": 6,
+      "input_statistic": "top_50_up_genes",
+      "feature_type": "Gene Set",
+      "has_effect_size": false,
+      "has_significance": true,
+      "has_set_size": true,
+      "has_overlap": true,
+      "has_leading_edge": false,
+      "correction_method": "benjamini-hochberg",
+      "effect_size_label": null,
+      "significance_label": "-log10(FDR)",
+      "effect_size_max": null,
+      "significance_max": 48.0,
+      "top_10_gene_set_ids": [
+        "Extracellular space",
+        "Membrane",
+        "Nucleus",
+        "Intracellular",
+        "Cytosol",
+        "Extracellular"
+      ]
+    },
+    {
+      "enrichment_id": "es_043",
+      "source_contrast_id": "de_003",
+      "group_1": "END",
+      "group_2": null,
+      "test_type": "one_vs_rest",
+      "subset_column": null,
+      "subset_value": null,
+      "contrast_column": "CellType",
+      "enrichment_method": "ora",
+      "gene_set_collection": "OmniPath",
+      "n_gene_sets": 6,
+      "input_statistic": "top_50_up_genes",
+      "feature_type": "Gene Set",
+      "has_effect_size": false,
+      "has_significance": true,
+      "has_set_size": true,
+      "has_overlap": true,
+      "has_leading_edge": false,
+      "correction_method": "benjamini-hochberg",
+      "effect_size_label": null,
+      "significance_label": "-log10(FDR)",
+      "effect_size_max": null,
+      "significance_max": 48.0,
+      "top_10_gene_set_ids": [
+        "Nucleus",
+        "Membrane",
+        "Extracellular space",
+        "Intracellular",
+        "Cytosol",
+        "Extracellular"
+      ]
+    },
+    {
+      "enrichment_id": "es_044",
+      "source_contrast_id": "de_004",
+      "group_1": "GABA1",
+      "group_2": null,
+      "test_type": "one_vs_rest",
+      "subset_column": null,
+      "subset_value": null,
+      "contrast_column": "CellType",
+      "enrichment_method": "ora",
+      "gene_set_collection": "OmniPath",
+      "n_gene_sets": 6,
+      "input_statistic": "top_50_up_genes",
+      "feature_type": "Gene Set",
+      "has_effect_size": false,
+      "has_significance": true,
+      "has_set_size": true,
+      "has_overlap": true,
+      "has_leading_edge": false,
+      "correction_method": "benjamini-hochberg",
+      "effect_size_label": null,
+      "significance_label": "-log10(FDR)",
+      "effect_size_max": null,
+      "significance_max": 51.0,
+      "top_10_gene_set_ids": [
+        "Membrane",
+        "Extracellular space",
+        "Nucleus",
+        "Intracellular",
+        "Cytosol",
+        "Extracellular"
+      ]
+    },
+    {
+      "enrichment_id": "es_045",
+      "source_contrast_id": "de_005",
+      "group_1": "GABA2",
+      "group_2": null,
+      "test_type": "one_vs_rest",
+      "subset_column": null,
+      "subset_value": null,
+      "contrast_column": "CellType",
+      "enrichment_method": "ora",
+      "gene_set_collection": "OmniPath",
+      "n_gene_sets": 6,
+      "input_statistic": "top_50_up_genes",
+      "feature_type": "Gene Set",
+      "has_effect_size": false,
+      "has_significance": true,
+      "has_set_size": true,
+      "has_overlap": true,
+      "has_leading_edge": false,
+      "correction_method": "benjamini-hochberg",
+      "effect_size_label": null,
+      "significance_label": "-log10(FDR)",
+      "effect_size_max": null,
+      "significance_max": 48.0,
+      "top_10_gene_set_ids": [
+        "Membrane",
+        "Intracellular",
+        "Extracellular space",
+        "Nucleus",
+        "Cytosol",
+        "Extracellular"
+      ]
+    },
+    {
+      "enrichment_id": "es_046",
+      "source_contrast_id": "de_001",
+      "group_1": "ASC1",
+      "group_2": null,
+      "test_type": "one_vs_rest",
+      "subset_column": null,
+      "subset_value": null,
+      "contrast_column": "CellType",
       "enrichment_method": "mlm",
       "gene_set_collection": "PROGENy",
       "n_gene_sets": 14,
@@ -1575,7 +1740,7 @@
       ]
     },
     {
-      "enrichment_id": "es_042",
+      "enrichment_id": "es_047",
       "source_contrast_id": "de_002",
       "group_1": "ASC2",
       "group_2": null,
@@ -1612,7 +1777,7 @@
       ]
     },
     {
-      "enrichment_id": "es_043",
+      "enrichment_id": "es_048",
       "source_contrast_id": "de_003",
       "group_1": "END",
       "group_2": null,
@@ -1649,7 +1814,7 @@
       ]
     },
     {
-      "enrichment_id": "es_044",
+      "enrichment_id": "es_049",
       "source_contrast_id": "de_004",
       "group_1": "GABA1",
       "group_2": null,
@@ -1686,7 +1851,7 @@
       ]
     },
     {
-      "enrichment_id": "es_045",
+      "enrichment_id": "es_050",
       "source_contrast_id": "de_005",
       "group_1": "GABA2",
       "group_2": null,
@@ -1723,7 +1888,7 @@
       ]
     },
     {
-      "enrichment_id": "es_046",
+      "enrichment_id": "es_051",
       "source_contrast_id": "de_001",
       "group_1": "ASC1",
       "group_2": null,
@@ -1760,7 +1925,7 @@
       ]
     },
     {
-      "enrichment_id": "es_047",
+      "enrichment_id": "es_052",
       "source_contrast_id": "de_002",
       "group_1": "ASC2",
       "group_2": null,
@@ -1797,7 +1962,7 @@
       ]
     },
     {
-      "enrichment_id": "es_048",
+      "enrichment_id": "es_053",
       "source_contrast_id": "de_003",
       "group_1": "END",
       "group_2": null,
@@ -1834,7 +1999,7 @@
       ]
     },
     {
-      "enrichment_id": "es_049",
+      "enrichment_id": "es_054",
       "source_contrast_id": "de_004",
       "group_1": "GABA1",
       "group_2": null,
@@ -1871,7 +2036,7 @@
       ]
     },
     {
-      "enrichment_id": "es_050",
+      "enrichment_id": "es_055",
       "source_contrast_id": "de_005",
       "group_1": "GABA2",
       "group_2": null,
