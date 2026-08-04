@@ -113,15 +113,11 @@ the "Mean Expression" column is blank.
 **Colour** is computed in the frontend, not read from disk: it is the
 median/MAD robust z-score of `effect_size`
 (`(value − median) / (MAD × 1.4826)`), evaluated per contrast over that
-contrast's genes. The scale's domain is fixed at ±3 and re-pinned even if a user
-edits it, so anything beyond three robust deviations saturates rather than
-stretching the ramp. Two consequences for you: the colouring is *relative to the
-contrast*, so the same gene can be coloured differently in two contrasts; and it
-degrades to a single colour when `effect_size` is constant or all-`NaN` (MAD of 0
-yields z = 0 everywhere).
-
-Users can re-map size and colour to any numeric column from the plot's settings
-menu — these are just the defaults they land on.
+contrast's genes. The scale's domain is fixed at ±3, so anything beyond three
+robust deviations saturates rather than stretching the ramp. Two consequences for
+you: the colouring is *relative to the contrast*, so the same gene can be coloured
+differently in two contrasts; and it degrades to a single colour when
+`effect_size` is constant or all-`NaN` (MAD of 0 yields z = 0 everywhere).
 
 **Why colour is derived rather than stored.** It is a display encoding, not a
 result: no label field describes it, no registry entry declares it, and it means

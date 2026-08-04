@@ -69,7 +69,8 @@ dataset.zarr/
         │   ├── pvals_adj/                   # corrected p-values
         │   ├── significance/                # recommended: plot-ready -log10(p) (y-axis)
         │   ├── set_size/                    # genes in the set, per the collection
-        │   └── overlap_size/                # set genes present/tested in the data
+        │   ├── overlap_size/                # set genes present/tested in the data
+        │   └── leading_edge_genes/          # optional: ";"-joined driver gene ids per set
         └── es_002/ …
 └── obsm/
     ├── X_activity_mlm_progeny/              # optional: cells × gene sets
@@ -98,9 +99,11 @@ user (§5).
 | **significance** | float | *recommended* | Volcano y-axis, read directly. Only array the app tolerates as absent. |
 | **set_size** | float | **yes** | Table column. |
 | **overlap_size** | float | **yes** | Table column. |
+| **leading_edge_genes** | string | *optional* | Driver genes per set; see §5. Not read yet, so writing it changes nothing visible today. |
 
-Eight arrays against DE's eleven — there is no expression-summary block, and
-`gene_set_id` replaces `gene_id`.
+Seven required arrays against DE's ten — there is no expression-summary block, and
+`gene_set_id` replaces `gene_id`. Two further arrays are optional: `significance`
+(recommended, §4) and `leading_edge_genes` (§5).
 
 ### The volcano plot's visual channels
 
@@ -109,31 +112,34 @@ Eight arrays against DE's eleven — there is no expression-summary block, and
 | **x** | `effect_size` | Direct. |
 | **y** | `significance` | Direct (falls back to `-log10(pvals_adj)`, §4). |
 | **size** | *none* | Flat 6 px for every gene set. |
-| **colour** | `scores` | Diverging `RdBu-reverse` centred at 0; domain from the data. |
+| **colour** | `scores` | Scheme chosen from the data: diverging centred at 0 when any score is negative, sequential otherwise. |
 
-Two differences from the DE tab worth knowing, since they change what your arrays
-need to carry:
+Two differences from the DE tab worth knowing:
 
 - **Size is constant.** DE sizes its points by `mean_expr`; enrichment has no
   expression-summary array and encodes nothing in radius. This is why the
   enrichment contract needs no `mean_expr` equivalent.
 - **Colour comes straight from `scores`**, not from a derived robust z-score as in
-  DE, and the scale is centred at 0 — so `scores` is assumed **signed** for
-  colouring purposes. For a signed statistic (NES, t-value) that reads correctly:
-  depleted sets blue, enriched red. For a strictly positive statistic (an odds
-  ratio, an AUCell score) every point lands on one half of the ramp, which is
-  legible but wastes contrast; put the signed quantity in `scores` where your
-  method has one.
+  DE. The same colour scale also paints the score column in the table, so it
+  applies even for methods whose volcano is hidden.
 
-Users can re-map size and colour to any numeric column from the plot's settings
-menu — these are just the defaults they land on.
+You do not declare whether `scores` is signed, and you should not shape the array
+to suit the colouring. The app inspects the loaded values: if any are negative it
+uses a diverging scale centred at 0 (depleted blue, enriched red); if all are
+non-negative it uses a sequential scale across the data range. So a GSEA NES, an
+MLM t-value, an ORA odds ratio and an AUCell score are each coloured sensibly
+without you doing anything. Put whatever your method's primary statistic is in
+`scores` and let it be the sort key — that is its job.
 
 ### Rule 1 — Stable arrays: never omit, always NaN-fill
 
-All seven arrays except `significance` are fetched **unguarded and in parallel**.
-Omitting one aborts the whole enrichment with `Failed to load column "<name>"`,
-even if the registry declares the metric unavailable. Write a full-length
-`NaN` array and set the matching `has_*` flag to `false`.
+The seven required arrays are fetched **unguarded and in parallel**. Omitting one
+aborts the whole enrichment with `Failed to load column "<name>"`, even if the
+registry declares the metric unavailable. Write a full-length `NaN` array and set
+the matching `has_*` flag to `false`.
+
+`significance` and `leading_edge_genes` are the exceptions: both may be absent
+entirely. Everything else must be present in every folder.
 
 The flags control **table column visibility and chart availability only**:
 
@@ -285,7 +291,7 @@ malformed entry rejects the whole registry.
 | **has_significance** | `true` | yes | |
 | **has_set_size** | `true` | yes | |
 | **has_overlap** | `true` | yes | |
-| **has_leading_edge** | `false` | yes | Reserved; see below. Write `false`. |
+| **has_leading_edge** | `false`, `true` | yes | `true` only when a non-empty `leading_edge_genes` array is written; see below. |
 | **correction_method** | `"benjamini-hochberg"`, `"bonferroni"`, `"permutation-fdr"`, `null` | yes (nullable) | Lower-case; rendered capitalised as *"Benjamini-hochberg corrected"*, or *"Not corrected"* when `null`. |
 | **effect_size_label** | `"Normalized Enrichment Score"`, `"MLM t-value"`, `"GSVA enrichment score"`, `"ln(Odds Ratio)"` | yes (nullable) | Volcano x-axis title. Name the actual quantity in `effect_size`. |
 | **significance_label** | `"-log10(FDR)"`, `"-log10(p-value)"`, `"-log10(q)"` | yes (nullable) | Volcano y-axis title. Must describe whatever transform you put in `significance` (§4). |
@@ -299,22 +305,37 @@ not derived from a DE contrast: they are how the app maps an enrichment to actua
 cells for the comparison plot and activity overlay. Every entry must name a real
 obs grouping.
 
-#### `has_leading_edge` — reserved for driver genes
+#### `has_leading_edge` and the `leading_edge_genes` array
 
 The **leading edge** is the subset of genes actually responsible for a set's
 enrichment: for GSEA, the genes contributing up to the running-enrichment peak;
 for over-representation, the intersection of your input gene list with the set's
 members. It answers "*which* genes made this set come up?".
 
-This is a **planned feature**, and the flag is its reserved slot. The intended
-shape is a `leading_edge_genes` per-folder string array — one delimiter-joined gene
-list per set, empty string where the method has no leading-edge concept — which
-keeps the equal-length rule and lets the table expand a row to show drivers.
+The array is fully specified below, so you can write it now and it will be picked
+up when the app starts rendering drivers. Nothing about this section changes then.
 
-Until that array is specified and the app reads it, **write `false`**. If you
-already have driver genes, hold them outside this contract rather than inventing a
-column: the delimiter and array name need to be agreed once so every producer
-writes the same thing, otherwise the feature arrives to inconsistent data.
+| Property | Value |
+| :--- | :--- |
+| Path | `uns/enrichment/<enrichment_id>/leading_edge_genes` |
+| Type | string, one entry per gene set — same length and order as `gene_set_id` |
+| Entry format | Driver gene ids joined by `;`, no surrounding whitespace (`"CD3D;IL7R;CCL5"`) |
+| No drivers for a set | Empty string `""` — never `NaN`, never the literal `"None"` |
+| Gene ids | Same identifier space as the `var` index, matching DE's `gene_id` |
+| Ordering within an entry | Yours to choose; by contribution is most useful |
+| Optionality | The whole array may be absent (§3, Rule 1) |
+
+Set `has_leading_edge: true` when the array is present **and** at least one entry
+is non-empty; `false` otherwise. So:
+
+- **GSEA / fgsea** — leading-edge subset per set → write the array, flag `true`.
+- **ORA / Fisher** — intersection of the input gene list with each set's members →
+  write the array, flag `true`.
+- **MLM / ULM / AUCell / GSVA** — no leading-edge concept. Omit the array (or write
+  all-empty strings) and set the flag `false`.
+
+The app validates the flag and does not read the array yet, so writing it changes
+nothing visible today. It costs one extra array and saves a regeneration later.
 
 
 ### The four valid flag/label combinations
@@ -371,10 +392,8 @@ Three requirements that are easy to get wrong:
 3. **Signedness is inferred from the values, not from your labels.** If the loaded
    column contains any negative value the overlay uses a diverging scale centred
    on zero; a strictly non-negative column gets a sequential scale. You do not
-   declare this anywhere — write honest scores and the colouring follows. (Earlier
-   builds pattern-matched `value_label` against `/t-value/i` for this, so a method
-   whose label did not contain "t-value" was mis-coloured. Fixed; `value_label` is
-   now purely a legend string.)
+   declare this anywhere — write honest scores and the colouring follows.
+   `value_label` is a legend string only and has no effect on the scale.
 
 A matching entry for a matrix written as `obsm/X_activity_gsva_hallmark`:
 
