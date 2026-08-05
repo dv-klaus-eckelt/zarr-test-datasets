@@ -141,3 +141,8 @@ def main() -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
+
+
+
+# analysis example: https://spatialdata.scverse.org/en/latest/tutorials/notebooks/notebooks/examples/technology_visium.html
+# mapping of cell types: https://cell2location.readthedocs.io/en/latest/notebooks/cell2location_short_demo.html
