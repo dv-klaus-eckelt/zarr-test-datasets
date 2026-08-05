@@ -1,0 +1,16 @@
+{
+  "attributes": {
+    "column-order": [
+      "in_tissue",
+      "array_row",
+      "array_col",
+      "spot_id",
+      "region"
+    ],
+    "_index": "_index",
+    "encoding-type": "dataframe",
+    "encoding-version": "0.2.0"
+  },
+  "zarr_format": 3,
+  "node_type": "group"
+}
