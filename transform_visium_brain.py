@@ -1,5 +1,13 @@
+
 #!/usr/bin/env python3
 """
+Initial data source: https://github.com/scverse/spatialdata-notebooks/blob/main/notebooks/examples/technology_visium.ipynb
+download from: https://spatialdata.scverse.org/en/stable/tutorials/notebooks/datasets/README.html
+Analysis example: https://spatialdata.scverse.org/en/latest/tutorials/notebooks/notebooks/examples/technology_visium.html
+Mapping of cell types: https://cell2location.readthedocs.io/en/latest/notebooks/cell2location_short_demo.html
+data exports from cell2location: https://cell2location.cog.sanger.ac.uk/browser.html?shared=tutorial/
+
+
 Transform the raw Visium brain SpatialData store into the trimmed test dataset
 in test-data/visium_brain.spatialdata.zarr.
 
@@ -142,7 +150,3 @@ def main() -> int:
 if __name__ == "__main__":
     raise SystemExit(main())
 
-
-
-# analysis example: https://spatialdata.scverse.org/en/latest/tutorials/notebooks/notebooks/examples/technology_visium.html
-# mapping of cell types: https://cell2location.readthedocs.io/en/latest/notebooks/cell2location_short_demo.html
