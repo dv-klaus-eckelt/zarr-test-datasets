@@ -1,0 +1,16 @@
+{
+  "attributes": {
+    "encoding-type": "anndata",
+    "encoding-version": "0.1.0",
+    "spatialdata-encoding-type": "ngff:regions_table",
+    "region": [
+      "ST8059048",
+      "ST8059050"
+    ],
+    "region_key": "region",
+    "instance_key": "spot_id",
+    "version": "0.2"
+  },
+  "zarr_format": 3,
+  "node_type": "group"
+}

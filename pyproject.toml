@@ -8,6 +8,7 @@ dependencies = [
     "anndata>=0.12.11",
     "dask==2026.1.1",
     "decoupler>=2.0.0",
+    "igraph>=1.0.0",
     "ipykernel",
     "ome-zarr>=0.16.0",
     "scanpy>=1.12.1",
