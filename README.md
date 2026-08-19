@@ -19,6 +19,7 @@ Current test data sets in this repository with links to Aevidence:
 | ------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | zarr v2             | [Link](http://127.0.0.1:8080/app/single_cell?id=spatial-zarr-v2&name=Spatial+%28zarr+v2+format%29&type=spatial&url=http%3A%2F%2Flocalhost%3A8000%2Fspatial-v2-test-data.zarr%2F) | [Link](https://aevidence.dev.app.datavisyn.io/app/single_cell?id=spatial-zarr-v2&name=Spatial+%28zarr+v2+format%29&type=spatial&url=http%3A%2F%2Flocalhost%3A8000%2Fspatial-v2-test-data.zarr%2F) |
 | zarr v3             | [Link](http://127.0.0.1:8080/app/single_cell?id=spatial-zarr-v3&name=Spatial+%28zarr+v3+format%29&type=spatial&url=http%3A%2F%2Flocalhost%3A8000%2Fspatial-v3-test-data.zarr%2F) | [Link](https://aevidence.dev.app.datavisyn.io/app/single_cell?id=spatial-zarr-v3&name=Spatial+%28zarr+v3+format%29&type=spatial&url=http%3A%2F%2Flocalhost%3A8000%2Fspatial-v3-test-data.zarr%2F) |
+| zarr v3 with differential expression and gene set enrichment | [Link](http://127.0.0.1:8080/app/single_cell?id=3d5f8b21&name=Visium+Brain+DE+%2B+Enrichment+Test&primaryAttribute=cluster&type=spatial&url=http%3A%2F%2Flocalhost%3A8000%2Fvisium-brain-de-enrichment-test-data-format.zarr%2F&watermark=3d5f8b21) | [Link](https://aevidence.dev.app.datavisyn.io/app/single_cell?id=3d5f8b21&name=Visium+Brain+DE+%2B+Enrichment+Test&primaryAttribute=cluster&type=spatial&url=http%3A%2F%2Flocalhost%3A8000%2Fvisium-brain-de-enrichment-test-data-format.zarr%2F&watermark=3d5f8b21) |
 
 ℹ️ If you want to open datasets in a custom Aevidence deployment, use the link generator page at [test-data/list.html](test-data/list.html).
 
@@ -48,6 +49,18 @@ Install dependencies and create a virtual environment with [uv](https://docs.ast
 uv sync
 source .venv/bin/activate
 ```
+
+**Notebooks and scripts:**
+
+| Produces | Run |
+| --- | --- |
+| `test-data/habib17-differential-expression-test-data-format.zarr` | `calculate-differential-expression-data.ipynb` |
+| `test-data/habib17-enrichment-test-data-format.zarr` | `calculate-gene-set-enrichment-data.ipynb` (needs the DE store) |
+| `test-data/visium_brain.spatialdata.zarr` | `transform_visium_brain.py` |
+| `test-data/visium-brain-de-enrichment-test-data-format.zarr` | `calculate-spatial-de-enrichment-data.ipynb` (needs the Visium store) |
+
+The two enrichment notebooks download gene set collections through decoupler, so
+they need network access.
 
 ## Notes
 
