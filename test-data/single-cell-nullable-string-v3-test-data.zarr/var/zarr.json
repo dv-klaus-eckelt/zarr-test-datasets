@@ -1,0 +1,14 @@
+{
+  "attributes": {
+    "column-order": [
+      "symbol",
+      "ensembl_gene_id",
+      "feature_type"
+    ],
+    "_index": "gene_symbol",
+    "encoding-type": "dataframe",
+    "encoding-version": "0.2.0"
+  },
+  "zarr_format": 3,
+  "node_type": "group"
+}
