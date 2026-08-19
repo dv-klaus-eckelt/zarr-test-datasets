@@ -23,35 +23,64 @@ class ZarrCompatibleServer(SimpleHTTPRequestHandler):
         self.send_response(200)
         self.end_headers()
 
+    def send_range_not_satisfiable(self, file_size):
+        # RFC 7233 asks for the current length so the client can retry sensibly.
+        self.send_response(416)
+        self.send_header("Content-Range", f"bytes */{file_size}")
+        self.send_header("Content-Length", "0")
+        self.end_headers()
+
     def do_GET(self):
         if self.default_file and self.path in ("", "/"):
             self.path = f"/{self.default_file}"
 
         # Get the physical path of the file
         path = self.translate_path(self.path)
-        
+
         # If it's not a file or no Range header, use default behavior
         if not os.path.isfile(path) or "Range" not in self.headers:
             return super().do_GET()
 
-        # Parse Range header: "bytes=start-end"
-        range_match = re.match(r'bytes=(\d+)-(\d+)?', self.headers['Range'])
-        if not range_match:
+        # Parse Range header. Three forms are valid (RFC 7233 §2.1), and zarr clients
+        # use all of them: sharded arrays store the chunk index at the end of the shard
+        # and fetch it with a suffix range, then fetch the chunk itself with an explicit
+        # range.
+        #   bytes=start-end   explicit range
+        #   bytes=start-      from start to EOF
+        #   bytes=-suffix     the last `suffix` bytes
+        range_match = re.fullmatch(r'bytes=(\d*)-(\d*)', self.headers['Range'].strip())
+        # A comma means a multipart range, which needs a multipart/byteranges body we do
+        # not build. Serving the whole file is the honest fallback.
+        if not range_match or "," in self.headers['Range']:
             return super().do_GET()
 
         first, last = range_match.groups()
+        if not first and not last:
+            # "bytes=-" specifies nothing at all.
+            return super().do_GET()
+
         file_size = os.path.getsize(path)
-        
-        start = int(first)
-        end = int(last) if last else file_size - 1
+
+        if not first:
+            # Suffix range: the last N bytes. Asking for more than the file holds is
+            # allowed and yields the whole file.
+            suffix_length = int(last)
+            if suffix_length == 0:
+                return self.send_range_not_satisfiable(file_size)
+            start = max(0, file_size - suffix_length)
+            end = file_size - 1
+        else:
+            start = int(first)
+            # An end past EOF is clamped rather than rejected, otherwise Content-Length
+            # would promise more bytes than the body carries and the client would hang.
+            end = min(int(last), file_size - 1) if last else file_size - 1
 
         # Validation: ensure range is within file bounds
-        if start >= file_size:
-            self.send_error(416, "Requested Range Not Satisfiable")
-            return
+        if start >= file_size or start > end:
+            return self.send_range_not_satisfiable(file_size)
 
         length = end - start + 1
-        
+
         # Read only the requested chunk
         with open(path, 'rb') as f:
             f.seek(start)
